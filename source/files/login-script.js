@@ -41,4 +41,4 @@ function login_show() {
     wrapper.classList.add('go');
     forgot_box.classList.add('go');
 }
-setTimeout(login_show, 1000);
+setTimeout(login_show, 1200);

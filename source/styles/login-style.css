@@ -172,7 +172,7 @@
     backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     height: 35%;
-    width: 320px;
+    width: 450px;
     padding: 2em;
     transform: scale(0);
 }
@@ -248,7 +248,9 @@
     -ms-user-select: none;
     user-select: none;
     color: #fff;
+    animation: main-anim 2s ease 0s 1 normal forwards;
 }
+
 
 .main .hello-message {
     text-align: center;
@@ -269,6 +271,12 @@
     }
 }
 
+@media (max-width: 450px) {
+    .forgot-box {
+        width: 320px;
+    }
+}
+
 @media (max-width: 800px) {
     .main .hello-message h1 {
         font-size: 3em;
@@ -278,5 +286,15 @@
 @media (max-width: 379px) {
     .main .hello-message h1 {
         font-size: 2em;
+    }
+}
+
+@keyframes main-anim {
+    0% {
+        transform: scale(0) translateX(-1500px);
+    }
+
+    100% {
+        transform: scale(1) translateX(0px);
     }
 }
