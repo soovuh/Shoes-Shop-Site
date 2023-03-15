@@ -171,8 +171,8 @@
     border-radius: 20px;
     backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-    height: 250px;
-    width: 400px;
+    height: 35%;
+    width: 320px;
     padding: 2em;
     transform: scale(0);
 }
@@ -247,6 +247,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    color: #fff;
 }
 
 .main .hello-message {
@@ -271,24 +272,6 @@
 @media (max-width: 800px) {
     .main .hello-message h1 {
         font-size: 3em;
-    }
-}
-
-@media (max-width: 581px) {
-    .main .hello-message h1 {
-        color: #fff;
-    }
-}
-
-@media (max-width: 505px) {
-    .main .hello-message h2 {
-        color: #fff;
-    }
-}
-
-@media (max-width: 463px) {
-    .main .hello-message p {
-        color: #fff;
     }
 }
 

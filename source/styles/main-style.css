@@ -12,6 +12,9 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background: linear-gradient(90deg, #730FFF 0%, #7C1687 100%);
+    background-size: cover;
+    background-position: center;
 }
 
 

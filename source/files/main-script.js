@@ -16,18 +16,6 @@ function checkScreenWidth() {
     }
 }
 
-function changeBackgroundAnim() {
-    if ('right' in body.classList) {
-        console.log('right')
-        body.classList.remove('right')
-        body.classList.add('left')
-    }
-    else {
-        body.classList.add('right')
-        body.classList.remove('left')
-    }
-}
-
 window.addEventListener('resize', function () {
     checkScreenWidth();
 });
