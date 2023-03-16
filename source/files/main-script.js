@@ -23,5 +23,3 @@ window.addEventListener('resize', function () {
 
 
 
-setTimeout(changeBackgroundAnim, 1);
-

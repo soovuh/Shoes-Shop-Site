@@ -1,7 +1,77 @@
+/* carousel styles */
+body {
+    padding: 0 10px;
+}
+
+
+.wrapper {
+    max-width: 1200px;
+    position: relative;
+}
+
+.wrapper .icon {
+    top: 50%;
+    cursor: pointer;
+    position: absolute;
+    height: 46px;
+    width: 46px;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 4px;
+    line-height: 46px;
+    border-radius: 50%;
+    background-color: rgb(115, 51, 184);
+    color: #fff;
+    transform: translateY(-50%);
+}
+
+.wrapper .icon:first-child {
+    left: -10px;
+}
+
+.wrapper .icon:last-child {
+    right: -10px;
+}
+
+.wrapper .carousel {
+    font-size: 0px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.carousel img {
+    height: 340px;
+    object-fit: cover;
+    box-shadow: 5px 0 0 rgba(64, 17, 85, 0.5);
+    margin-left: 10px;
+    width: calc(100% / 3.10);
+    border-radius: 5%;
+    user-select: none;
+}
+
+.carousel img:first-child {
+    margin-left: 0px;
+}
+
+/* button login style */
 .navigation .btnLogin-popup {
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
     text-decoration: none;
+}
+
+@media screen and (max-width: 900px) {
+    .carousel img {
+        width: calc(100%/2);
+    }
+
+}
+
+@media screen and (max-width: 550px) {
+    .carousel img {
+        width: 100%;
+    }
 }
