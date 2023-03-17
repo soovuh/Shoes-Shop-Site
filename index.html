@@ -8,7 +8,6 @@
     <title>Home | shoes</title>
     <link rel="stylesheet" href="source/styles/main-style.css">
     <link rel="stylesheet" href="source/styles/index-style.css">
-    <link rel="stylesheet" href="source/styles/background-style.css">
 </head>
 
 <body>
@@ -24,10 +23,14 @@
         <button class="toggler">&#9776;</button>
     </header>
 
+    <div class="text">
+        <h1>Shoes Shop</h1>
+    </div>
+
     <div class="wrapper">
         <div class="carousel">
-            <div class="icon"><ion-icon name="chevron-back-outline"></ion-icon></div>
-            <img src="source/images/carousel/image-1.jpg" alt="">
+            <button id="left" class="icon"><ion-icon name="chevron-back-outline"></ion-icon></button>
+            <img class="firstImg" src="source/images/carousel/image-1.jpg" alt="">
             <img src="source/images/carousel/image-2.jpg" alt="">
             <img src="source/images/carousel/image-3.jpg" alt="">
             <img src="source/images/carousel/image-4.jpg" alt="">
@@ -36,7 +39,7 @@
             <img src="source/images/carousel/image-7.jpg" alt="">
             <img src="source/images/carousel/image-8.jpg" alt="">
             <img src="source/images/carousel/image-9.jpg" alt="">
-            <div class="icon"><ion-icon name="chevron-forward-outline"></ion-icon></div>
+            <button id="right" class="icon"><ion-icon name="chevron-forward-outline"></ion-icon></button>
         </div>
     </div>
 
@@ -47,10 +50,11 @@
         </div>
     </footer>
 
-    <script src="source/files/main-script.js"></script>
-    <script src="source/files/index-script.js"></script>
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="source/files/main-script.js"></script>
+    <script src="source/files/index-script.js"></script>
 </body>
 
 </html>

@@ -1,12 +1,20 @@
-/* carousel styles */
 body {
-    padding: 0 10px;
+    flex-direction: column;
 }
 
+
+.text h1 {
+    user-select: none;
+    color: #fff;
+    font-size: 3em;
+}
 
 .wrapper {
     max-width: 1200px;
     position: relative;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%
 }
 
 .wrapper .icon {
@@ -20,38 +28,46 @@ body {
     padding-top: 4px;
     line-height: 46px;
     border-radius: 50%;
+    border: inherit;
     background-color: rgb(115, 51, 184);
     color: #fff;
     transform: translateY(-50%);
 }
 
 .wrapper .icon:first-child {
-    left: -10px;
+    left: -23px;
+    display: none;
 }
 
 .wrapper .icon:last-child {
-    right: -10px;
+    right: -20px;
 }
 
 .wrapper .carousel {
     font-size: 0px;
+    margin-left: 0;
     cursor: pointer;
     overflow: hidden;
     white-space: nowrap;
+    scroll-behavior: smooth;
+}
+
+.wrapper .carousel.dragging {
+    cursor: grab;
+    scroll-behavior: auto;
 }
 
 .carousel img {
     height: 340px;
     object-fit: cover;
-    box-shadow: 5px 0 0 rgba(64, 17, 85, 0.5);
     margin-left: 10px;
-    width: calc(100% / 3.10);
-    border-radius: 5%;
+    width: calc(100% / 3);
     user-select: none;
+    pointer-events: none;
 }
 
 .carousel img:first-child {
-    margin-left: 0px;
+    margin-left: 0;
 }
 
 /* button login style */
