@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(90deg, #730FFF 0%, #7C1687 100%);
+    background: linear-gradient(90deg, #730FFF 0%, #8c139a 100%);
     background-size: cover;
     background-position: center;
 }
@@ -141,6 +141,7 @@ footer p {
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
+
 }
 
 

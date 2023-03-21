@@ -5,15 +5,34 @@ let isDragStart = false, isDragging = false, prevPageX, prevScrollLeft, position
 let firstImgWidth;
 let scrollWidth;
 
+
+const goToStart = () => {
+    carousel.scrollLeft = 0;
+    arrowIcons[1].style.display = 'block';
+}
+
+
 const showHideIcons = () => {
     scrollWidth = carousel.scrollWidth - carousel.clientWidth;
-    arrowIcons[0].style.display = carousel.scrollLeft == 0 ? 'none' : 'block';
-    arrowIcons[1].style.display = Math.ceil(carousel.scrollLeft) == scrollWidth ? 'none' : 'block';
+    if (Math.ceil(carousel.scrollLeft == 0)) {
+        arrowIcons[0].style.display = 'none';
+
+    }
+    else {
+        arrowIcons[0].style.display = 'block';
+    }
+    if (Math.ceil(carousel.scrollLeft) == scrollWidth) {
+        arrowIcons[1].style.display = 'none';
+        setTimeout(goToStart, 300);
+    }
+    else {
+        arrowIcons[1].style.display = 'block';
+    }
 }
 
 const widthCalculate = () => {
     const firstImg = carousel.querySelector('.firstImg');
-    firstImgWidth = Math.ceil(firstImg.scrollWidth) + 10;
+    firstImgWidth = Math.ceil(firstImg.scrollWidth) + 11;
     return firstImgWidth;
 }
 
