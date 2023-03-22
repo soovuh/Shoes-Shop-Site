@@ -8,17 +8,28 @@
     <title>Login/Register | shoes</title>
     <link rel="stylesheet" href="source/styles/main-style.css">
     <link rel="stylesheet" href="source/styles/login-style.css">
-    <link rel="stylesheet" href="source/styles/background-style.css">
 </head>
 
 <body>
+    <div class="search-box-window">
+        <span class="icon-close-search"> <ion-icon name="close"></ion-icon></span>
+        <h2>What are you looking for?</h2>
+        <input class="search-input" placeholder="Search here" type="text">
+        <button type="submit" class="btn search-submit-btn">Submit</button>
+    </div>
+
     <header>
         <h2 class="logo">Shop</h2>
+        <div class="search-box">
+            <button class="search-button"><span class="search-icon"><ion-icon
+                        name="search-outline"></ion-icon></span></button>
+            <input class="search-input" placeholder="Search here" type="text">
+        </div>
         <nav class="navigation">
             <a class="not-button" href="index.html">Home</a>
             <a class="not-button" href="categories.html">Сategories</a>
             <a class="not-button" href="about.html">About</a>
-            <a class="not-button" href="contact.html">Contact</a>
+            <a class="not-button" href="cart.html">Cart</a>
             <button class="btnLogin-popup">Login</button>
         </nav>
         <button class="toggler">&#9776;</button>

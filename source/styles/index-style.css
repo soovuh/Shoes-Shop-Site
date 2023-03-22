@@ -1,7 +1,157 @@
+body {
+    flex-direction: column;
+}
+
+
+.bgvideo {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    user-select: none;
+    pointer-events: none;
+}
+
+.bgvideo video {
+    width: 100%;
+    height: 70vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.4;
+    user-select: none;
+    pointer-events: none;
+}
+
+.video-text {
+    margin-top: 3em;
+    color: rgb(238, 222, 252);
+    z-index: 2;
+    font-size: 3em;
+    user-select: none;
+    pointer-events: none;
+    text-align: center;
+}
+
+.effect {
+
+    width: 100%;
+    height: 70vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+
+}
+
+.wrapper {
+    max-width: 1200px;
+    position: relative;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%
+}
+
+.wrapper .icon {
+    top: 50%;
+    cursor: pointer;
+    position: absolute;
+    height: 46px;
+    width: 46px;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 4px;
+    line-height: 46px;
+    border-radius: 50%;
+    border: inherit;
+    background-color: rgb(115, 51, 184);
+    color: #fff;
+    transform: translateY(-50%);
+}
+
+.wrapper .icon:first-child {
+    left: -23px;
+    display: none;
+}
+
+.wrapper .icon:last-child {
+    right: -20px;
+}
+
+.wrapper .carousel {
+    font-size: 0px;
+    margin-left: 0;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+
+.wrapper .carousel.dragging {
+    cursor: grab;
+    scroll-behavior: auto;
+}
+
+.carousel img {
+    border-radius: 1%;
+    height: 340px;
+    object-fit: cover;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: calc(100% / 3);
+    user-select: none;
+    pointer-events: none;
+}
+
+
+/* button login style */
 .navigation .btnLogin-popup {
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
     text-decoration: none;
+}
+
+footer {
+    position: static;
+}
+
+@media screen and (max-width: 900px) {
+    .carousel img {
+        width: calc(100%/2);
+    }
+
+}
+
+@media screen and (max-width: 550px) {
+    .wrapper .icon:first-child {
+        left: -10px;
+        display: none;
+    }
+
+    .wrapper .icon:last-child {
+        right: -10px;
+    }
+
+
+    .carousel img {
+        width: 100%;
+    }
+
+    .bgvideo,
+    .bgvideo video,
+    .effect {
+        height: 40vh;
+    }
+
+    .video-text {
+        font-size: 1em;
+        margin-top: 4em;
+    }
 }

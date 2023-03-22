@@ -4,7 +4,7 @@
     margin-top: 4em;
     width: 400px;
     height: 440px;
-    background: rgba(88, 38, 142, .8);
+    background: rgba(88, 38, 142, 0);
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     backdrop-filter: blur(20px);
@@ -166,7 +166,7 @@
 .forgot-box {
     z-index: 97;
     position: absolute;
-    background: rgba(88, 38, 142, .8);
+    background: rgba(88, 38, 142, 0);
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     backdrop-filter: blur(20px);
@@ -239,7 +239,7 @@
 .main {
     position: relative;
     z-index: 90;
-    margin: 0 2em 0 2em;
+    margin: 0 2em 0 5em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -260,10 +260,17 @@
     font-size: 7em;
 }
 
+@media (min-width: 1441px) {
+    .forgot-box {
+        height: 20%;
+    }
+}
+
 @media (max-width: 1400px) {
 
     .main {
         position: absolute;
+        margin-left: 0;
     }
 
     .wrapper {
@@ -274,6 +281,10 @@
 @media (max-width: 450px) {
     .forgot-box {
         width: 320px;
+    }
+
+    .wrapper.active {
+        height: 477px;
     }
 }
 
