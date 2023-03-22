@@ -10,6 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     user-select: none;
     pointer-events: none;
 }
@@ -28,11 +29,13 @@ body {
 }
 
 .video-text {
+    margin-top: 3em;
     color: rgb(238, 222, 252);
     z-index: 2;
     font-size: 3em;
     user-select: none;
     pointer-events: none;
+    text-align: center;
 }
 
 .effect {
@@ -98,15 +101,13 @@ body {
     border-radius: 1%;
     height: 340px;
     object-fit: cover;
-    margin-left: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     width: calc(100% / 3);
     user-select: none;
     pointer-events: none;
 }
 
-/* .carousel img:first-child {
-    margin-left: 0;
-} */
 
 /* button login style */
 .navigation .btnLogin-popup {
@@ -117,6 +118,10 @@ body {
     text-decoration: none;
 }
 
+footer {
+    position: static;
+}
+
 @media screen and (max-width: 900px) {
     .carousel img {
         width: calc(100%/2);
@@ -125,7 +130,28 @@ body {
 }
 
 @media screen and (max-width: 550px) {
+    .wrapper .icon:first-child {
+        left: -10px;
+        display: none;
+    }
+
+    .wrapper .icon:last-child {
+        right: -10px;
+    }
+
+
     .carousel img {
         width: 100%;
+    }
+
+    .bgvideo,
+    .bgvideo video,
+    .effect {
+        height: 40vh;
+    }
+
+    .video-text {
+        font-size: 1em;
+        margin-top: 4em;
     }
 }
