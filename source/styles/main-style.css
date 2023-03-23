@@ -7,35 +7,35 @@
     font-family: Poppins, serif;
 }
 
-/* изменить внешний вид полосы прокрутки */
+/* scrollbar settings */
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-    background-color: #df57dd00;
+    width: 5px;
+    height: 5px;
+    background-color: rgba(88, 38, 142, 0.821);
 }
 
-/* изменить внешний вид ползунка */
+
 ::-webkit-scrollbar-thumb {
     border-radius: 5px;
+    background-color: rgb(88, 38, 142);
+}
+
+
+::-webkit-scrollbar-thumb:hover {
     background-color: #5e1d5d;
 }
 
-/* изменить внешний вид ползунка при наведении курсора */
-::-webkit-scrollbar-thumb:hover {
-    background-color: #872b86;
-}
 
-/* изменить поведение ползунка при прокручивании */
 ::-webkit-scrollbar-track {
     background-color: #530b4c00;
 }
 
-/* изменить внешний вид полосы прокрутки при прокручивании */
+
 ::-webkit-scrollbar-track:active {
     background-color: #c70fbb00;
 }
 
-
+/* main styles */
 body {
     display: flex;
     justify-content: center;
@@ -66,20 +66,19 @@ header {
     font-size: 2em;
     color: #fff;
     user-select: none;
-    transition: .5s;
+
 }
 
 .logo-mini {
     font-size: 2.2em;
     display: none;
-    transition: .5s;
-}
 
+}
 
 
 .search-box {
     width: 30%;
-    transition: .5s;
+    transition: transform .5s;
 }
 
 .search-input {
@@ -90,34 +89,24 @@ header {
     color: #fff;
     background: rgb(120, 53, 192);
     width: 80%;
-    transition: .5s;
+    transition: transform .5s;
 }
 
 
 header .search-input:hover,
 header .search-input:focus {
-    transform: translateX(2%)
+    transform: translateX(2%);
+    transition: transform .5s;
 }
 
 .search-input::placeholder {
     color: #bcb0b0;
 }
 
-.search-button {
-    all: unset;
-    cursor: pointer;
-    transition: .5s;
-
-}
-
-.search-button .search-icon {
-    color: #fff;
-    font-size: 1.4em;
-}
 
 
 
-
+/* navbar styles */
 .navigation {
     display: flex;
     justify-content: space-between;
@@ -200,6 +189,7 @@ header .search-input:focus {
 
 }
 
+/* footer styles */
 footer {
     position: fixed;
     bottom: 0;
@@ -228,7 +218,7 @@ footer p {
 }
 
 
-
+/* media */
 
 @media (max-width: 1000px) {
 
@@ -269,11 +259,6 @@ footer p {
 
 @media (max-width: 700px) {
 
-    .navigation.show {
-        top: 85px;
-        right: 0%;
-        width: 145px;
-    }
 
     .navigation.show {
         top: 85px;
@@ -297,10 +282,6 @@ footer p {
         display: none;
     }
 
-
-    .search-button {
-        display: none;
-    }
 
     .toggler {
         width: 60px;
