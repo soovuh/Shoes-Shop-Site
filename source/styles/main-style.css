@@ -7,6 +7,35 @@
     font-family: Poppins, serif;
 }
 
+/* изменить внешний вид полосы прокрутки */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: #df57dd00;
+}
+
+/* изменить внешний вид ползунка */
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #5e1d5d;
+}
+
+/* изменить внешний вид ползунка при наведении курсора */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #872b86;
+}
+
+/* изменить поведение ползунка при прокручивании */
+::-webkit-scrollbar-track {
+    background-color: #530b4c00;
+}
+
+/* изменить внешний вид полосы прокрутки при прокручивании */
+::-webkit-scrollbar-track:active {
+    background-color: #c70fbb00;
+}
+
+
 body {
     display: flex;
     justify-content: center;
@@ -32,14 +61,25 @@ header {
     z-index: 99
 }
 
-.logo {
+.logo,
+.logo-mini {
     font-size: 2em;
     color: #fff;
     user-select: none;
+    transition: .5s;
 }
 
-.search-box-window {
+.logo-mini {
+    font-size: 2.2em;
     display: none;
+    transition: .5s;
+}
+
+
+
+.search-box {
+    width: 30%;
+    transition: .5s;
 }
 
 .search-input {
@@ -49,14 +89,14 @@ header {
     font-size: 16px;
     color: #fff;
     background: rgb(120, 53, 192);
-    width: 300px;
+    width: 80%;
     transition: .5s;
 }
 
 
 header .search-input:hover,
 header .search-input:focus {
-    transform: translateX(5%)
+    transform: translateX(2%)
 }
 
 .search-input::placeholder {
@@ -65,6 +105,8 @@ header .search-input:focus {
 
 .search-button {
     all: unset;
+    cursor: pointer;
+    transition: .5s;
 
 }
 
@@ -82,6 +124,7 @@ header .search-input:focus {
     align-items: center;
     width: 50%;
     user-select: none;
+    transition: .5s;
 }
 
 .navigation .not-button {
@@ -152,6 +195,8 @@ header .search-input:focus {
     height: 210px;
     padding: 10px;
     border-radius: 6px;
+    transition: .5s;
+
 
 }
 
@@ -187,6 +232,9 @@ footer p {
 
 @media (max-width: 1000px) {
 
+    .search-box {
+        width: 50%
+    }
 
     .navigation {
         display: none;
@@ -194,7 +242,7 @@ footer p {
 
     .toggler {
         display: block;
-        width: 130px;
+        width: 80px;
         height: 50px;
         background-color: transparent;
         border: 2px solid #fff;
@@ -212,100 +260,81 @@ footer p {
         background: #fff;
         color: #162938;
     }
+
+    .navigation.show {
+        top: 85px;
+        right: -1%;
+    }
 }
 
 @media (max-width: 700px) {
-    .search-box-window {
-        display: block;
-        z-index: 99;
-        position: fixed;
-        top: 35%;
-        left: 50%;
-        /* transform: translate(-50%, -35%); */
-        text-align: center;
-        background: rgba(88, 38, 142, 0);
-        border: 2px solid rgba(255, 255, 255, 0.5);
-        border-radius: 20px;
-        backdrop-filter: blur(20px);
-        box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 
-        width: 320px;
-        padding: 2em;
-        transform: scale(0);
+    .navigation.show {
+        top: 85px;
+        right: 0%;
+        width: 145px;
     }
 
-    .search-box-window.go {
-        transition: transform .5s ease, height .2s ease;
+    header {
+        padding: 1.5em 2.4em;
     }
 
-    .search-box-window h2 {
-        color: #fff;
-        text-align: center;
+    .search-box {
+        width: 100%
     }
 
-    .search-box-window.active {
-        transform: scale(1) translate(-50%, -35%);
-
+    .logo-mini {
+        display: block
     }
 
-    .icon-close-search:hover {
-        cursor: pointer;
-    }
-
-    .search-box-window .icon-close-search {
-        z-index: 98;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 45px;
-        height: 45px;
-        font-size: 2em;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-bottom-left-radius: 20px;
-    }
-
-    .btn {
-        width: 100%;
-        height: 45px;
-        background: #42164d;
-        border: none;
-        outline: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 1em;
-        color: #fff;
-    }
-
-    .search-box-window .search-input {
-        position: relative;
-        width: 100%;
-        height: 50px;
-        margin: 30px 0;
-    }
-
-    .search-box .search-input {
+    .logo {
         display: none;
     }
 
+
     .search-button {
-        cursor: pointer;
+        display: none;
     }
+
+    .toggler {
+        width: 60px;
+        height: 45.6px;
+    }
+
 
 }
 
 @media (max-width: 425px) {
-    .toggler {
-        width: 60px;
-        height: 50px;
+    header {
+        padding: 1.5em 1em;
     }
 
     .navigation.show {
         top: 85px;
-        right: -5%;
-
-
+        right: 0;
+        width: 100%;
     }
+
+    .search-input:focus {
+        width: 100%;
+        height: 100%;
+    }
+
+    header .search-input:hover,
+    header .search-input:focus {
+        transform: translateX(0%)
+    }
+
+    .toggler.off {
+        display: none;
+    }
+
+    .logo-mini.off {
+        display: none;
+    }
+
+    .footer-container p {
+        font-size: 10px;
+    }
+
 }

@@ -1,17 +1,18 @@
-
 const toggler = document.querySelector('.toggler');
 const navigation = document.querySelector('.navigation');
 const body = document.querySelector('body')
 const searchButton = document.querySelector('.search-button')
-const searchBoxWindow = document.querySelector('.search-box-window')
-const closeSearchIcon = document.querySelector('.icon-close-search')
+const logoMini = document.querySelector('.logo-mini')
+const searchInput = document.querySelector('.search-input')
 
-searchButton.addEventListener('click', () => {
-    searchBoxWindow.classList.add('active')
+searchInput.addEventListener('focus', () => {
+    logoMini.classList.add('off')
+    toggler.classList.add('off')
 })
 
-closeSearchIcon.addEventListener('click', () => {
-    searchBoxWindow.classList.remove('active')
+searchInput.addEventListener('blur', () => {
+    logoMini.classList.remove('off')
+    toggler.classList.remove('off')
 })
 
 toggler.addEventListener('click', () => {
@@ -24,9 +25,6 @@ function checkScreenWidth() {
     if (screenWidth >= 1000) {
         navigation.classList.remove('show');
         toggler.classList.remove('show');
-    }
-    if (screenWidth >= 700) {
-        searchBoxWindow.classList.remove('active')
     }
 }
 
