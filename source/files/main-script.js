@@ -8,6 +8,7 @@ const searchInput = document.querySelector('.search-input')
 searchInput.addEventListener('focus', () => {
     logoMini.classList.add('off')
     toggler.classList.add('off')
+
 })
 
 searchInput.addEventListener('blur', () => {

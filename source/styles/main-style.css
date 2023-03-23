@@ -275,6 +275,12 @@ footer p {
         width: 145px;
     }
 
+    .navigation.show {
+        top: 85px;
+        right: 0;
+        width: 100%;
+    }
+
     header {
         padding: 1.5em 2.4em;
     }
@@ -309,11 +315,6 @@ footer p {
         padding: 1.5em 1em;
     }
 
-    .navigation.show {
-        top: 85px;
-        right: 0;
-        width: 100%;
-    }
 
     .search-input:focus {
         width: 100%;
