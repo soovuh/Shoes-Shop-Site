@@ -13,6 +13,7 @@ body {
     text-align: center;
     user-select: none;
     pointer-events: none;
+    overflow: hidden;
 }
 
 .bgvideo video {
@@ -22,20 +23,81 @@ body {
     top: 0;
     left: 0;
     object-fit: cover;
-    z-index: 1;
-    opacity: 0.4;
+    z-index: 20;
+    opacity: 0.2;
     user-select: none;
     pointer-events: none;
 }
 
 .video-text {
-    margin-top: 3em;
-    color: rgb(238, 222, 252);
-    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 20.5%;
+    color: #fff;
+    z-index: 10;
     font-size: 3em;
     user-select: none;
     pointer-events: none;
     text-align: center;
+}
+
+
+.man,
+.woman {
+    z-index: 98;
+    position: absolute;
+    top: 20.5%;
+    width: 50%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    pointer-events: all;
+    cursor: pointer;
+    font-size: 4em;
+    transition: font-size .2s;
+    border-radius: 1%;
+}
+
+
+.man {
+    left: 0;
+}
+
+.man a {
+    text-decoration: none;
+    color: #ffffff;
+    filter: none;
+}
+
+.man:hover {
+    font-size: 5em;
+    background: linear-gradient(90deg, #4d0baa 0%, rgba(255, 255, 255, 0) 100%);
+
+
+}
+
+
+.woman {
+    right: 0;
+}
+
+.woman a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 1.5em;
+}
+
+.woman:hover {
+    font-size: 5em;
+    background: linear-gradient(270deg, #af1cc0 0%, rgba(255, 255, 255, 0) 100%);
+
+
 }
 
 .effect {
@@ -50,7 +112,7 @@ body {
 }
 
 .wrapper {
-    width: 1200px;
+    max-width: 1200px;
     position: relative;
     margin-left: 5%;
     margin-right: 5%;
@@ -124,13 +186,15 @@ body {
     text-align: center;
     font-size: 3em;
     color: #fff;
+    user-select: none;
+    pointer-events: none;
 }
 
 .cards-container {
     margin: 0 auto;
     max-width: 1000px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-auto-rows: auto;
     gap: 20px;
     font-family: sans-serif;
@@ -148,6 +212,9 @@ body {
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     overflow: hidden;
     transition: .1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card:hover {
@@ -164,23 +231,36 @@ body {
 
 .card-content {
     line-height: 1.5;
-    font-size: 1em;
+    font-size: 1.2em;
     padding: 15px;
     background: #fafafa00;
     color: #fff;
-    height: 150px;
     text-align: center;
-
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color .3s;
 }
 
-.card-content>p:first-of-type {
+.product-a {
+    text-decoration: none;
+}
+
+.card-content p.product-name {
+    user-select: auto;
     margin-top: 0;
-    font-size: 2.5em;
+    font-size: 1.5em;
 }
 
-.card-content>p:last-of-type {
+.card-content p.old-price {
+    text-decoration: line-through;
+    color: rgb(176, 97, 194);
+}
+
+.card-content p.sale-price {
     margin-bottom: 0;
 }
+
+
 
 .card-info {
     padding: 15px;
@@ -191,21 +271,18 @@ body {
     color: #fff;
     font-size: 0.8em;
     border-top: 2px solid rgba(255, 255, 255, 0.5);
-
-
-}
-
-
-.card-link {
     position: relative;
-    color: #ffffff;
     text-decoration: none;
     font-size: 2em;
-    bottom: 0
+    bottom: 0;
+    transition: background-color .3s;
 }
 
-.card-link:hover {
-    text-decoration: underline;
+
+
+.card-info:hover {
+    background-color: #fff;
+    color: rgb(115, 51, 184);
 }
 
 
@@ -222,14 +299,44 @@ footer {
     position: static;
 }
 
+
+
+
+
 @media screen and (max-width: 900px) {
+    .cards-container {
+        grid-template-columns: repeat(2, minmax(225px, 1fr));
+    }
+
     .carousel img {
         width: calc(100%/2);
     }
 
+    .video-text {
+        display: none;
+    }
+
+    .woman a,
+    .man a {
+        margin-left: 0;
+        font-size: 0.7em;
+    }
+
 }
 
-@media screen and (max-width: 550px) {
+
+@media (max-width: 550px) {
+    .cards-container {
+        grid-template-columns: repeat(1, minmax(300px, 1fr));
+    }
+
+    .woman a,
+    .man a {
+        margin-left: 0;
+        font-size: 0.5em;
+        height: 30vh;
+    }
+
     .wrapper .icon:first-child {
         left: -10px;
         display: none;

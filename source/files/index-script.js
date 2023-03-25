@@ -77,6 +77,17 @@ const dragStop = () => {
     autoSlide();
 }
 
+
+
+
+// window.onload = function () {
+//     var elements = document.querySelectorAll('*');
+//     elements.forEach(function (element) {
+//         element.classList.add('enable-transition');
+//     });
+// };
+
+
 carousel.addEventListener('touchmove', dragging);
 carousel.addEventListener('touchstart', dragStart);
 carousel.addEventListener('touchend', dragStop);
