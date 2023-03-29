@@ -6,11 +6,6 @@ let firstImgWidth;
 let scrollWidth;
 
 
-const goToStart = () => {
-    carousel.scrollLeft = 0;
-    arrowIcons[1].style.display = 'block';
-}
-
 
 const showHideIcons = () => {
     scrollWidth = carousel.scrollWidth - carousel.clientWidth;
@@ -23,7 +18,7 @@ const showHideIcons = () => {
     }
     if (Math.ceil(carousel.scrollLeft) == scrollWidth) {
         arrowIcons[1].style.display = 'none';
-        setTimeout(goToStart, 300);
+
     }
     else {
         arrowIcons[1].style.display = 'block';
@@ -32,7 +27,7 @@ const showHideIcons = () => {
 
 const widthCalculate = () => {
     const firstImg = carousel.querySelector('.firstImg');
-    firstImgWidth = Math.ceil(firstImg.scrollWidth) + 11;
+    firstImgWidth = Math.ceil(firstImg.scrollWidth) + 10;
     return firstImgWidth;
 }
 
@@ -81,6 +76,17 @@ const dragStop = () => {
     isDragging = false;
     autoSlide();
 }
+
+
+
+
+// window.onload = function () {
+//     var elements = document.querySelectorAll('*');
+//     elements.forEach(function (element) {
+//         element.classList.add('enable-transition');
+//     });
+// };
+
 
 carousel.addEventListener('touchmove', dragging);
 carousel.addEventListener('touchstart', dragStart);
