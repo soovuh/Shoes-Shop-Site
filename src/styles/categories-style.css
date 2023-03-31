@@ -307,3 +307,35 @@ input[type="checkbox"]:checked::before {
 footer {
   position: static;
 }
+
+@media (max-width: 1300px) {
+  .cards-container {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 1000px) {
+  .filter {
+    width: 30%;
+  }
+  .cards-container {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    margin: 0 30px;
+    width: 60%;
+    margin-left: 60px;
+  }
+}
+
+/* @media (max-width: 850px) {
+  .search-result {
+    display: none;
+  }
+  .filter {
+    display: none;
+  }
+  .product-container {
+    width: 100%;
+    margin-right: 0;
+    align-items: center;
+  }
+} */
