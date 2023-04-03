@@ -26,8 +26,13 @@
         </nav>
         <button class="toggler">&#9776;</button>
     </header>
+
+    <div class="filter-button">
+        <ion-icon name="filter-circle-outline"></ion-icon>
+    </div>
     <div class="main-container">
         <div class="filter">
+            <span class="icon-close-filter"> <ion-icon name="close"></ion-icon></span>
             <nav class="sex">
                 <a class="current man" href="man.html">Men</a>
                 <a class="not-current woman" href="woman.html">Women</a>
@@ -54,8 +59,8 @@
                     <input type="checkbox" id="running-checkbox" value="running" />
                 </li>
                 <li>
-                    <label for="skateboarding-checkbox">Skateboarding</label>
-                    <input type="checkbox" id="skateboarding-checkbox" value="skateboarding" />
+                    <label for="skate-checkbox">Skate</label>
+                    <input type="checkbox" id="skate-checkbox" value="skate" />
                 </li>
             </nav>
             <nav class="firm">
@@ -115,7 +120,9 @@
         </div>
         <div class="product-container">
             <div class="search-result">
-                <p>Result of searching: Men</p>
+                <div class="result">
+                    <p>Result of searching: Men</p>
+                </div>
                 <div class="sorting">
                     <label for="sort-by">Sort By:</label>
                     <select class="sort-by">
