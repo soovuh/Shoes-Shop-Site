@@ -27,8 +27,13 @@
         </nav>
         <button class="toggler">&#9776;</button>
     </header>
+
+    <div class="filter-button">
+        <ion-icon name="filter-circle-outline"></ion-icon>
+    </div>
     <div class="main-container">
         <div class="filter">
+            <span class="icon-close-filter" id="icon-close-women"> <ion-icon name="close"></ion-icon></span>
             <nav class="sex">
                 <a class="not-current man" href="man.html">Men</a>
                 <a class="current woman" href="woman.html">Women</a>
@@ -118,7 +123,9 @@
         </div>
         <div class="product-container">
             <div class="search-result">
-                <p>Result of searching: Women</p>
+                <div class="result">
+                    <p>Result of searching: Women</p>
+                </div>
                 <div class="sorting">
                     <label for="sort-by">Sort By:</label>
                     <select class="sort-by">
