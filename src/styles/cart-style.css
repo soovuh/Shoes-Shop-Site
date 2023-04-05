@@ -43,7 +43,6 @@ body {
   color: #fff;
 }
 .box:hover {
-  border: none;
   transform: scale(1.01);
 }
 .box img {

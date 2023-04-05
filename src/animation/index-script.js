@@ -11,7 +11,7 @@ let scrollWidth;
 
 const widthCalculate = () => {
   const firstImg = carousel.querySelector(".firstImg");
-  firstImgWidth = Math.ceil(firstImg.scrollWidth) + 9;
+  firstImgWidth = Math.ceil(firstImg.scrollWidth) + 8.7;
   return firstImgWidth;
 };
 
