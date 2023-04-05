@@ -1,28 +1,32 @@
 const filterButton = document.querySelector(".filter-button");
 const filter = document.querySelector(".filter");
 const IconCloseFilter = document.querySelector(".icon-close-filter");
-const customSelects = document.querySelectorAll(".custom-select");
 
-customSelects.forEach(function (customSelect) {
-  const select = customSelect.querySelector(".select");
-  const dropdown = customSelect.querySelector(".dropdown");
-  const options = dropdown.querySelectorAll("a");
-  window.addEventListener("click", (event) => {
-    if (!dropdown.contains(event.targer) && !select.contains(event.target)) {
-      dropdown.classList.remove("show");
-    }
-  });
-  select.addEventListener("click", function () {
-    dropdown.classList.toggle("show");
-  });
+// dropdown menu
+const dropdownToggle = document.querySelector(".dropdown-toggle");
+const dropdownMenu = document.querySelector(".dropdown-menu");
+const dropdownItems = document.querySelectorAll(".dropdown-item");
 
-  options.forEach(function (option) {
-    option.addEventListener("click", function () {
-      select.value = option.dataset.value;
-      dropdown.classList.remove("show");
-    });
+dropdownItems.forEach((item) => {
+  item.addEventListener("click", function () {
+    dropdownToggle.textContent = item.textContent;
+    dropdownMenu.classList.remove("show");
   });
 });
+
+dropdownToggle.addEventListener("click", function () {
+  dropdownMenu.classList.toggle("show");
+});
+
+document.addEventListener("click", function (event) {
+  const isClickInside =
+    dropdownToggle.contains(event.target) ||
+    dropdownMenu.contains(event.target);
+  if (!isClickInside) {
+    dropdownMenu.classList.remove("show");
+  }
+});
+// end of dropdown menu
 
 IconCloseFilter.addEventListener("click", () => {
   filter.classList.remove("active");
