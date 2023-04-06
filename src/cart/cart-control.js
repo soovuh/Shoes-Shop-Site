@@ -1,11 +1,11 @@
 const rightBar = document.querySelector(".right-bar");
+const EmptyCart = document.querySelector(".empty-a");
 let boxes = document.querySelectorAll(".box");
 
 // this function update the info about boxes and add listeners
 // for remove button and for input
 function boxesUpdate(boxes) {
   boxes.forEach((box, index) => {
-    box.setAttribute("id", index);
     const qty = box.querySelector(".qty");
     qty.addEventListener("input", () => {
       if (qty.value) {
@@ -17,6 +17,7 @@ function boxesUpdate(boxes) {
       document.addEventListener("click", (click) => {
         if (!qty.value && document.activeElement != qty) {
           qty.value = 1;
+          calculateSubPrice(boxes);
         }
       });
     });
@@ -31,6 +32,9 @@ function boxesUpdate(boxes) {
 
 // This function calculate subtotal price from all boxes on the page
 function calculateSubPrice(boxes) {
+  if (boxes.length == 0) {
+    EmptyCart.classList.add("show");
+  }
   let subTotal = 0;
   boxes.forEach((box) => {
     const qty = box.querySelector(".qty");
@@ -53,3 +57,4 @@ function DisplayPrices(subtotal) {
 
 boxesUpdate(boxes);
 calculateSubPrice(boxes);
+document.addEventListener;
