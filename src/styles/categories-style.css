@@ -181,6 +181,10 @@ input[type="checkbox"]:checked::before {
   padding: 0 20px 0 20px;
 }
 
+.filter-button {
+  display: none;
+}
+
 .search-result .result,
 .sorting {
   background: rgba(88, 38, 142, 0);
@@ -384,7 +388,17 @@ footer {
 
 @media (max-width: 1000px) {
   .filter {
+    position: sticky;
+    top: 8rem;
     width: 30%;
+    display: block;
+    overflow-y: scroll;
+    margin-top: 30px;
+    height: 75vh;
+    margin-top: 0;
+  }
+  .filter::-webkit-scrollbar {
+    display: none;
   }
   .cards-container {
     grid-template-columns: repeat(2, minmax(250px, 1fr));
@@ -402,31 +416,33 @@ footer {
     z-index: 500;
   }
 
+  .main-container {
+    margin-top: 20px;
+  }
+  .search-result {
+    margin-left: 0;
+    margin-right: 0;
+  }
   .search-result .result {
     display: none;
     width: 0%;
   }
   .cards-container {
     grid-template-columns: repeat(1, minmax(280px, 1fr));
-    margin-right: 0;
-    margin-left: 0;
     align-items: center;
-    padding-left: 50px;
+    padding-left: 10px;
+    margin-left: 30px;
   }
   .sorting {
-    width: 250px;
+    width: 220px;
     height: 44px;
-    right: 2.5%;
-    top: 18.5%;
-    position: absolute;
   }
   .product-container {
+    margin-right: 0;
     width: 60%;
   }
   .filter {
-    width: 170px;
-    margin-top: 30px;
-    position: sticky;
+    width: 300px;
   }
 }
 
@@ -447,8 +463,9 @@ footer {
     justify-content: center;
   }
   .filter-button {
-    display: block;
-    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 17%;
     left: 2.5%;
     color: #e0dada;
@@ -492,10 +509,8 @@ footer {
     left: 50%;
     transform: translate(-50%, 0%);
     margin: 0;
-    height: 450px;
+    height: 70vh;
     backdrop-filter: blur(15px);
-    scrollbar-width: none;
-    -ms-overflow-style: none;
     background-color: rgba(115, 51, 184, 0.327);
     transition: transfrom 0.5s;
     margin-bottom: 50px;
