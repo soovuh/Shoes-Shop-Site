@@ -169,7 +169,7 @@ section {
 }
 
 .carousel img {
-  border-radius: 1%;
+  border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.5);
   height: 340px;
   object-fit: cover;
