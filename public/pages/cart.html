@@ -32,46 +32,62 @@
         <h1>Shopping Cart</h1>
         <div class="project">
             <div class="shop">
+                <a href="categories/man.html" class="empty-a">
+                    <div class="empty-cart">
+                        <h2>Your shopping cart is empty, go to categories to fill it up!
+                        </h2>
+                    </div>
+                </a>
                 <div class="box">
-                    <img src="../images/hot-deals/image-2.jpg">
+                    <img src="../images/hot-deals/image-1.jpg">
                     <div class="content">
-                        <h3>LeBron XX "The Debut"</h3>
-                        <h4>Price: $40</h4>
-                        <p class="unit">Quantity: <input name="" value="2"></p>
-                        <p class="btn-area"><ion-icon name="trash-outline"></ion-icon><span class="btn2">Remove</span>
+                        <h3 class="name">Nike Air VaporMax</h3>
+                        <h4 class="price">Price: $<span class="price-value">250</span> | Size: <span
+                                class="size-value">40</span></h4>
+                        </h4>
+                        <p class="unit">Quantity: <input type="number" min="1" class="qty" name="" value="2"></p>
+                        <p class="btn-area btn-remove"><ion-icon name="trash-outline"></ion-icon><span
+                                class="btn2">Remove</span>
                         </p>
                     </div>
                 </div>
                 <div class="box">
                     <img src="../images/hot-deals/image-3.jpg">
                     <div class="content">
-                        <h3>Nike P-6000</h3>
-                        <h4>Price: $40</h4>
-                        <p class="unit">Quantity: <input name="" value="1"></p>
-                        <p class="btn-area"><ion-icon name="trash-outline"></ion-icon><span class="btn2">Remove</span>
+                        <h3 class="name">Nike Air VaporMax</h3>
+                        <h4 class="price">Price: $<span class="price-value">250</span> | Size: <span
+                                class="size-value">40</span></h4>
+                        </h4>
+                        <p class="unit">Quantity: <input type="number" min="1" class="qty" name="" value="1"></p>
+                        <p class="btn-area btn-remove"><ion-icon name="trash-outline"></ion-icon><span
+                                class="btn2">Remove</span>
                         </p>
                     </div>
                 </div>
                 <div class="box">
                     <img src="../images/hot-deals/image-4.jpg">
                     <div class="content">
-                        <h3>Nike Air VaporMax</h3>
-                        <h4>Price: $250</h4>
-                        <p class="unit">Quantity: <input name="" value="1"></p>
-                        <p class="btn-area"><ion-icon name="trash-outline"></ion-icon><span class="btn2">Remove</span>
+                        <h3 class="name">Nike Air VaporMax</h3>
+                        <h4 class="price">Price: $<span class="price-value">250</span> | Size: <span
+                                class="size-value">40</span></h4>
+                        </h4>
+                        <p class="unit">Quantity: <input type="number" min="1" class="qty" name="" value="2"></p>
+                        <p class="btn-area btn-remove"><ion-icon name="trash-outline"></ion-icon><span
+                                class="btn2">Remove</span>
                         </p>
                     </div>
                 </div>
 
             </div>
             <div class="right-bar">
-                <p><span>Subtotal</span> <span>$120</span></p>
+                <p><span>Subtotal</span> <span class="subtotal-value"></span></p>
                 <hr>
-                <p><span>Tax (5%)</span> <span>$6</span></p>
+                <p><span>Tax (5%)</span> <span class="tax-value"></span></p>
                 <hr>
-                <p><span>Shipping</span> <span>$15</span></p>
+                <p><span>Shipping</span> <span class="shipping-value"></span></p>
                 <hr>
-                <p><span>Total</span> <span>$141</span></p><a href="#"><i class="fa fa-shopping-cart"></i>Checkout</a>
+                <p><span>Total</span> <span class="total-value"></span></p><a href="#"><i
+                        class="fa fa-shopping-cart"></i>Checkout</a>
             </div>
         </div>
     </div>
@@ -84,6 +100,7 @@
     </footer>
 
     <script src="../../src/animation/main-script.js"></script>
+    <script src="../../src/cart/cart-control.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

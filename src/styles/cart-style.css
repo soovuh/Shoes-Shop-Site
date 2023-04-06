@@ -6,6 +6,12 @@
   text-decoration: none;
 }
 
+.qty::-webkit-outer-spin-button,
+.qty::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 body {
   flex-direction: column;
 }
@@ -31,6 +37,33 @@ body {
 .shop {
   flex: 75%;
 }
+
+.empty-a {
+  display: none;
+  text-decoration: none;
+}
+
+.empty-a.show {
+  position: relative;
+  align-items: center;
+  height: 100%;
+  display: flex;
+  font-size: 1.5em;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  transition: all 0.6s ease;
+}
+
+.empty-a.show:hover {
+  transform: scale(1.03);
+  background-color: #fff;
+  color: #6e008a;
+}
+
 .box {
   display: flex;
   width: 100%;
@@ -159,6 +192,11 @@ footer {
   }
 }
 @media screen and (max-width: 700px) {
+  .empty-a.show {
+    margin-bottom: 20px;
+    font-size: 1em;
+    padding: 10px;
+  }
   .content h3 {
     margin-bottom: 15px;
   }
@@ -179,10 +217,10 @@ footer {
 
 @media screen and (max-width: 550px) {
   .box {
-    height: 170px;
+    height: 190px;
   }
   .box img {
-    height: 170px;
+    height: 190px;
     width: 140px;
   }
   .wrapper h1 {
@@ -203,11 +241,12 @@ footer {
     margin-top: 10px;
     font-size: 0.8em;
   }
+
   .btn-area {
     bottom: 10px;
     right: 10px;
     padding: 3px 10px;
-    font-size: 0.9em;
+    font-size: 0.8em;
   }
   .btn-area ion-icon {
     font-size: 1em;
