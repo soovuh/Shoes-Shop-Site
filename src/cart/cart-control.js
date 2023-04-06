@@ -9,7 +9,7 @@ function boxesUpdate(boxes) {
     const qty = box.querySelector(".qty");
     qty.addEventListener("input", () => {
       if (qty.value) {
-        if (Number(qty.value <= 0)) {
+        if (Number(qty.value) <= 0 || Number(qty.value) >= 30) {
           qty.value = 1;
         }
         calculateSubPrice(boxes);
