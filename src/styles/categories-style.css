@@ -15,6 +15,10 @@ input[type="checkbox"] {
   position: relative;
 }
 
+header {
+  position: sticky;
+}
+
 input[type="checkbox"]::before {
   content: "";
   display: block;
@@ -37,7 +41,7 @@ input[type="checkbox"]:checked::before {
 .main-container {
   display: flex;
   flex-direction: row;
-  margin: 150px 20px 50px 20px;
+  margin: 50px 20px 50px 20px;
   width: 100%;
   justify-content: space-between;
 }
@@ -209,6 +213,7 @@ input[type="checkbox"]:checked::before {
 .dropdown {
   position: relative;
   display: inline-block;
+  user-select: none;
   width: 60%;
 }
 
@@ -421,6 +426,7 @@ footer {
   .filter {
     width: 170px;
     margin-top: 30px;
+    position: sticky;
   }
 }
 
