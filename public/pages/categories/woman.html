@@ -128,14 +128,20 @@
                 </div>
                 <div class="sorting">
                     <label for="sort-by">Sort By:</label>
-                    <select class="sort-by">
-                        <option value="">Default Sorting</option>
-                        <option value="popularity">Sorting by popularity</option>
-                        <option value="average">Sorting by average</option>
-                        <option value="latest">Sorting by latest</option>
-                        <option value="low">Sorting by low</option>
-                        <option value="high">Sorting by high</option>
-                    </select>
+                    <div class="dropdown">
+                        <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Default
+                        </div>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" value="default">Default</a>
+                            <a class="dropdown-item" value="popularity">Popularity</a>
+                            <a class="dropdown-item" value="average">Average</a>
+                            <a class="dropdown-item" value="latest">Latest</a>
+                            <a class="dropdown-item" value="low">Low</a>
+                            <a class="dropdown-item" value="high">High</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="cards-container">

@@ -1,3 +1,4 @@
+/*TODO: закруглить сортировку */
 body {
   flex-direction: column;
 }
@@ -14,6 +15,10 @@ input[type="checkbox"] {
   position: relative;
 }
 
+header {
+  position: sticky;
+}
+
 input[type="checkbox"]::before {
   content: "";
   display: block;
@@ -23,7 +28,7 @@ input[type="checkbox"]::before {
   transform: translate(-50%, -50%);
   width: 10px;
   height: 10px;
-  background-color: rgb(88, 38, 142);
+  background-color: #e825fe;
   border-radius: 2px;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
@@ -36,7 +41,7 @@ input[type="checkbox"]:checked::before {
 .main-container {
   display: flex;
   flex-direction: row;
-  margin: 150px 20px 50px 20px;
+  margin: 50px 20px 50px 20px;
   width: 100%;
   justify-content: space-between;
 }
@@ -171,7 +176,7 @@ input[type="checkbox"]:checked::before {
 .search-result {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 0 20px 0 20px;
 }
@@ -182,7 +187,6 @@ input[type="checkbox"]:checked::before {
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
   width: 49%;
   padding: 0.5em;
   color: #fff;
@@ -195,25 +199,83 @@ input[type="checkbox"]:checked::before {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 40%;
 }
 
 .sorting {
   display: flex;
   justify-content: space-around;
+  width: 40%;
+  height: 44.16px;
+  margin-left: 10px;
 }
 
-.sort-by {
-  background: rgba(88, 38, 142, 0.29);
+.dropdown {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+  width: 60%;
+}
+
+.dropdown-toggle {
+  width: 100%;
+  background: rgba(88, 38, 142, 0);
   border: 2px solid rgba(255, 255, 255, 0.5);
-  width: 70%;
-  padding: 0.5em;
+
+  border-radius: 20px;
   color: #fff;
+  padding: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-.sort-by option {
+.dropdown-toggle:hover {
+  background-color: #fff;
+  color: rgb(88, 38, 142);
+}
+
+.dropdown-toggle.show {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 98;
+  min-width: 100%;
+  padding: 8px;
+  background: rgba(88, 38, 142, 0);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   color: #fff;
-  background-color: rgba(88, 38, 142, 0.875);
-  overflow: hidden;
+  backdrop-filter: blur(15px);
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #f2f2f2;
+  color: rgb(88, 38, 142);
 }
 
 .cards-container {
@@ -342,8 +404,15 @@ footer {
 
   .search-result .result {
     display: none;
+    width: 0%;
   }
-
+  .cards-container {
+    grid-template-columns: repeat(1, minmax(280px, 1fr));
+    margin-right: 0;
+    margin-left: 0;
+    align-items: center;
+    padding-left: 50px;
+  }
   .sorting {
     width: 250px;
     height: 44px;
@@ -351,6 +420,17 @@ footer {
     top: 18.5%;
     position: absolute;
   }
+  .product-container {
+    width: 60%;
+  }
+  .filter {
+    width: 170px;
+    margin-top: 30px;
+    position: sticky;
+  }
+}
+
+@media (max-width: 550px) {
   .filter {
     display: none;
   }
@@ -423,11 +503,9 @@ footer {
   .filter.active::-webkit-scrollbar {
     display: none;
   }
-}
-
-@media (max-width: 550px) {
   .cards-container {
     grid-template-columns: repeat(1, minmax(300px, 1fr));
+    padding-left: 0;
     margin-right: 0;
   }
 }

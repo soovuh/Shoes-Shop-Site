@@ -132,6 +132,7 @@ section {
   background-color: rgb(115, 51, 184);
   color: #fff;
   transform: translateY(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .wrapper .icon:hover {
@@ -140,7 +141,6 @@ section {
 
 .wrapper .icon:first-child {
   left: -23px;
-  display: none;
 }
 
 .wrapper .icon:last-child {
@@ -154,6 +154,9 @@ section {
   overflow: hidden;
   white-space: nowrap;
   scroll-behavior: smooth;
+  background: rgba(88, 38, 142, 0);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  border-radius: 1%;
 }
 
 .wrapper .carousel.dragging {
@@ -161,15 +164,21 @@ section {
   scroll-behavior: auto;
 }
 
+.carousel img:first-child {
+  margin-left: 0;
+}
+
 .carousel img {
   border-radius: 1%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
   height: 340px;
   object-fit: cover;
   margin-left: 5px;
   margin-right: 5px;
-  width: calc(100% / 3);
+  width: calc(99.1% / 3);
   user-select: none;
   pointer-events: none;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .hot-deals-container {
