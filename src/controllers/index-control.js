@@ -1,6 +1,7 @@
 // Simulating a request
 import { carouselObjs } from "../database.js";
 
+// Add images from database.js to carousel
 function fillCarousel(carousel) {
   const carouselLinks = carouselObjs.map((obj) => {
     const link = document.createElement("a");
