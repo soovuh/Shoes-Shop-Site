@@ -7,6 +7,9 @@ let boxes = document.querySelectorAll(".box");
 function boxesUpdate(boxes) {
   boxes.forEach((box, index) => {
     const qty = box.querySelector(".qty");
+    const qtyMinus = box.querySelector(".qty-minus");
+    const qtyPlus = box.querySelector(".qty-plus");
+
     qty.addEventListener("input", () => {
       if (qty.value) {
         if (Number(qty.value) <= 0 || Number(qty.value) >= 30) {
@@ -14,13 +17,27 @@ function boxesUpdate(boxes) {
         }
         calculateSubPrice(boxes);
       }
-      document.addEventListener("click", (click) => {
-        if (!qty.value && document.activeElement != qty) {
-          qty.value = 1;
-          calculateSubPrice(boxes);
-        }
-      });
     });
+
+    qtyMinus.addEventListener("click", () => {
+      if (qty.value > 1) {
+        qty.value--;
+        calculateSubPrice(boxes);
+      }
+    });
+
+    qtyPlus.addEventListener("click", () => {
+      qty.value++;
+      calculateSubPrice(boxes);
+    });
+
+    document.addEventListener("click", (click) => {
+      if (!qty.value && document.activeElement != qty) {
+        qty.value = 1;
+        calculateSubPrice(boxes);
+      }
+    });
+
     const buttonRemove = box.querySelector(".btn-remove");
     buttonRemove.addEventListener("click", () => {
       box.remove();
@@ -42,6 +59,7 @@ function calculateSubPrice(boxes) {
     subTotal += Number(price.innerText) * Number(qty.value);
   });
   DisplayPrices(subTotal);
+  return subTotal;
 }
 
 // This function calculate all values and update right bar with total price
@@ -57,4 +75,3 @@ function DisplayPrices(subtotal) {
 
 boxesUpdate(boxes);
 calculateSubPrice(boxes);
-document.addEventListener;
