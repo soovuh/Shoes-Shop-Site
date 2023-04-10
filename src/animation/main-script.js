@@ -34,6 +34,9 @@ function checkScreenWidth() {
     toggler.classList.remove("show");
   }
 }
+window.addEventListener("load", () => {
+  document.querySelector("#loader").style.display = "none";
+});
 
 window.addEventListener("resize", function () {
   checkScreenWidth();
