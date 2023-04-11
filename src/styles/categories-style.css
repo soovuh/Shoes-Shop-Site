@@ -342,8 +342,18 @@ input[type="checkbox"]:checked::before {
   margin-bottom: 0.4em;
 }
 
-.card-content p.sale-price {
-  margin-bottom: 0;
+.card-content p.current-price,
+.card-content p.old-price {
+  margin-bottom: 5px;
+}
+
+.card-content p.old-price {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.card-content p.current-price {
+  font-size: 0.9em;
 }
 
 .card-info {
