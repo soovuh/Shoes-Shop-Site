@@ -39,7 +39,7 @@ const carouselObjs = [
 
 const hotDeals = [{}];
 
-const shoes = [
+const shoesObjs = [
   {
     id: 1,
     name: "Adidas Trainers",
@@ -269,7 +269,7 @@ const shoes = [
     views: 7,
   },
   {
-    id: 19,
+    id: 20,
     name: "Puma Platform Trace Animal",
     image: "./../public/images/shoes/Puma-Platform-Trace-Animal.jpg",
     price: 160,
@@ -281,19 +281,19 @@ const shoes = [
     views: 12,
   },
   {
-    id: 20,
+    id: 21,
     name: "Reebok Club C 85 Vintage",
     image: "./../public/images/shoes/Reebok-Club-C-85-Vintage.jpg",
     price: 100,
     sizes: [38, 39, 40, 41, 42],
     sex: "male",
-    type: "leather",
+    type: "low-top",
     brand: "Reebok",
     sale: 0,
     views: 9,
   },
   {
-    id: 21,
+    id: 22,
     name: "Vans Classic Slip-On",
     image: "./../public/images/shoes/Vans-Classic-Slip-On.jpg",
     price: 75,
@@ -305,7 +305,7 @@ const shoes = [
     views: 18,
   },
   {
-    id: 22,
+    id: 23,
     name: "Kappa Banda Coen",
     image: "./../public/images/shoes/Kappa-Banda-Coen.jpg",
     price: 90,
@@ -317,7 +317,7 @@ const shoes = [
     views: 7,
   },
   {
-    id: 23,
+    id: 24,
     name: "Adidas x Parley Ultraboost 5.0 DNA",
     image: "./../public/images/shoes/Adidas-X-Parley-Ultraboost-5.0-DNA.jpg",
     price: 240,
@@ -329,7 +329,7 @@ const shoes = [
     views: 14,
   },
   {
-    id: 24,
+    id: 25,
     name: "Nike Air Max 97",
     image: "./../public/images/shoes/Nike-Air-Max-97.jpg",
     price: 190,
@@ -342,4 +342,4 @@ const shoes = [
   },
 ];
 
-export { carouselObjs };
+export { carouselObjs, shoesObjs };
