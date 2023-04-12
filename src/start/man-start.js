@@ -55,7 +55,10 @@ function sortPrice(preparedItems) {
   checkOnValidPrice();
   return preparedItems.filter((obj) => {
     const currentPrice = obj.price - obj.price * obj.sale;
-    if (currentPrice >= minPrice.value && currentPrice <= maxPrice.value) {
+    if (
+      currentPrice >= Number(minPrice.value) &&
+      currentPrice <= Number(maxPrice.value)
+    ) {
       return obj;
     }
   });
