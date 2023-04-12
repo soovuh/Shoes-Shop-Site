@@ -85,6 +85,38 @@ input[type="checkbox"]:checked::before {
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
 
+.filter .price-range {
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.filter .price-range .price-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+  text-align: center;
+  width: 50%;
+}
+
+.filter .price-range .submit-price-btn {
+  width: 25%;
+}
+.filter .price-range .submit-price-btn > a {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.filter .price-range .submit-price-btn > a:hover {
+  transform: scale(1.1);
+  color: rgb(88, 38, 142);
+  background-color: #fff;
+}
+
 .filter .type > li,
 .filter .firm > li,
 .filter .size-select > li {
@@ -152,7 +184,7 @@ input[type="checkbox"]:checked::before {
 .filter .size-select {
   padding-top: 0.5em;
   background-color: rgba(88, 38, 142, 0.516);
-  width: 156px;
+  width: 140px;
   color: #fff;
   overflow: auto;
   border: 2px solid rgba(255, 255, 255, 0.5);
@@ -169,10 +201,8 @@ input[type="checkbox"]:checked::before {
 }
 
 .filter .price-range input {
-  width: 100px;
+  width: 80px;
   padding: 5px;
-  padding-left: 10px;
-  margin-right: 10px;
   background-color: rgba(88, 38, 142, 0.362);
   color: #fff;
   border: 2px solid rgba(255, 255, 255, 0.5);

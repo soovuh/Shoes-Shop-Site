@@ -5,21 +5,38 @@ import { categoriesAnimation } from "../animation/categories-script.js";
 const manObjects = shoesObjs.filter((obj) => obj.sex === "male");
 
 // filterCards(manObjects);
-const preparedItems = [];
 const activeValues = {
   type: [],
   brand: [],
-  size: [],
-};
-
-const priceLimits = {
-  min: 0,
-  max: 1000,
 };
 
 // sortPrice(prepareItems(manObjects))
-
+const minPrice = document.querySelector("#min-price");
+const maxPrice = document.querySelector("#max-price");
 const parameters = document.querySelectorAll(".parameters");
+
+document.addEventListener("click", (event) => {
+  if (document.activeElement != minPrice) {
+    if (
+      !minPrice.value ||
+      Number(minPrice.value) <= 0 ||
+      Number(minPrice.value) > 1000
+    ) {
+      minPrice.value = 0;
+    }
+  }
+  if (document.activeElement != maxPrice) {
+    if (
+      !maxPrice.value ||
+      Number(maxPrice.value) < Number(minPrice.value) ||
+      Number(maxPrice.value) <= 0 ||
+      Number(maxPrice.value) > 1000
+    ) {
+      maxPrice.value = 1000;
+    }
+  }
+});
+
 parameters.forEach((parameter) => {
   const parameterID = parameter.id;
   const checkboxes = parameter.querySelectorAll("input");
@@ -27,11 +44,11 @@ parameters.forEach((parameter) => {
     box.addEventListener("click", () => {
       if (box.checked) {
         activeValues[parameterID].push(box.value);
-        updateHTML(prepareItems(manObjects));
+        updateHTML(sortPrice(prepareItems(manObjects)));
       } else {
         const deleteIndex = activeValues[parameterID].indexOf(box.value);
         activeValues[parameterID].splice(deleteIndex, 1);
-        updateHTML(prepareItems(manObjects));
+        updateHTML(sortPrice(prepareItems(manObjects)));
       }
     });
   });
@@ -54,23 +71,18 @@ function prepareItems(manObjects) {
       ) {
         return obj;
       }
-    } else if (activeKeys.length === 3) {
-      if (
-        activeValues[activeKeys[0]].includes(obj[activeKeys[0]]) &&
-        activeValues[activeKeys[1]].includes(obj[activeKeys[1]]) &&
-        activeValues[activeKeys[2]].includes(obj[activeKeys[2]])
-      ) {
-        return obj;
-      }
-    } else if (activeKeys.length === 4) {
-      if (
-        activeValues[activeKeys[0]].includes(obj[activeKeys[0]]) &&
-        activeValues[activeKeys[1]].includes(obj[activeKeys[1]]) &&
-        activeValues[activeKeys[2]].includes(obj[activeKeys[2]]) &&
-        activeValues[activeKeys[3]].includes(obj[activeKeys[3]])
-      ) {
-        return obj;
-      }
+    }
+  });
+}
+
+function sortSize(preparedItems) {}
+
+function sortPrice(preparedItems) {
+  return preparedItems.filter((obj) => {
+    const currentPrice = obj.price - obj.price * obj.sale;
+    console.log(currentPrice);
+    if (currentPrice >= minPrice.value && currentPrice <= maxPrice.value) {
+      return obj;
     }
   });
 }
