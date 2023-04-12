@@ -9,7 +9,15 @@ const preparedItems = [];
 const activeValues = {
   type: [],
   brand: [],
+  size: [],
 };
+
+const priceLimits = {
+  min: 0,
+  max: 1000,
+};
+
+// sortPrice(prepareItems(manObjects))
 
 const parameters = document.querySelectorAll(".parameters");
 parameters.forEach((parameter) => {

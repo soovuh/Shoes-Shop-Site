@@ -67,6 +67,7 @@ input[type="checkbox"]:checked::before {
 }
 
 .filter .type,
+.filter .size-select,
 .filter .size,
 .filter .price-range,
 .filter .firm {
@@ -85,10 +86,12 @@ input[type="checkbox"]:checked::before {
 }
 
 .filter .type > li,
-.filter .firm > li {
+.filter .firm > li,
+.filter .size-select > li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   user-select: none;
   cursor: pointer;
   padding: 0.5em;
@@ -97,14 +100,16 @@ input[type="checkbox"]:checked::before {
 }
 
 .filter .type > li > label,
-.filter .firm > li > label {
+.filter .firm > li > label,
+.filter .size-select > li > label {
   width: 100%;
   cursor: pointer;
   text-align: start;
 }
 
 .filter .type > li:hover,
-.filter .firm > li:hover {
+.filter .firm > li:hover,
+.filter .size-select > li:hover {
   background-color: rgb(255, 255, 255);
   color: rgb(88, 38, 142);
 }
@@ -141,14 +146,21 @@ input[type="checkbox"]:checked::before {
   border-top-right-radius: 20px;
 }
 
+.filter .size {
+  align-items: center;
+}
 .filter .size-select {
   padding-top: 0.5em;
   background-color: rgba(88, 38, 142, 0.516);
-  width: 100%;
+  width: 156px;
   color: #fff;
   overflow: auto;
   border: 2px solid rgba(255, 255, 255, 0.5);
-  text-align: center;
+  border-radius: 20px;
+  height: 160px;
+}
+.filter .size-select::-webkit-scrollbar {
+  display: none;
 }
 
 .filter .price-range {
@@ -159,10 +171,12 @@ input[type="checkbox"]:checked::before {
 .filter .price-range input {
   width: 100px;
   padding: 5px;
+  padding-left: 10px;
   margin-right: 10px;
   background-color: rgba(88, 38, 142, 0.362);
   color: #fff;
   border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
 }
 
 .product-container {
