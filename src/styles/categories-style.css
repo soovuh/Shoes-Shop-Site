@@ -67,6 +67,7 @@ input[type="checkbox"]:checked::before {
 }
 
 .filter .type,
+.filter .size-select,
 .filter .size,
 .filter .price-range,
 .filter .firm {
@@ -84,11 +85,45 @@ input[type="checkbox"]:checked::before {
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
 
+.filter .price-range {
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.filter .price-range .price-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+  text-align: center;
+  width: 50%;
+}
+
+.filter .price-range .submit-price-btn {
+  width: 25%;
+}
+.filter .price-range .submit-price-btn > a {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.filter .price-range .submit-price-btn > a:hover {
+  transform: scale(1.1);
+  color: rgb(88, 38, 142);
+  background-color: #fff;
+}
+
 .filter .type > li,
-.filter .firm > li {
+.filter .firm > li,
+.filter .size-select > li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   user-select: none;
   cursor: pointer;
   padding: 0.5em;
@@ -97,14 +132,16 @@ input[type="checkbox"]:checked::before {
 }
 
 .filter .type > li > label,
-.filter .firm > li > label {
+.filter .firm > li > label,
+.filter .size-select > li > label {
   width: 100%;
   cursor: pointer;
   text-align: start;
 }
 
 .filter .type > li:hover,
-.filter .firm > li:hover {
+.filter .firm > li:hover,
+.filter .size-select > li:hover {
   background-color: rgb(255, 255, 255);
   color: rgb(88, 38, 142);
 }
@@ -141,14 +178,21 @@ input[type="checkbox"]:checked::before {
   border-top-right-radius: 20px;
 }
 
+.filter .size {
+  align-items: center;
+}
 .filter .size-select {
   padding-top: 0.5em;
   background-color: rgba(88, 38, 142, 0.516);
-  width: 100%;
+  width: 140px;
   color: #fff;
   overflow: auto;
   border: 2px solid rgba(255, 255, 255, 0.5);
-  text-align: center;
+  border-radius: 20px;
+  height: 160px;
+}
+.filter .size-select::-webkit-scrollbar {
+  display: none;
 }
 
 .filter .price-range {
@@ -157,18 +201,18 @@ input[type="checkbox"]:checked::before {
 }
 
 .filter .price-range input {
-  width: 100px;
+  width: 80px;
   padding: 5px;
-  margin-right: 10px;
   background-color: rgba(88, 38, 142, 0.362);
   color: #fff;
   border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
 }
 
 .product-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+
   margin-right: 40px;
   width: 80%;
 }
@@ -320,9 +364,15 @@ input[type="checkbox"]:checked::before {
 }
 
 .card-content {
+  width: 100%;
+  height: 100%;
   line-height: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   font-size: 1.4em;
-  padding: 15px;
+  padding: 13px;
   background: #fafafa00;
   color: #fff;
   text-align: center;
@@ -335,15 +385,34 @@ input[type="checkbox"]:checked::before {
   text-decoration: none;
 }
 
+.product-a.product-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
 .card-content p.product-name {
   user-select: text;
   margin-top: 0;
-  font-size: 1em;
+  font-size: 0.8em;
   margin-bottom: 0.4em;
 }
 
-.card-content p.sale-price {
-  margin-bottom: 0;
+.card-content p.current-price,
+.card-content p.old-price {
+  margin-bottom: 5px;
+}
+
+.card-content p.old-price {
+  text-decoration: line-through;
+  color: gray;
+  font-size: 0.8em;
+}
+
+.card-content p.current-price {
+  font-size: 0.8em;
 }
 
 .card-info {
@@ -382,7 +451,7 @@ footer {
 
 @media (max-width: 1300px) {
   .cards-container {
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, minmax(200px, 200px));
   }
 }
 

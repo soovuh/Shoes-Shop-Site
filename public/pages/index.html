@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
     <header>
         <h2 class="logo">Shop</h2>
         <h2 class="logo-mini">S</h2>
@@ -19,7 +22,7 @@
         </div>
         <nav class="navigation">
             <a class="not-button" href="index.html">Home</a>
-            <a class="not-button" href="categories/man.html">Сategories</a>
+            <a class="not-button" href="man.html">Сategories</a>
             <a class="not-button" href="about.html">About</a>
             <a class="not-button" href="cart.html">Cart</a>
             <a class="btnLogin-popup" href="login.html">Login</a>
@@ -40,10 +43,10 @@
             </div>
 
             <div class="man">
-                <a href="categories/man.html" class="man-a">Men</a>
+                <a href="man.html" class="man-a">Men</a>
             </div>
             <div class="woman">
-                <a href="categories/woman.html" class="man-a">Women</a>
+                <a href="woman.html" class="man-a">Women</a>
             </div>
             </a>
         </div>
@@ -51,15 +54,7 @@
         <div class="wrapper">
             <div class="carousel">
                 <button id="left" class="icon"><ion-icon name="chevron-back-outline"></ion-icon></button>
-                <a href="#"><img class="firstImg" src="../images/carousel/image-1.jpg" alt=""></a>
-                <a href="#"><img src="../images/carousel/image-2.jpg" alt=""></a>
-                <a href="#"><img src="../images/carousel/image-3.jpg" alt=""></a>
-                <a href="#"><img src="../images/carousel/image-4.jpg" alt=""></a>
-                <a href="#"><img src="../images/carousel/image-5.jpg" alt=""></a>
-                <a href="#"><img src="../images/carousel/image-6.jpg" alt=""></a>
-                <a href="#"><img src="../images/carousel/image-7.jpg" alt=""></a>
-                <a href="#"><img src="../images/carousel/image-8.jpg" alt=""></a>
-                <a href="#"><img src="../images/carousel/image-9.jpg" alt=""></a>
+                <div class="carousel-imgs"></div>
                 <button id="right" class="icon"><ion-icon name="chevron-forward-outline"></ion-icon></button>
             </div>
         </div>
@@ -78,7 +73,7 @@
                             <p class="old-price">
                                 100 $
                             </p>
-                            <p class="sale-price">
+                            <p class="current-price">
                                 35$
                             </p>
 
@@ -102,7 +97,7 @@
                             <p class="old-price">
                                 100 $
                             </p>
-                            <p class="sale-price">
+                            <p class="current-price">
                                 35$
                             </p>
 
@@ -126,7 +121,7 @@
                             <p class="old-price">
                                 100 $
                             </p>
-                            <p class="sale-price">
+                            <p class="current-price">
                                 35$
                             </p>
 
@@ -150,7 +145,7 @@
                             <p class="old-price">
                                 100 $
                             </p>
-                            <p class="sale-price">
+                            <p class="current-price">
                                 35$
                             </p>
 
@@ -174,7 +169,7 @@
                             <p class="old-price">
                                 100 $
                             </p>
-                            <p class="sale-price">
+                            <p class="current-price">
                                 35$
                             </p>
 
@@ -198,7 +193,7 @@
                             <p class="old-price">
                                 100 $
                             </p>
-                            <p class="sale-price">
+                            <p class="current-price">
                                 35$
                             </p>
 
@@ -227,7 +222,7 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="../../src/animation/main-script.js"></script>
-    <script src="../../src/animation/index-script.js"></script>
+    <script type="module" src="../../src/start/index-start.js"></script>
 </body>
 
 </html>

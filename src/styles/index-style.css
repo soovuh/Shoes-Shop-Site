@@ -20,7 +20,7 @@ section {
   user-select: none;
   pointer-events: none;
   overflow: hidden;
-  animation: myAnim 1s ease 0s 1 reverse forwards;
+  animation: myAnim 0.5s ease 0s 1 reverse forwards;
 }
 
 .bgvideo video {
@@ -262,7 +262,7 @@ section {
   color: rgb(176, 97, 194);
 }
 
-.card-content p.sale-price {
+.card-content p.current-price {
   margin-bottom: 0;
 }
 
