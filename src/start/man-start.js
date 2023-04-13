@@ -21,6 +21,7 @@ const priceSubmitBtn = document.querySelector(".submit-price-btn");
 const parameters = document.querySelectorAll(".parameters");
 const sizeNav = document.querySelector(".size-select");
 const sizeBoxes = sizeNav.querySelectorAll("input");
+const cardContainer = document.querySelector(".cards-container");
 
 // Function to get active keys from activeValues object
 function getActiveKeys(activeValues) {
@@ -116,9 +117,79 @@ function sortAll(manObjects) {
   return sortedByPrice;
 }
 
+function addProductCard(product) {
+  const card = document.createElement("div");
+  card.classList.add("card");
+
+  const img = document.createElement("img");
+  img.classList.add("card-image");
+  img.src = product.image;
+  img.alt = product.name;
+  const imgLink = document.createElement("a");
+  imgLink.href = "#";
+  imgLink.appendChild(img);
+  card.appendChild(imgLink);
+
+  const productLink = document.createElement("a");
+  productLink.classList.add("product-a");
+  productLink.classList.add("product-link");
+  productLink.href = "#";
+  const content = document.createElement("div");
+  content.classList.add("card-content");
+  const name = document.createElement("p");
+  name.classList.add("product-name");
+  name.textContent = product.name;
+
+  const pricesBox = document.createElement("div");
+  pricesBox.classList.add("prices-box");
+  const oldPrice = document.createElement("p");
+  oldPrice.classList.add("old-price");
+  const currentPrice = document.createElement("p");
+  if (product.sale !== 0) {
+    oldPrice.textContent = "$" + product.price;
+  } else {
+    currentPrice.classList.add("only-current");
+  }
+  currentPrice.classList.add("current-price");
+  if (product.sale !== 0) {
+    const salePrice = product.price - product.price * product.sale;
+    currentPrice.textContent = "$" + salePrice;
+  } else {
+    currentPrice.textContent = "$" + product.price;
+  }
+  const nameBox = document.createElement("div");
+  nameBox.classList.add("name-box");
+  nameBox.appendChild(name);
+  pricesBox.appendChild(oldPrice);
+  pricesBox.appendChild(currentPrice);
+
+  content.appendChild(nameBox);
+  content.appendChild(pricesBox);
+
+  productLink.appendChild(content);
+  card.appendChild(productLink);
+
+  const infoLink = document.createElement("a");
+  infoLink.classList.add("product-a");
+  infoLink.href = "#";
+  const info = document.createElement("div");
+  info.classList.add("card-info");
+  info.textContent = "View more";
+  infoLink.appendChild(info);
+  card.appendChild(infoLink);
+
+  cardContainer.appendChild(card);
+}
+
+function removeAllCards() {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => card.remove());
+}
+
 // Function to update HTML with items
 function updateHTML(items) {
-  console.log(items);
+  removeAllCards();
+  items.forEach((item) => addProductCard(item));
 }
 
 // Event listener to update HTML when the page loads

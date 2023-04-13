@@ -115,7 +115,7 @@ const shoesObjs = [
   {
     id: 7,
     name: "Nike Court Vision",
-    image: "./../public/images/shoes/Nike-Court-Vision.jpg",
+    image: "../images/shoes/Nike-Court-Vision.jpg",
     price: 140,
     size: ["35", "37", "38", "39", "40", "41", "42", "43"],
     sex: "male",
@@ -127,7 +127,7 @@ const shoesObjs = [
   {
     id: 8,
     name: "Nike Air Max",
-    image: "./../public/images/shoes/Nike-Air-Max.jpg",
+    image: "../images/shoes/Nike-Air-Max.jpg",
     price: 220,
     size: ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45"],
     sex: "male",
@@ -139,7 +139,7 @@ const shoesObjs = [
   {
     id: 9,
     name: "Puma RS-X3",
-    image: "./../public/images/shoes/Puma-RS-X3.jpg",
+    image: "../images/shoes/Puma-RS-X3.jpg",
     price: 180,
     size: ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45"],
     sex: "female",
@@ -151,7 +151,7 @@ const shoesObjs = [
   {
     id: 10,
     name: "Puma Cali",
-    image: "./../public/images/shoes/Puma-Cali.jpg",
+    image: "../images/shoes/Puma-Cali.jpg",
     price: 160,
     size: ["35", "36", "37", "38", "39", "40", "41", "42", "43"],
     sex: "female",
@@ -163,7 +163,7 @@ const shoesObjs = [
   {
     id: 11,
     name: "Reebok Classic",
-    image: "./../public/images/shoes/Reebok-Classic.jpg",
+    image: "../images/shoes/Reebok-Classic.jpg",
     price: 120,
     size: ["36", "37", "38", "39", "40", "41"],
     sex: "male",
@@ -175,7 +175,7 @@ const shoesObjs = [
   {
     id: 12,
     name: "Reebok Princess",
-    image: "./../public/images/shoes/Reebok-Princess.jpg",
+    image: "../images/shoes/Reebok-Princess.jpg",
     price: 100,
     size: ["35", "37", "38", "39", "40"],
     sex: "female",
@@ -187,7 +187,7 @@ const shoesObjs = [
   {
     id: 13,
     name: "Kappa Court",
-    image: "./../public/images/shoes/Kappa-Court.jpg",
+    image: "../images/shoes/Kappa-Court.jpg",
     price: 90,
     size: ["35", "36", "37", "38", "39", "40", "41"],
     sex: "male",
@@ -199,7 +199,7 @@ const shoesObjs = [
   {
     id: 14,
     name: "Puma Basket Classic",
-    image: "./../public/images/shoes/Puma-Basket-Classic.jpg",
+    image: "../images/shoes/Puma-Basket-Classic.jpg",
     price: 120,
     size: ["36", "37", "38", "39", "40", "41", "42"],
     sex: "male",
@@ -211,7 +211,7 @@ const shoesObjs = [
   {
     id: 15,
     name: "Reebok Classic Leather",
-    image: "./../public/images/shoes/Reebok-Classic-Leather.jpg",
+    image: "../images/shoes/Reebok-Classic-Leather.jpg",
     price: 180,
     size: ["39", "40", "41", "42", "43", "44"],
     sex: "female",
@@ -223,7 +223,7 @@ const shoesObjs = [
   {
     id: 16,
     name: "Kappa Gizeh",
-    image: "./../public/images/shoes/Kappa-Gizeh.jpg",
+    image: "../images/shoes/Kappa-Gizeh.jpg",
     price: 100,
     size: ["37", "38", "39", "40", "41"],
     sex: "male",
@@ -235,7 +235,7 @@ const shoesObjs = [
   {
     id: 17,
     name: "Vans Slip-On Pro",
-    image: "./../public/images/shoes/Vans-Slip-On-Pro.jpg",
+    image: "../images/shoes/Vans-Slip-On-Pro.jpg",
     price: 80,
     size: ["36", "37", "38", "39", "40"],
     sex: "female",
@@ -247,7 +247,7 @@ const shoesObjs = [
   {
     id: 18,
     name: "Adidas Originals",
-    image: "./../public/images/shoes/Adidas-Originals.jpg",
+    image: "../images/shoes/Adidas-Originals.jpg",
     price: 220,
     size: ["38", "39", "40", "41", "42", "43"],
     sex: "male",
@@ -259,7 +259,7 @@ const shoesObjs = [
   {
     id: 19,
     name: "Nike Air Force 1 Shadow",
-    image: "./../public/images/shoes/Nike-Air-Force-1-Shadow.jpg",
+    image: "../images/shoes/Nike-Air-Force-1-Shadow.jpg",
     price: 280,
     size: ["35", "36", "37", "38", "39", "40", "41"],
     sex: "female",
@@ -270,8 +270,8 @@ const shoesObjs = [
   },
   {
     id: 20,
-    name: "Puma Platform Trace Animal",
-    image: "./../public/images/shoes/Puma-Platform-Trace-Animal.jpg",
+    name: "Puma Platform Trace",
+    image: "../images/shoes/Puma-Platform-Trace-Animal.jpg",
     price: 160,
     size: ["35", "36", "37", "38", "39", "40", "41", "42"],
     sex: "female",
@@ -283,7 +283,7 @@ const shoesObjs = [
   {
     id: 21,
     name: "Reebok Club C 85 Vintage",
-    image: "./../public/images/shoes/Reebok-Club-C-85-Vintage.jpg",
+    image: "../images/shoes/Reebok-Club-C-85-Vintage.jpg",
     price: 100,
     size: ["38", "39", "40", "41", "42"],
     sex: "male",
@@ -295,7 +295,7 @@ const shoesObjs = [
   {
     id: 22,
     name: "Vans Classic Slip-On",
-    image: "./../public/images/shoes/Vans-Classic-Slip-On.jpg",
+    image: "../images/shoes/Vans-Classic-Slip-On.jpg",
     price: 75,
     size: [
       "35",
@@ -320,7 +320,7 @@ const shoesObjs = [
   {
     id: 23,
     name: "Kappa Banda Coen",
-    image: "./../public/images/shoes/Kappa-Banda-Coen.jpg",
+    image: "../images/shoes/Kappa-Banda-Coen.jpg",
     price: 90,
     size: ["39", "40", "41", "42", "43", "44", "45"],
     sex: "male",
@@ -331,8 +331,8 @@ const shoesObjs = [
   },
   {
     id: 24,
-    name: "Adidas x Parley Ultraboost 5.0 DNA",
-    image: "./../public/images/shoes/Adidas-X-Parley-Ultraboost-5.0-DNA.jpg",
+    name: "Adidas x Parley Ultraboost 5.0",
+    image: "../images/shoes/Adidas-X-Parley-Ultraboost-5.0-DNA.jpg",
     price: 240,
     size: ["38", "39", "40", "41", "42"],
     sex: "male",
@@ -344,7 +344,7 @@ const shoesObjs = [
   {
     id: 25,
     name: "Nike Air Max 97",
-    image: "./../public/images/shoes/Nike-Air-Max-97.jpg",
+    image: "../images/shoes/Nike-Air-Max-97.jpg",
     price: 190,
     size: ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45"],
     sex: "male",
