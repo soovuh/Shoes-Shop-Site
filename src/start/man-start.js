@@ -11,11 +11,16 @@ const activeValues = {
   brand: [],
 };
 
+const activeSizes = [];
+
 // Querying DOM elements
+
 const minPrice = document.querySelector("#min-price");
 const maxPrice = document.querySelector("#max-price");
 const priceSubmitBtn = document.querySelector(".submit-price-btn");
 const parameters = document.querySelectorAll(".parameters");
+const sizeNav = document.querySelector(".size-select");
+const sizeBoxes = sizeNav.querySelectorAll("input");
 
 // Function to get active keys from activeValues object
 function getActiveKeys(activeValues) {
@@ -51,7 +56,20 @@ function getSortedTypeAndBrand(manObjects) {
 }
 
 // Function to sort objects by size
-function getSortedSize(preparedItems) {}
+function getSortedSize(preparedItems) {
+  if (activeSizes.length === 0) {
+    return preparedItems;
+  }
+  const prepared = preparedItems.filter((obj) => {
+    for (let i = 0; i < obj.size.length; i++) {
+      if (activeSizes.includes(obj.size[i])) {
+        return obj;
+      }
+    }
+  });
+
+  return prepared;
+}
 
 // Function to sort objects by price range
 function getSortedPrice(preparedItems) {
@@ -93,8 +111,8 @@ function checkOnValidPrice() {
 // Function to sort all objects
 function sortAll(manObjects) {
   const sortedByTypeAndBrand = getSortedTypeAndBrand(manObjects);
-  // const sortedBySize = getSortedSize(sortedByTypeAndBrand)
-  const sortedByPrice = getSortedPrice(sortedByTypeAndBrand);
+  const sortedBySize = getSortedSize(sortedByTypeAndBrand);
+  const sortedByPrice = getSortedPrice(sortedBySize);
   return sortedByPrice;
 }
 
@@ -106,6 +124,19 @@ function updateHTML(items) {
 // Event listener to update HTML when the page loads
 document.addEventListener("click", () => {
   checkOnValidPrice();
+});
+
+sizeBoxes.forEach((box) => {
+  box.addEventListener("click", () => {
+    if (box.checked) {
+      activeSizes.push(box.value);
+      updateHTML(sortAll(manObjects));
+    } else {
+      const deleteIndex = activeSizes.indexOf(box.value);
+      activeSizes.splice(deleteIndex, 1);
+      updateHTML(sortAll(manObjects));
+    }
+  });
 });
 
 // Event listener to update activeValues object
