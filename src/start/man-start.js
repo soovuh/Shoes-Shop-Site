@@ -1,22 +1,35 @@
-// Simulating a request
+// Importing necessary modules
 import { shoesObjs } from "../database.js";
 import { categoriesAnimation } from "../animation/categories-script.js";
 
+// Filtering shoes objects by sex
 const manObjects = shoesObjs.filter((obj) => obj.sex === "male");
 
-// start of man controller
+// Object to hold active type and brand values
 const activeValues = {
   type: [],
   brand: [],
 };
 
+// Querying DOM elements
 const minPrice = document.querySelector("#min-price");
 const maxPrice = document.querySelector("#max-price");
 const priceSubmitBtn = document.querySelector(".submit-price-btn");
 const parameters = document.querySelectorAll(".parameters");
 
-// function to sort objs by brand and type
-function prepareItems(manObjects) {
+// Function to get active keys from activeValues object
+function getActiveKeys(activeValues) {
+  const activeKeys = [];
+  for (const [key, value] of Object.entries(activeValues)) {
+    if (value.length > 0) {
+      activeKeys.push(key);
+    }
+  }
+  return activeKeys;
+}
+
+// Function to sort objects by brand and type
+function getSortedTypeAndBrand(manObjects) {
   const activeKeys = getActiveKeys(activeValues);
   return manObjects.filter((obj) => {
     if (activeKeys.length === 0) {
@@ -37,21 +50,11 @@ function prepareItems(manObjects) {
   });
 }
 
-// function, that get ActiveKeys from activeValues object
-function getActiveKeys(activeValues) {
-  const activeKeys = [];
-  for (const [key, value] of Object.entries(activeValues)) {
-    if (value.length > 0) {
-      activeKeys.push(key);
-    }
-  }
-  return activeKeys;
-}
+// Function to sort objects by size
+function getSortedSize(preparedItems) {}
 
-function sortSize(preparedItems) {}
-
-// function that return arr of objects sorted by min and max price
-function sortPrice(preparedItems) {
+// Function to sort objects by price range
+function getSortedPrice(preparedItems) {
   checkOnValidPrice();
   return preparedItems.filter((obj) => {
     const currentPrice = obj.price - obj.price * obj.sale;
@@ -64,7 +67,7 @@ function sortPrice(preparedItems) {
   });
 }
 
-// function to check on valid min and max prices
+// Function to check if the min and max prices are valid
 function checkOnValidPrice() {
   if (document.activeElement != minPrice) {
     if (
@@ -87,17 +90,26 @@ function checkOnValidPrice() {
   }
 }
 
-// This function should add objs to html file
+// Function to sort all objects
+function sortAll(manObjects) {
+  const sortedByTypeAndBrand = getSortedTypeAndBrand(manObjects);
+  // const sortedBySize = getSortedSize(sortedByTypeAndBrand)
+  const sortedByPrice = getSortedPrice(sortedByTypeAndBrand);
+  return sortedByPrice;
+}
+
+// Function to update HTML with items
 function updateHTML(items) {
   console.log(items);
 }
 
-// creating eventlistener to controll valid price
+// Event listener to update HTML when the page loads
 document.addEventListener("click", () => {
   checkOnValidPrice();
 });
 
-// add eventlisteners for type and brand triggers
+// Event listener to update activeValues object
+// and update HTML when a checkbox is clicked
 parameters.forEach((parameter) => {
   const parameterID = parameter.id;
   const checkboxes = parameter.querySelectorAll("input");
@@ -105,22 +117,22 @@ parameters.forEach((parameter) => {
     box.addEventListener("click", () => {
       if (box.checked) {
         activeValues[parameterID].push(box.value);
-        updateHTML(sortPrice(prepareItems(manObjects)));
+        updateHTML(sortAll(manObjects));
       } else {
         const deleteIndex = activeValues[parameterID].indexOf(box.value);
         activeValues[parameterID].splice(deleteIndex, 1);
-        updateHTML(sortPrice(prepareItems(manObjects)));
+        updateHTML(sortAll(manObjects));
       }
     });
   });
 });
 
-// eventlistener for price OK button, that update html
+// Event listener to check if the prices are valid
 priceSubmitBtn.addEventListener("click", () => {
-  updateHTML(sortPrice(prepareItems(manObjects)));
+  updateHTML(sortAll(manObjects));
 });
 
-// When page load, update HTML with all objects that we have from database
+// Event listener to update HTML when the page loads
 window.addEventListener("load", () => {
   updateHTML(manObjects);
 });
