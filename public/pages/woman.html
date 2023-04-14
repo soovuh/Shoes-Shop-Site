@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Categories | shoes</title>
-    <link rel="stylesheet" href="../../../src/styles/main-style.css">
-    <link rel="stylesheet" href="../../../src/styles/categories-style.css">
+    <link rel="stylesheet" href="../../src/styles/main-style.css" />
+    <link rel="stylesheet" href="../../src/styles/categories-style.css" />
 </head>
 
 <body>
@@ -18,8 +18,7 @@
         <h2 class="logo">Shop</h2>
         <h2 class="logo-mini">S</h2>
         <div class="search-box">
-
-            <input class="search-input" placeholder="Search here" type="text">
+            <input class="search-input" placeholder="Search here" type="text" />
         </div>
         <nav class="navigation">
             <a class="not-button" href="index.html">Home</a>
@@ -31,106 +30,151 @@
         <button class="toggler">&#9776;</button>
     </header>
 
-    <div class="filter-button">
-        <ion-icon name="filter-circle-outline"></ion-icon>
-    </div>
+
     <div class="main-container">
         <div class="filter">
-            <span class="icon-close-filter" id="icon-close-women"> <ion-icon name="close"></ion-icon></span>
+            <span class="icon-close-filter"> <ion-icon name="close"></ion-icon></span>
             <nav class="sex">
                 <a class="not-current man" href="man.html">Men</a>
                 <a class="current woman" href="woman.html">Women</a>
             </nav>
-            <nav class="type">
+            <nav class="parameters type" id="type">
+                <li>
+                    <label for="low-top-checkbox">Low-top</label>
+                    <input type="checkbox" id="low-top-checkbox" value="low-top" />
+                </li>
                 <li>
                     <label for="classic-checkbox">Classic</label>
-                    <input type="checkbox" id="classic-checkbox" value="classic">
+                    <input type="checkbox" id="classic-checkbox" value="classic" />
                 </li>
                 <li>
                     <label for="slip-on-checkbox">Slip-on</label>
-                    <input type="checkbox" id="slip-on-checkbox" value="slip-on">
-                </li>
-                <li>
-                    <label for="platform-checkbox">Platform</label>
-                    <input type="checkbox" id="platform-checkbox" value="platform">
+                    <input type="checkbox" id="slip-on-checkbox" value="slip-on" />
                 </li>
                 <li>
                     <label for="running-checkbox">Running</label>
-                    <input type="checkbox" id="running-checkbox" value="running">
-                </li>
-                <li>
-                    <label for="high-top-checkbox">High-top</label>
-                    <input type="checkbox" id="high-top-checkbox" value="high-top">
+                    <input type="checkbox" id="running-checkbox" value="running" />
                 </li>
                 <li>
                     <label for="leather-checkbox">Leather</label>
-                    <input type="checkbox" id="leather-checkbox" value="leather">
+                    <input type="checkbox" id="leather-checkbox" value="leather" />
+                </li>
+                <li>
+                    <label for="platform-checkbox">Platform</label>
+                    <input type="checkbox" id="platform-checkbox" value="platform" />
                 </li>
             </nav>
-            <nav class="firm">
+            <nav class="parameters firm" id="brand">
                 <li>
                     <label for="adidas-checkbox">Adidas</label>
-                    <input type="checkbox" id="adidas-checkbox" value="adidas">
+                    <input type="checkbox" id="adidas-checkbox" value="Adidas" />
                 </li>
                 <li>
                     <label for="nike-checkbox">Nike</label>
-                    <input type="checkbox" id="nike-checkbox" value="nike">
+                    <input type="checkbox" id="nike-checkbox" value="Nike" />
                 </li>
                 <li>
                     <label for="puma-checkbox">Puma</label>
-                    <input type="checkbox" id="puma-checkbox" value="puma">
+                    <input type="checkbox" id="puma-checkbox" value="Puma" />
                 </li>
                 <li>
                     <label for="reebok-checkbox">Reebok</label>
-                    <input type="checkbox" id="reebok-checkbox" value="reebok">
+                    <input type="checkbox" id="reebok-checkbox" value="Reebok" />
                 </li>
                 <li>
                     <label for="kappa-checkbox">Kappa</label>
-                    <input type="checkbox" id="kappa-checkbox" value="kappa">
+                    <input type="checkbox" id="kappa-checkbox" value="Kappa" />
                 </li>
                 <li>
                     <label for="vans-checkbox">Vans</label>
-                    <input type="checkbox" id="vans-checkbox" value="vans">
+                    <input type="checkbox" id="vans-checkbox" value="Vans" />
                 </li>
             </nav>
             <div class="size">
                 SIZE
-                <select class="size-select" size="5">
-                    <option value="30">30</option>
-                    <option value="31">31</option>
-                    <option value="32">32</option>
-                    <option value="33">33</option>
-                    <option value="34">34</option>
-                    <option value="35">35</option>
-                    <option value="36">36</option>
-                    <option value="37">37</option>
-                    <option value="38">38</option>
-                    <option value="39">39</option>
-                    <option value="40">40</option>
-                    <option value="41">41</option>
-                    <option value="42">42</option>
-                    <option value="43">43</option>
-                    <option value="44">44</option>
-                    <option value="45">45</option>
-                    <option value="46">46</option>
-                </select>
+                <nav class="size-select" id="size">
+                    <li>
+                        <label for="32">32</label>
+                        <input type="checkbox" id="32" value="32">
+                    </li>
+                    <li>
+                        <label for="33">33</label>
+                        <input type="checkbox" id="33" value="33">
+                    </li>
+                    <li>
+                        <label for="34">34</label>
+                        <input type="checkbox" id="34" value="34">
+                    </li>
+                    <li>
+                        <label for="35">35</label>
+                        <input type="checkbox" id="35" value="35">
+                    </li>
+                    <li>
+                        <label for="36">36</label>
+                        <input type="checkbox" id="36" value="36">
+                    </li>
+                    <li>
+                        <label for="37">37</label>
+                        <input type="checkbox" id="37" value="37">
+                    </li>
+                    <li>
+                        <label for="38">38</label>
+                        <input type="checkbox" id="38" value="38">
+                    </li>
+                    <li>
+                        <label for="39">39</label>
+                        <input type="checkbox" id="39" value="39">
+                    </li>
+                    <li>
+                        <label for="40">40</label>
+                        <input type="checkbox" id="40" value="40">
+                    </li>
+                    <li>
+                        <label for="41">41</label>
+                        <input type="checkbox" id="41" value="41">
+                    </li>
+                    <li>
+                        <label for="42">42</label>
+                        <input type="checkbox" id="42" value="42">
+                    </li>
+                    <li>
+                        <label for="43">43</label>
+                        <input type="checkbox" id="43" value="43">
+                    </li>
+                    <li>
+                        <label for="44">44</label>
+                        <input type="checkbox" id="44" value="44">
+                    </li>
+                    <li>
+                        <label for="45">45</label>
+                        <input type="checkbox" id="45" value="45">
+                    </li>
+                </nav>
             </div>
             <div class="price-range">
-                <label for="min-price">Min Price:</label>
-                <input type="number" id="min-price" name="min-price" min="0" max="1000" value="0">
-                <label for="max-price">Max Price:</label>
-                <input type="number" id="max-price" name="max-price" min="0" max="1000" value="1000">
+                <div class="price-input">
+
+                    <label for="min-price">Min $</label>
+                    <input type="number" id="min-price" name="min-price" min="0" max="1000" value="0" />
+                    <label for="max-price">Max $</label>
+                    <input type="number" id="max-price" name="max-price" min="0" max="1000" value="1000" />
+                </div>
+                <div class="submit-price-btn">
+                    <a>OK</a>
+                </div>
             </div>
-
-
         </div>
         <div class="product-container">
             <div class="search-result">
+                <div class="filter-button">
+                    <ion-icon name="filter-circle-outline"></ion-icon>
+                </div>
                 <div class="result">
                     <p>Result of searching: Women</p>
                 </div>
                 <div class="sorting">
                     <label for="sort-by">Sort By:</label>
+
                     <div class="dropdown">
                         <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
@@ -138,274 +182,19 @@
                         </div>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" value="default">Default</a>
+                            <a class="dropdown-item" value="low">Low price</a>
+                            <a class="dropdown-item" value="high">High price</a>
                             <a class="dropdown-item" value="popularity">Popularity</a>
-                            <a class="dropdown-item" value="average">Average</a>
                             <a class="dropdown-item" value="latest">Latest</a>
-                            <a class="dropdown-item" value="low">Low</a>
-                            <a class="dropdown-item" value="high">High</a>
                         </div>
                     </div>
+
                 </div>
             </div>
             <div class="cards-container">
-                <div class="card">
-                    <a href="#"><img class="card-image" src="../images/hot-deals/image-1.jpg" alt=""></a>
-                    <a href="#" class="product-a">
-                        <div class="card-content">
-                            <p class="product-name">
-                                Nike Air Max Pulse
-                            </p>
-
-                            <p class="current-price">
-                                35$
-                            </p>
-
-
-                        </div>
-                    </a>
-                    <a href="#" class="product-a">
-                        <div class="card-info">
-                            View more
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#"><img class="card-image" src="../images/hot-deals/image-1.jpg" alt=""></a>
-                    <a href="#" class="product-a">
-                        <div class="card-content">
-                            <p class="product-name">
-                                Nike Air Max Pulse
-                            </p>
-
-                            <p class="current-price">
-                                35$
-                            </p>
-
-
-                        </div>
-                    </a>
-                    <a href="#" class="product-a">
-                        <div class="card-info">
-                            View more
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#"><img class="card-image" src="../images/hot-deals/image-1.jpg" alt=""></a>
-                    <a href="#" class="product-a">
-                        <div class="card-content">
-                            <p class="product-name">
-                                Nike Air Max Pulse
-                            </p>
-
-                            <p class="current-price">
-                                35$
-                            </p>
-
-
-                        </div>
-                    </a>
-                    <a href="#" class="product-a">
-                        <div class="card-info">
-                            View more
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#"><img class="card-image" src="../images/hot-deals/image-1.jpg" alt=""></a>
-                    <a href="#" class="product-a">
-                        <div class="card-content">
-                            <p class="product-name">
-                                Nike Air Max Pulse
-                            </p>
-
-                            <p class="current-price">
-                                35$
-                            </p>
-
-
-                        </div>
-                    </a>
-                    <a href="#" class="product-a">
-                        <div class="card-info">
-                            View more
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#"><img class="card-image" src="../images/hot-deals/image-1.jpg" alt=""></a>
-                    <a href="#" class="product-a">
-                        <div class="card-content">
-                            <p class="product-name">
-                                Nike Air Max Pulse
-                            </p>
-
-                            <p class="current-price">
-                                35$
-                            </p>
-
-
-                        </div>
-                    </a>
-                    <a href="#" class="product-a">
-                        <div class="card-info">
-                            View more
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#"><img class="card-image" src="../images/hot-deals/image-1.jpg" alt=""></a>
-                    <a href="#" class="product-a">
-                        <div class="card-content">
-                            <p class="product-name">
-                                Nike Air Max Pulse
-                            </p>
-
-                            <p class="current-price">
-                                35$
-                            </p>
-
-
-                        </div>
-                    </a>
-                    <a href="#" class="product-a">
-                        <div class="card-info">
-                            View more
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#"><img class="card-image" src="../images/hot-deals/image-1.jpg" alt=""></a>
-                    <a href="#" class="product-a">
-                        <div class="card-content">
-                            <p class="product-name">
-                                Nike Air Max Pulse
-                            </p>
-
-                            <p class="current-price">
-                                35$
-                            </p>
-
-
-                        </div>
-                    </a>
-                    <a href="#" class="product-a">
-                        <div class="card-info">
-                            View more
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#"><img class="card-image" src="../images/hot-deals/image-1.jpg" alt=""></a>
-                    <a href="#" class="product-a">
-                        <div class="card-content">
-                            <p class="product-name">
-                                Nike Air Max Pulse
-                            </p>
-
-                            <p class="current-price">
-                                35$
-                            </p>
-
-
-                        </div>
-                    </a>
-                    <a href="#" class="product-a">
-                        <div class="card-info">
-                            View more
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#"><img class="card-image" src="../images/hot-deals/image-1.jpg" alt=""></a>
-                    <a href="#" class="product-a">
-                        <div class="card-content">
-                            <p class="product-name">
-                                Nike Air Max Pulse
-                            </p>
-
-                            <p class="current-price">
-                                35$
-                            </p>
-
-
-                        </div>
-                    </a>
-                    <a href="#" class="product-a">
-                        <div class="card-info">
-                            View more
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#"><img class="card-image" src="../images/hot-deals/image-1.jpg" alt=""></a>
-                    <a href="#" class="product-a">
-                        <div class="card-content">
-                            <p class="product-name">
-                                Nike Air Max Pulse
-                            </p>
-
-                            <p class="current-price">
-                                35$
-                            </p>
-
-
-                        </div>
-                    </a>
-                    <a href="#" class="product-a">
-                        <div class="card-info">
-                            View more
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#"><img class="card-image" src="../images/hot-deals/image-1.jpg" alt=""></a>
-                    <a href="#" class="product-a">
-                        <div class="card-content">
-                            <p class="product-name">
-                                Nike Air Max Pulse
-                            </p>
-
-                            <p class="current-price">
-                                35$
-                            </p>
-
-
-                        </div>
-                    </a>
-                    <a href="#" class="product-a">
-                        <div class="card-info">
-                            View more
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#"><img class="card-image" src="../images/hot-deals/image-1.jpg" alt=""></a>
-                    <a href="#" class="product-a">
-                        <div class="card-content">
-                            <p class="product-name">
-                                Nike Air Max Pulse
-                            </p>
-
-                            <p class="current-price">
-                                35$
-                            </p>
-
-
-                        </div>
-                    </a>
-                    <a href="#" class="product-a">
-                        <div class="card-info">
-                            View more
-                        </div>
-                    </a>
-                </div>
 
             </div>
-
         </div>
-
-
     </div>
 
     <footer>
@@ -414,8 +203,8 @@
         </div>
     </footer>
 
-    <script src="../../../src/animation/main-script.js"></script>
-    <script src="../../../src/animation/categories-script.js"></script>
+    <script src="../../src/animation/main-script.js"></script>
+    <script type="module" src="../../src/start/woman-start.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

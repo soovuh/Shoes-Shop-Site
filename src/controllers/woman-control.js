@@ -1,4 +1,4 @@
-function startFiltering(manObjects) {
+function startFiltering(womanObjects) {
   // Object to hold active type and brand values
   const activeValues = {
     type: [],
@@ -29,9 +29,9 @@ function startFiltering(manObjects) {
   }
 
   // Function to sort objects by brand and type
-  function getSortedTypeAndBrand(manObjects) {
+  function getSortedTypeAndBrand(womanObjects) {
     const activeKeys = getActiveKeys(activeValues);
-    return manObjects.filter((obj) => {
+    return womanObjects.filter((obj) => {
       if (activeKeys.length === 0) {
         return obj;
       }
@@ -104,8 +104,8 @@ function startFiltering(manObjects) {
   }
 
   // Function to sort all objects
-  function sortAll(manObjects) {
-    const sortedByTypeAndBrand = getSortedTypeAndBrand(manObjects);
+  function sortAll(womanObjects) {
+    const sortedByTypeAndBrand = getSortedTypeAndBrand(womanObjects);
     const sortedBySize = getSortedSize(sortedByTypeAndBrand);
     const sortedByPrice = getSortedPrice(sortedBySize);
     return sortedByPrice;
@@ -195,11 +195,11 @@ function startFiltering(manObjects) {
     box.addEventListener("click", () => {
       if (box.checked) {
         activeSizes.push(box.value);
-        updateHTML(sortAll(manObjects));
+        updateHTML(sortAll(womanObjects));
       } else {
         const deleteIndex = activeSizes.indexOf(box.value);
         activeSizes.splice(deleteIndex, 1);
-        updateHTML(sortAll(manObjects));
+        updateHTML(sortAll(womanObjects));
       }
     });
   });
@@ -213,11 +213,11 @@ function startFiltering(manObjects) {
       box.addEventListener("click", () => {
         if (box.checked) {
           activeValues[parameterID].push(box.value);
-          updateHTML(sortAll(manObjects));
+          updateHTML(sortAll(womanObjects));
         } else {
           const deleteIndex = activeValues[parameterID].indexOf(box.value);
           activeValues[parameterID].splice(deleteIndex, 1);
-          updateHTML(sortAll(manObjects));
+          updateHTML(sortAll(womanObjects));
         }
       });
     });
@@ -225,12 +225,12 @@ function startFiltering(manObjects) {
 
   // Event listener to check if the prices are valid
   priceSubmitBtn.addEventListener("click", () => {
-    updateHTML(sortAll(manObjects));
+    updateHTML(sortAll(womanObjects));
   });
 
   // Event listener to update HTML when the page loads
   window.addEventListener("load", () => {
-    updateHTML(manObjects);
+    updateHTML(womanObjects);
   });
 }
 
