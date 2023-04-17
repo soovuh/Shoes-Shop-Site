@@ -1,14 +1,14 @@
-function startFiltering(manObjects) {
+function startFiltering(Objects) {
   // Object to hold active type and brand values
   const activeValues = {
     type: [],
     brand: [],
   };
-
   const activeSizes = [];
+  let sortValue = "default";
 
   // Querying DOM elements
-
+  const sortButtons = document.querySelectorAll(".dropdown-item");
   const minPrice = document.querySelector("#min-price");
   const maxPrice = document.querySelector("#max-price");
   const priceSubmitBtn = document.querySelector(".submit-price-btn");
@@ -29,9 +29,9 @@ function startFiltering(manObjects) {
   }
 
   // Function to sort objects by brand and type
-  function getSortedTypeAndBrand(manObjects) {
+  function getSortedTypeAndBrand(Objects) {
     const activeKeys = getActiveKeys(activeValues);
-    return manObjects.filter((obj) => {
+    return Objects.filter((obj) => {
       if (activeKeys.length === 0) {
         return obj;
       }
@@ -103,12 +103,32 @@ function startFiltering(manObjects) {
     }
   }
 
+  function sortItems(items) {
+    if (sortValue === "default") {
+      items.sort((a, b) => b.sale - a.sale);
+    } else if (sortValue === "low") {
+      items.sort(
+        (a, b) => a.price - a.price * a.sale - (b.price - b.price * b.sale)
+      );
+    } else if (sortValue === "high") {
+      items.sort(
+        (a, b) => b.price - b.price * b.sale - (a.price - a.price * a.sale)
+      );
+    } else if (sortValue === "latest") {
+      items.sort((a, b) => b.createdAt - a.createdAt);
+    } else if (sortValue === "popularity") {
+      items.sort((a, b) => b.views - a.views);
+    }
+    return items;
+  }
+
   // Function to sort all objects
-  function sortAll(manObjects) {
-    const sortedByTypeAndBrand = getSortedTypeAndBrand(manObjects);
-    const sortedBySize = getSortedSize(sortedByTypeAndBrand);
-    const sortedByPrice = getSortedPrice(sortedBySize);
-    return sortedByPrice;
+  function filterAll(Objects) {
+    const filteredByTypeAndBrand = getSortedTypeAndBrand(Objects);
+    const filteredBySize = getSortedSize(filteredByTypeAndBrand);
+    const filteredByPrice = getSortedPrice(filteredBySize);
+    const sortedItems = sortItems(filteredByPrice);
+    return sortedItems;
   }
 
   function addProductCard(product) {
@@ -195,11 +215,11 @@ function startFiltering(manObjects) {
     box.addEventListener("click", () => {
       if (box.checked) {
         activeSizes.push(box.value);
-        updateHTML(sortAll(manObjects));
+        updateHTML(filterAll(Objects));
       } else {
         const deleteIndex = activeSizes.indexOf(box.value);
         activeSizes.splice(deleteIndex, 1);
-        updateHTML(sortAll(manObjects));
+        updateHTML(filterAll(Objects));
       }
     });
   });
@@ -213,24 +233,32 @@ function startFiltering(manObjects) {
       box.addEventListener("click", () => {
         if (box.checked) {
           activeValues[parameterID].push(box.value);
-          updateHTML(sortAll(manObjects));
+          updateHTML(filterAll(Objects));
         } else {
           const deleteIndex = activeValues[parameterID].indexOf(box.value);
           activeValues[parameterID].splice(deleteIndex, 1);
-          updateHTML(sortAll(manObjects));
+          updateHTML(filterAll(Objects));
         }
       });
     });
   });
 
+  sortButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      sortValue = button.id;
+      console.log(sortValue);
+      updateHTML(filterAll(Objects));
+    });
+  });
+
   // Event listener to check if the prices are valid
   priceSubmitBtn.addEventListener("click", () => {
-    updateHTML(sortAll(manObjects));
+    updateHTML(filterAll(Objects));
   });
 
   // Event listener to update HTML when the page loads
   window.addEventListener("load", () => {
-    updateHTML(manObjects);
+    updateHTML(sortItems(Objects));
   });
 }
 
