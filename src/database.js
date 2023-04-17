@@ -580,9 +580,9 @@ const cartExample = [
     views: 7,
     url: "/product.html",
     createdAt: new Date("2023-03-17"),
-    qty: 10,
+    qty: 7,
     userQty: 1,
-    userSize: "42",
+    userSize: "44",
   },
   {
     id: 24,
@@ -597,9 +597,9 @@ const cartExample = [
     views: 14,
     url: "/product.html",
     createdAt: new Date("2023-03-16"),
-    qty: 10,
+    qty: 5,
     userQty: 1,
-    userSize: "42",
+    userSize: "39",
   },
   {
     id: 25,
@@ -614,9 +614,9 @@ const cartExample = [
     views: 8,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
-    qty: 10,
+    qty: 3,
     userQty: 2,
-    userSize: "42",
+    userSize: "40",
   },
 ];
 
