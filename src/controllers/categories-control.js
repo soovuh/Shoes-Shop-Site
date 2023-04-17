@@ -70,7 +70,7 @@ function startFiltering(Objects) {
   function getSortedPrice(preparedItems) {
     checkOnValidPrice();
     return preparedItems.filter((obj) => {
-      const currentPrice = obj.price - obj.price * obj.sale;
+      const currentPrice = Math.ceil(obj.price - obj.price * obj.sale);
       if (
         currentPrice >= Number(minPrice.value) &&
         currentPrice <= Number(maxPrice.value)
@@ -166,7 +166,7 @@ function startFiltering(Objects) {
     }
     currentPrice.classList.add("current-price");
     if (product.sale !== 0) {
-      const salePrice = product.price - product.price * product.sale;
+      const salePrice = Math.ceil(product.price - product.price * product.sale);
       currentPrice.textContent = "$" + salePrice;
     } else {
       currentPrice.textContent = "$" + product.price;

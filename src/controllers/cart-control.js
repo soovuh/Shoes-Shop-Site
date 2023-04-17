@@ -3,6 +3,7 @@ function cartFill(Objects) {
   function createobjBox(obj) {
     const box = document.createElement("div");
     box.classList.add("box");
+    box.id = obj.id;
 
     const img = document.createElement("img");
     img.src = obj.image;
@@ -17,7 +18,7 @@ function cartFill(Objects) {
     const price = document.createElement("h4");
     price.classList.add("price");
     const currentPrice =
-      obj.sale > 0 ? obj.price - obj.price * obj.sale : obj.price;
+      obj.sale > 0 ? Math.ceil(obj.price - obj.price * obj.sale) : obj.price;
     price.innerHTML = `Price: $<span class="price-value">${currentPrice}</span> | Size: <span class="size-value">${obj.userSize}</span>`;
 
     const unit = document.createElement("p");
@@ -80,35 +81,50 @@ function boxControll(Objects) {
   const EmptyCart = document.querySelector(".empty-a");
   let boxes = document.querySelectorAll(".box");
   function boxesUpdate(boxes) {
-    boxes.forEach((box, index) => {
+    boxes.forEach((box) => {
       const qty = box.querySelector(".qty");
       const qtyMinus = box.querySelector(".qty-minus");
       const qtyPlus = box.querySelector(".qty-plus");
+      const boxObj = Objects.find((obj) => String(obj.id) === String(box.id));
 
       qty.addEventListener("input", () => {
         if (qty.value) {
-          if (Number(qty.value) <= 0 || Number(qty.value) >= 30) {
+          if (Number(qty.value) <= 0 || Number(qty.value) > boxObj.qty) {
             qty.value = 1;
           }
+          // Here we need to update info about qty in user cart
           calculateSubPrice(boxes);
         }
       });
 
       qtyMinus.addEventListener("click", () => {
-        if (qty.value > 1) {
-          qty.value--;
+        if (qty.value) {
+          if (Number(qty.value) <= 0 || Number(qty.value) >= boxObj.qty) {
+            qty.value = 1;
+          } else if (qty.value > 1) {
+            qty.value--;
+          }
+          // Here we need to update info about qty in user cart
           calculateSubPrice(boxes);
         }
       });
 
       qtyPlus.addEventListener("click", () => {
-        qty.value++;
+        if (qty.value) {
+          if (Number(qty.value) <= 0 || Number(qty.value) >= boxObj.qty) {
+            qty.value = 1;
+          } else {
+            qty.value++;
+          }
+        }
+        // Here we need to update info about qty in user cart
         calculateSubPrice(boxes);
       });
 
       document.addEventListener("click", (click) => {
         if (!qty.value && document.activeElement != qty) {
           qty.value = 1;
+          // Here we need to update info about qty in user cart
           calculateSubPrice(boxes);
         }
       });
@@ -116,6 +132,7 @@ function boxControll(Objects) {
       const buttonRemove = box.querySelector(".btn-remove");
       buttonRemove.addEventListener("click", () => {
         box.remove();
+        // Here we need to update info about qty in user cart
         boxes = document.querySelectorAll(".box");
         calculateSubPrice(boxes);
       });
@@ -139,7 +156,7 @@ function boxControll(Objects) {
 
   // This function calculate all values and update right bar with total price
   function DisplayPrices(subtotal) {
-    const tax = subtotal * 0.05;
+    const tax = Math.ceil(subtotal * 0.05);
     const shipping = subtotal > 0 ? 15 : 0;
     const total = tax + subtotal + shipping;
     rightBar.querySelector(".subtotal-value").innerText = `$${subtotal}`;
