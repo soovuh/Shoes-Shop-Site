@@ -51,6 +51,7 @@ const hotDeals = [
     views: 14,
     url: "/product.html",
     createdAt: new Date("2023-03-19"),
+    qty: 10,
   },
   {
     id: 10,
@@ -65,6 +66,7 @@ const hotDeals = [
     views: 6,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
   {
     id: 11,
@@ -79,6 +81,7 @@ const hotDeals = [
     views: 12,
     url: "/product.html",
     createdAt: new Date("2023-03-19"),
+    qty: 10,
   },
   {
     id: 14,
@@ -93,6 +96,7 @@ const hotDeals = [
     views: 8,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
   {
     id: 17,
@@ -107,6 +111,7 @@ const hotDeals = [
     views: 6,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
   {
     id: 7,
@@ -121,6 +126,7 @@ const hotDeals = [
     views: 3,
     url: "/product.html",
     createdAt: new Date("2023-03-19"),
+    qty: 10,
   },
   {
     id: 8,
@@ -135,6 +141,7 @@ const hotDeals = [
     views: 8,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
   {
     id: 2,
@@ -149,6 +156,7 @@ const hotDeals = [
     views: 2,
     url: "/product.html",
     createdAt: new Date("2023-03-13"),
+    qty: 10,
   },
   {
     id: 20,
@@ -163,6 +171,7 @@ const hotDeals = [
     views: 12,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
 ];
 
@@ -180,6 +189,7 @@ const shoesObjs = [
     views: 0,
     url: "/product.html",
     createdAt: new Date("2023-03-12"),
+    qty: 10,
   },
   {
     id: 2,
@@ -194,6 +204,7 @@ const shoesObjs = [
     views: 2,
     url: "/product.html",
     createdAt: new Date("2023-03-13"),
+    qty: 10,
   },
   {
     id: 3,
@@ -208,6 +219,7 @@ const shoesObjs = [
     views: 5,
     url: "/product.html",
     createdAt: new Date("2023-03-11"),
+    qty: 10,
   },
   {
     id: 4,
@@ -222,6 +234,7 @@ const shoesObjs = [
     views: 10,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
   {
     id: 5,
@@ -236,6 +249,7 @@ const shoesObjs = [
     views: 7,
     url: "/product.html",
     createdAt: new Date("2023-03-18"),
+    qty: 10,
   },
   {
     id: 6,
@@ -250,6 +264,7 @@ const shoesObjs = [
     views: 14,
     url: "/product.html",
     createdAt: new Date("2023-03-19"),
+    qty: 10,
   },
   {
     id: 7,
@@ -264,6 +279,7 @@ const shoesObjs = [
     views: 3,
     url: "/product.html",
     createdAt: new Date("2023-03-19"),
+    qty: 10,
   },
   {
     id: 8,
@@ -278,6 +294,7 @@ const shoesObjs = [
     views: 8,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
   {
     id: 9,
@@ -292,6 +309,7 @@ const shoesObjs = [
     views: 2,
     url: "/product.html",
     createdAt: new Date("2023-03-19"),
+    qty: 10,
   },
   {
     id: 10,
@@ -306,6 +324,7 @@ const shoesObjs = [
     views: 6,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
   {
     id: 11,
@@ -320,6 +339,7 @@ const shoesObjs = [
     views: 12,
     url: "/product.html",
     createdAt: new Date("2023-03-19"),
+    qty: 10,
   },
   {
     id: 12,
@@ -334,6 +354,7 @@ const shoesObjs = [
     views: 4,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
   {
     id: 13,
@@ -348,6 +369,7 @@ const shoesObjs = [
     views: 5,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
   {
     id: 14,
@@ -362,6 +384,7 @@ const shoesObjs = [
     views: 8,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
   {
     id: 15,
@@ -376,6 +399,7 @@ const shoesObjs = [
     views: 3,
     url: "/product.html",
     createdAt: new Date("2023-03-17"),
+    qty: 10,
   },
   {
     id: 16,
@@ -390,6 +414,7 @@ const shoesObjs = [
     views: 2,
     url: "/product.html",
     createdAt: new Date("2023-03-17"),
+    qty: 10,
   },
   {
     id: 17,
@@ -404,6 +429,7 @@ const shoesObjs = [
     views: 6,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
   {
     id: 18,
@@ -418,6 +444,7 @@ const shoesObjs = [
     views: 4,
     url: "/product.html",
     createdAt: new Date("2023-03-17"),
+    qty: 10,
   },
   {
     id: 19,
@@ -432,6 +459,7 @@ const shoesObjs = [
     views: 7,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
   {
     id: 20,
@@ -446,6 +474,7 @@ const shoesObjs = [
     views: 12,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
   {
     id: 21,
@@ -460,6 +489,7 @@ const shoesObjs = [
     views: 9,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
   {
     id: 22,
@@ -487,6 +517,7 @@ const shoesObjs = [
     views: 18,
     url: "/product.html",
     createdAt: new Date("2023-03-17"),
+    qty: 10,
   },
   {
     id: 23,
@@ -501,6 +532,7 @@ const shoesObjs = [
     views: 7,
     url: "/product.html",
     createdAt: new Date("2023-03-17"),
+    qty: 10,
   },
   {
     id: 24,
@@ -515,6 +547,7 @@ const shoesObjs = [
     views: 14,
     url: "/product.html",
     createdAt: new Date("2023-03-16"),
+    qty: 10,
   },
   {
     id: 25,
@@ -529,7 +562,62 @@ const shoesObjs = [
     views: 8,
     url: "/product.html",
     createdAt: new Date("2023-03-15"),
+    qty: 10,
   },
 ];
 
-export { carouselObjs, shoesObjs, hotDeals };
+const cartExample = [
+  {
+    id: 23,
+    name: "Kappa Banda Coen",
+    image: "../images/shoes/Kappa-Banda-Coen.jpg",
+    price: 90,
+    size: ["39", "40", "41", "42", "43", "44", "45"],
+    sex: "male",
+    type: "retro",
+    brand: "Kappa",
+    sale: 0.05,
+    views: 7,
+    url: "/product.html",
+    createdAt: new Date("2023-03-17"),
+    qty: 10,
+    userQty: 1,
+    userSize: "42",
+  },
+  {
+    id: 24,
+    name: "Adidas x Parley Ultraboost 5.0",
+    image: "../images/shoes/Adidas-X-Parley-Ultraboost-5.0-DNA.jpg",
+    price: 240,
+    size: ["38", "39", "40", "41", "42"],
+    sex: "male",
+    type: "running",
+    brand: "Adidas",
+    sale: 0.2,
+    views: 14,
+    url: "/product.html",
+    createdAt: new Date("2023-03-16"),
+    qty: 10,
+    userQty: 1,
+    userSize: "42",
+  },
+  {
+    id: 25,
+    name: "Nike Air Max 97",
+    image: "../images/shoes/Nike-Air-Max-97.jpg",
+    price: 190,
+    size: ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45"],
+    sex: "male",
+    type: "running",
+    brand: "Nike",
+    sale: 0,
+    views: 8,
+    url: "/product.html",
+    createdAt: new Date("2023-03-15"),
+    qty: 10,
+    userQty: 2,
+    userSize: "42",
+  },
+];
+
+export { carouselObjs, shoesObjs, hotDeals, cartExample };
