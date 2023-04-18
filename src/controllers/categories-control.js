@@ -140,14 +140,14 @@ function startFiltering(Objects) {
     img.src = product.image;
     img.alt = product.name;
     const imgLink = document.createElement("a");
-    imgLink.href = "#";
+    imgLink.href = product.href;
     imgLink.appendChild(img);
     card.appendChild(imgLink);
 
     const productLink = document.createElement("a");
     productLink.classList.add("product-a");
     productLink.classList.add("product-link");
-    productLink.href = "#";
+    productLink.href = product.href;
     const content = document.createElement("div");
     content.classList.add("card-content");
     const name = document.createElement("p");
@@ -185,7 +185,7 @@ function startFiltering(Objects) {
 
     const infoLink = document.createElement("a");
     infoLink.classList.add("product-a");
-    infoLink.href = "#";
+    infoLink.href = product.href;
     const info = document.createElement("div");
     info.classList.add("card-info");
     info.textContent = "View more";

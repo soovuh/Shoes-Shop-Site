@@ -7,6 +7,10 @@ function cartFill(Objects) {
 
     const img = document.createElement("img");
     img.src = obj.image;
+    const imgLink = document.createElement("a");
+    imgLink.classList.add("img-link");
+    imgLink.href = obj.href;
+    imgLink.appendChild(img);
 
     const content = document.createElement("div");
     content.classList.add("content");
@@ -61,7 +65,7 @@ function cartFill(Objects) {
     content.appendChild(unit);
     content.appendChild(btnArea);
 
-    box.appendChild(img);
+    box.appendChild(imgLink);
     box.appendChild(content);
 
     return box;

@@ -28,7 +28,7 @@ function fillHotDeals(container) {
 
     // create the image element and add it to the card
     const imageLink = document.createElement("a");
-    imageLink.href = "#";
+    imageLink.href = product.href;
     const image = document.createElement("img");
     image.classList.add("card-image");
     image.src = product.image;
@@ -38,7 +38,7 @@ function fillHotDeals(container) {
 
     // create the product name, old price, and current price elements and add them to the card
     const productLink = document.createElement("a");
-    productLink.href = "#";
+    productLink.href = product.href;
     productLink.classList.add("product-a");
     const content = document.createElement("div");
     content.classList.add("card-content");
@@ -60,7 +60,7 @@ function fillHotDeals(container) {
 
     // create the "view more" link and add it to the card
     const infoLink = document.createElement("a");
-    infoLink.href = "#";
+    infoLink.href = product.href;
     infoLink.classList.add("product-a");
     const info = document.createElement("div");
     info.classList.add("card-info");
