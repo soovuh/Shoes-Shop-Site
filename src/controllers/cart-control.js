@@ -89,7 +89,10 @@ function boxControll(Objects) {
 
       qty.addEventListener("input", () => {
         if (qty.value) {
-          if (Number(qty.value) <= 0 || Number(qty.value) > boxObj.qty) {
+          if (
+            Number(qty.value) <= 0 ||
+            Number(qty.value) > Number(boxObj.qty[boxObj.userSize])
+          ) {
             qty.value = 1;
           }
           // Here we need to update info about qty in user cart
@@ -99,7 +102,10 @@ function boxControll(Objects) {
 
       qtyMinus.addEventListener("click", () => {
         if (qty.value) {
-          if (Number(qty.value) <= 0 || Number(qty.value) >= boxObj.qty) {
+          if (
+            Number(qty.value) <= 0 ||
+            Number(qty.value) >= Number(boxObj.qty[boxObj.userSize])
+          ) {
             qty.value = 1;
           } else if (qty.value > 1) {
             qty.value--;
@@ -111,7 +117,10 @@ function boxControll(Objects) {
 
       qtyPlus.addEventListener("click", () => {
         if (qty.value) {
-          if (Number(qty.value) <= 0 || Number(qty.value) >= boxObj.qty) {
+          if (
+            Number(qty.value) <= 0 ||
+            Number(qty.value) >= Number(boxObj.qty[boxObj.userSize])
+          ) {
             qty.value = 1;
           } else {
             qty.value++;
