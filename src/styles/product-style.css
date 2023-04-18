@@ -95,7 +95,7 @@ body {
 .add-button {
   width: 100%;
   background: rgba(88, 38, 142, 0);
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.751);
 
   border-radius: 20px;
   color: #fff;
@@ -113,7 +113,7 @@ body {
 .dropdown-toggle {
   width: 100%;
   background: rgba(88, 38, 142, 0);
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.751);
 
   border-radius: 20px;
   color: #fff;
