@@ -6,6 +6,10 @@
   text-decoration: none;
 }
 
+body {
+  justify-content: space-between;
+}
+
 .qty::-webkit-outer-spin-button,
 .qty::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -34,7 +38,6 @@ body {
   margin-top: 130px;
   margin-bottom: 50px;
   background: rgba(88, 38, 142, 0);
-  min-height: 120vh;
 }
 .wrapper h1 {
   padding: 20px 0;
