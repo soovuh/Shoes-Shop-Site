@@ -33,6 +33,7 @@ header {
 
 .img-container img {
   height: 100%;
+  width: 100%;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-right: none;
   border-radius: 20px;
@@ -58,7 +59,7 @@ header {
 }
 .name-box {
   margin-top: 20px;
-  font-size: 2em;
+  font-size: 1.7em;
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
 
@@ -211,6 +212,7 @@ header {
   border-radius: 20px;
   height: 165px;
   overflow-y: scroll;
+  text-align: start;
 }
 
 .info .text::-webkit-scrollbar {
@@ -220,4 +222,64 @@ header {
 footer {
   position: static;
   z-index: 97;
+}
+
+@media screen and (max-width: 800px) {
+  .main-container {
+    margin-top: 20px;
+    height: 100%;
+    flex-direction: column;
+    box-shadow: none;
+    border: none;
+  }
+  .img-container {
+    width: 60%;
+    box-shadow: none;
+
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none;
+  }
+  .img-container img {
+    border-radius: 20px;
+    border: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .info-container {
+    width: 60%;
+    box-shadow: none;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+  }
+
+  .info-container .parameters {
+    margin-bottom: 20px;
+  }
+  .name-box {
+    font-size: 1.5em;
+  }
+  .price-box {
+    font-size: 1.3em;
+  }
+  .buttons .add-button {
+    font-size: 0.8em;
+  }
+  .buttons .dropdown-toggle {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 534px) {
+  .info-container {
+    width: 315px;
+  }
+  .img-container {
+    width: 315px;
+  }
 }
