@@ -1,38 +1,56 @@
 const carouselObjs = [
   {
     id: 1,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     image: "../images/carousel/image-1.jpg",
   },
   {
     id: 2,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     image: "../images/carousel/image-2.jpg",
   },
   {
     id: 3,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     image: "../images/carousel/image-3.jpg",
   },
   {
     id: 4,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     image: "../images/carousel/image-4.jpg",
   },
   {
     id: 5,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     image: "../images/carousel/image-5.jpg",
   },
   {
     id: 6,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     image: "../images/carousel/image-6.jpg",
   },
   {
     id: 7,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     image: "../images/carousel/image-7.jpg",
   },
   {
     id: 8,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     image: "../images/carousel/image-8.jpg",
   },
   {
     id: 9,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     image: "../images/carousel/image-9.jpg",
   },
 ];
@@ -40,6 +58,8 @@ const carouselObjs = [
 const hotDeals = [
   {
     id: 6,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Nike Retro GTS",
     image: "../images/shoes/Nike-Retro-GTS.jpg",
     price: 200,
@@ -67,6 +87,8 @@ const hotDeals = [
   },
   {
     id: 10,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Puma Cali",
     image: "../images/shoes/Puma-Cali.jpg",
     price: 160,
@@ -92,6 +114,8 @@ const hotDeals = [
   },
   {
     id: 11,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Reebok Classic",
     image: "../images/shoes/Reebok-Classic.jpg",
     price: 120,
@@ -114,6 +138,8 @@ const hotDeals = [
   },
   {
     id: 14,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Puma Basket Classic",
     image: "../images/shoes/Puma-Basket-Classic.jpg",
     price: 120,
@@ -137,6 +163,8 @@ const hotDeals = [
   },
   {
     id: 2,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Adidas Urban",
     image: "../images/shoes/Urban-Outfiters.jpg",
     price: 300,
@@ -164,6 +192,8 @@ const hotDeals = [
   },
   {
     id: 7,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Nike Court Vision",
     image: "../images/shoes/Nike-Court-Vision.jpg",
     price: 140,
@@ -189,6 +219,8 @@ const hotDeals = [
   },
   {
     id: 8,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Nike Air Max",
     image: "../images/shoes/Nike-Air-Max.jpg",
     price: 220,
@@ -215,6 +247,8 @@ const hotDeals = [
   },
   {
     id: 17,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Vans Slip-On Pro",
     image: "../images/shoes/Vans-Slip-On-Pro.jpg",
     price: 80,
@@ -236,6 +270,8 @@ const hotDeals = [
   },
   {
     id: 20,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Puma Platform Trace",
     image: "../images/shoes/Puma-Platform-Trace-Animal.jpg",
     price: 160,
@@ -263,6 +299,8 @@ const hotDeals = [
 const shoesObjs = [
   {
     id: 1,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Adidas Trainers",
     image: "../images/shoes/Adidas-Trainers.jpg",
     price: 125,
@@ -284,6 +322,8 @@ const shoesObjs = [
   },
   {
     id: 2,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Adidas Urban",
     image: "../images/shoes/Urban-Outfiters.jpg",
     price: 300,
@@ -311,6 +351,8 @@ const shoesObjs = [
   },
   {
     id: 3,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Adidas Superstar",
     image: "../images/shoes/Adidas-Super-Star.jpg",
     price: 200,
@@ -330,6 +372,8 @@ const shoesObjs = [
   },
   {
     id: 4,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Adidas Triple-Platforum",
     image: "../images/shoes/Adidas-Triple-Platforum.jpg",
     price: 350,
@@ -347,6 +391,8 @@ const shoesObjs = [
   },
   {
     id: 5,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Nike Downshifter 9",
     image: "../images/shoes/Nike-Downshifter.jpg",
     price: 170,
@@ -368,6 +414,8 @@ const shoesObjs = [
   },
   {
     id: 6,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Nike Retro GTS",
     image: "../images/shoes/Nike-Retro-GTS.jpg",
     price: 200,
@@ -395,6 +443,8 @@ const shoesObjs = [
   },
   {
     id: 7,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Nike Court Vision",
     image: "../images/shoes/Nike-Court-Vision.jpg",
     price: 140,
@@ -420,6 +470,8 @@ const shoesObjs = [
   },
   {
     id: 8,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Nike Air Max",
     image: "../images/shoes/Nike-Air-Max.jpg",
     price: 220,
@@ -446,6 +498,8 @@ const shoesObjs = [
   },
   {
     id: 9,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Puma RS-X3",
     image: "../images/shoes/Puma-RS-X3.jpg",
     price: 180,
@@ -473,6 +527,8 @@ const shoesObjs = [
   },
   {
     id: 10,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Puma Cali",
     image: "../images/shoes/Puma-Cali.jpg",
     price: 160,
@@ -498,6 +554,8 @@ const shoesObjs = [
   },
   {
     id: 11,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Reebok Classic",
     image: "../images/shoes/Reebok-Classic.jpg",
     price: 120,
@@ -520,6 +578,8 @@ const shoesObjs = [
   },
   {
     id: 12,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Reebok Princess",
     image: "../images/shoes/Reebok-Princess.jpg",
     price: 100,
@@ -541,6 +601,8 @@ const shoesObjs = [
   },
   {
     id: 13,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Kappa Court",
     image: "../images/shoes/Kappa-Court.jpg",
     price: 90,
@@ -564,6 +626,8 @@ const shoesObjs = [
   },
   {
     id: 14,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Puma Basket Classic",
     image: "../images/shoes/Puma-Basket-Classic.jpg",
     price: 120,
@@ -587,6 +651,8 @@ const shoesObjs = [
   },
   {
     id: 15,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Reebok Classic Leather",
     image: "../images/shoes/Reebok-Classic-Leather.jpg",
     price: 180,
@@ -609,6 +675,8 @@ const shoesObjs = [
   },
   {
     id: 16,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Kappa Gizeh",
     image: "../images/shoes/Kappa-Gizeh.jpg",
     price: 100,
@@ -630,6 +698,8 @@ const shoesObjs = [
   },
   {
     id: 17,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Vans Slip-On Pro",
     image: "../images/shoes/Vans-Slip-On-Pro.jpg",
     price: 80,
@@ -651,6 +721,8 @@ const shoesObjs = [
   },
   {
     id: 18,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Adidas Originals",
     image: "../images/shoes/Adidas-Originals.jpg",
     price: 220,
@@ -672,6 +744,8 @@ const shoesObjs = [
   },
   {
     id: 19,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Nike Air Force 1 Shadow",
     image: "../images/shoes/Nike-Air-Force-1-Shadow.jpg",
     price: 280,
@@ -694,6 +768,8 @@ const shoesObjs = [
   },
   {
     id: 20,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Puma Platform Trace",
     image: "../images/shoes/Puma-Platform-Trace-Animal.jpg",
     price: 160,
@@ -718,6 +794,8 @@ const shoesObjs = [
   },
   {
     id: 21,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Reebok Club C 85 Vintage",
     image: "../images/shoes/Reebok-Club-C-85-Vintage.jpg",
     price: 100,
@@ -739,6 +817,8 @@ const shoesObjs = [
   },
   {
     id: 22,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Vans Classic Slip-On",
     image: "../images/shoes/Vans-Classic-Slip-On.jpg",
     price: 75,
@@ -766,6 +846,8 @@ const shoesObjs = [
   },
   {
     id: 23,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Kappa Banda Coen",
     image: "../images/shoes/Kappa-Banda-Coen.jpg",
     price: 90,
@@ -789,6 +871,8 @@ const shoesObjs = [
   },
   {
     id: 24,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Adidas x Parley Ultraboost 5.0",
     image: "../images/shoes/Adidas-X-Parley-Ultraboost-5.0-DNA.jpg",
     price: 240,
@@ -812,6 +896,8 @@ const shoesObjs = [
   },
   {
     id: 25,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Nike Air Max 97",
     image: "../images/shoes/Nike-Air-Max-97.jpg",
     price: 190,
@@ -842,6 +928,8 @@ const shoesObjs = [
 const cartExample = [
   {
     id: 23,
+    info: "Some info about shoes, that we see on the product page. This can be an additional description or information about the quality or year of manufacture. In general, this is information that will be unique to each shoe, which will have to attract the customer.",
+    href: "./product.html",
     name: "Kappa Banda Coen",
     image: "../images/shoes/Kappa-Banda-Coen.jpg",
     price: 90,
@@ -867,6 +955,8 @@ const cartExample = [
   },
   {
     id: 24,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Adidas x Parley Ultraboost 5.0",
     image: "../images/shoes/Adidas-X-Parley-Ultraboost-5.0-DNA.jpg",
     price: 240,
@@ -892,6 +982,8 @@ const cartExample = [
   },
   {
     id: 25,
+    info: "Some info about shoes, that we see on the product page.",
+    href: "./product.html",
     name: "Nike Air Max 97",
     image: "../images/shoes/Nike-Air-Max-97.jpg",
     price: 190,
