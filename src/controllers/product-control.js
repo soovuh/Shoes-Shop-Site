@@ -29,10 +29,10 @@ function productControll(productObj) {
     oldPrice.classList.add("old-price");
     if (obj.sale > 0) {
       currentPrice.textContent =
-        String(obj.price - obj.price * obj.sale) + " $";
-      oldPrice.textContent = String(obj.price) + " $";
+        String(Math.ceil(obj.price - obj.price * obj.sale)) + " $ ";
+      oldPrice.textContent = String(obj.price) + " $ ";
     } else if (obj.sale === 0) {
-      currentPrice.textContent = String(obj.price) + " $";
+      currentPrice.textContent = String(obj.price) + " $ ";
     }
 
     // add price elements to price box
