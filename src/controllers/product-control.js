@@ -138,19 +138,27 @@ function productControll(productObj) {
   updateHTML(productObj);
   const sizeItems = document.querySelectorAll(".dropdown-item");
   const addToCartBtn = document.querySelector(".add-button");
-  let userSize = "none";
   const login = true; // Тут будет проверка на то, что пользоваетель зарегестрирован
+  const alert = document.querySelector(".alert");
+  const alertText = alert.querySelector("h2");
+  const closeIcon = alert.querySelector(".icon-close-alert");
+  const submitBtn = alert.querySelector(".alert-btn");
+  let userSize = "none";
 
   addToCartBtn.addEventListener("click", () => {
     if (userSize !== "none" && login !== false) {
-      console.log("added to cart!");
-      //   request to add in cart
+      // Adding to cart procces
+      alertText.textContent = "Added to cart!";
+      alert.classList.add("active");
+      console.log("+");
     }
     if (userSize === "none") {
-      console.log("Not choosed size!");
+      alertText.textContent = "First, choose a size!";
+      alert.classList.add("active");
     }
     if (login === false) {
-      console.log("U dont authorized!");
+      alertText.textContent = "Login first!";
+      alert.classList.add("active");
     }
   });
 
@@ -159,6 +167,16 @@ function productControll(productObj) {
       userSize = item.id;
       console.log(userSize);
     });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (
+      (!alert.contains(event.target) && !addToCartBtn.contains(event.target)) ||
+      closeIcon.contains(event.target) ||
+      submitBtn.contains(event.target)
+    ) {
+      alert.classList.remove("active");
+    }
   });
 }
 
