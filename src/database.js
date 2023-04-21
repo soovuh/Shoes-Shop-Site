@@ -1013,4 +1013,34 @@ const cartExample = [
   },
 ];
 
-export { carouselObjs, shoesObjs, hotDeals, cartExample };
+const productObj = {
+  id: 25,
+  info: "Some info about shoes, that we see on the product page.",
+  href: "./product.html",
+  name: "Nike Air Max 97",
+  image: "../images/shoes/Nike-Air-Max-97.jpg",
+  price: 190,
+  size: ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45"],
+  sex: "male",
+  type: "running",
+  brand: "Nike",
+  sale: 0,
+  views: 8,
+  url: "/product.html",
+  createdAt: new Date("2023-03-15"),
+  qty: {
+    35: 8,
+    36: 2,
+    37: 5,
+    38: 1,
+    39: 6,
+    40: 7,
+    41: 4,
+    42: 3,
+    43: 9,
+    44: 10,
+    45: 3,
+  },
+};
+
+export { carouselObjs, shoesObjs, hotDeals, cartExample, productObj };
