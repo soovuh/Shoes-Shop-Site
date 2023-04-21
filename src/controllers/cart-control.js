@@ -93,11 +93,10 @@ function boxControll(Objects) {
 
       qty.addEventListener("input", () => {
         if (qty.value) {
-          if (
-            Number(qty.value) <= 0 ||
-            Number(qty.value) > Number(boxObj.qty[boxObj.userSize])
-          ) {
+          if (Number(qty.value) <= 0) {
             qty.value = 1;
+          } else if (Number(qty.value) > Number(boxObj.qty[boxObj.userSize])) {
+            qty.value = boxObj.qty[boxObj.userSize];
           }
           // Here we need to update info about qty in user cart
           calculateSubPrice(boxes);
@@ -106,11 +105,10 @@ function boxControll(Objects) {
 
       qtyMinus.addEventListener("click", () => {
         if (qty.value) {
-          if (
-            Number(qty.value) <= 0 ||
-            Number(qty.value) >= Number(boxObj.qty[boxObj.userSize])
-          ) {
+          if (Number(qty.value) <= 0) {
             qty.value = 1;
+          } else if (Number(qty.value) > Number(boxObj.qty[boxObj.userSize])) {
+            qty.value = boxObj.qty[boxObj.userSize];
           } else if (qty.value > 1) {
             qty.value--;
           }
@@ -121,11 +119,10 @@ function boxControll(Objects) {
 
       qtyPlus.addEventListener("click", () => {
         if (qty.value) {
-          if (
-            Number(qty.value) <= 0 ||
-            Number(qty.value) >= Number(boxObj.qty[boxObj.userSize])
-          ) {
+          if (Number(qty.value) <= 0) {
             qty.value = 1;
+          } else if (Number(qty.value) >= Number(boxObj.qty[boxObj.userSize])) {
+            qty.value = boxObj.qty[boxObj.userSize];
           } else {
             qty.value++;
           }
