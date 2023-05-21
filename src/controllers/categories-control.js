@@ -159,13 +159,13 @@ function startFiltering(Objects) {
     const oldPrice = document.createElement("p");
     oldPrice.classList.add("old-price");
     const currentPrice = document.createElement("p");
-    if (product.sale !== 0) {
+    if (Number(product.sale) !== 0) {
       oldPrice.textContent = "$" + product.price;
     } else {
       currentPrice.classList.add("only-current");
     }
     currentPrice.classList.add("current-price");
-    if (product.sale !== 0) {
+    if (Number(product.sale) !== 0) {
       const salePrice = Math.ceil(product.price - product.price * product.sale);
       currentPrice.textContent = "$" + salePrice;
     } else {
@@ -257,9 +257,7 @@ function startFiltering(Objects) {
   });
 
   // Event listener to update HTML when the page loads
-  window.addEventListener("load", () => {
-    updateHTML(sortItems(Objects));
-  });
+  updateHTML(sortItems(Objects));
 }
 
 export { startFiltering };

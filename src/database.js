@@ -69,7 +69,6 @@ const hotDeals = [
     brand: "Nike",
     sale: 0.7,
     views: 14,
-    url: "/product.html",
     createdAt: new Date("2023-03-19"),
     qty: {
       35: 8,
@@ -98,7 +97,6 @@ const hotDeals = [
     brand: "Puma",
     sale: 0.1,
     views: 6,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       35: 8,
@@ -125,7 +123,6 @@ const hotDeals = [
     brand: "Reebok",
     sale: 0.3,
     views: 12,
-    url: "/product.html",
     createdAt: new Date("2023-03-19"),
     qty: {
       36: 2,
@@ -149,7 +146,6 @@ const hotDeals = [
     brand: "Puma",
     sale: 0.3,
     views: 8,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       36: 2,
@@ -174,7 +170,6 @@ const hotDeals = [
     brand: "Adidas",
     sale: 0.2,
     views: 2,
-    url: "/product.html",
     createdAt: new Date("2023-03-13"),
     qty: {
       35: 8,
@@ -203,7 +198,6 @@ const hotDeals = [
     brand: "Nike",
     sale: 0.2,
     views: 3,
-    url: "/product.html",
     createdAt: new Date("2023-03-19"),
     qty: {
       35: 8,
@@ -230,7 +224,6 @@ const hotDeals = [
     brand: "Nike",
     sale: 0.15,
     views: 8,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       36: 2,
@@ -258,7 +251,6 @@ const hotDeals = [
     brand: "Vans",
     sale: 0.4,
     views: 6,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       36: 2,
@@ -281,7 +273,6 @@ const hotDeals = [
     brand: "Puma",
     sale: 0.25,
     views: 12,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       35: 8,
@@ -310,7 +301,6 @@ const shoesObjs = [
     brand: "Adidas",
     sale: 0,
     views: 0,
-    url: "/product.html",
     createdAt: new Date("2023-03-12"),
     qty: {
       38: 6,
@@ -333,7 +323,6 @@ const shoesObjs = [
     brand: "Adidas",
     sale: 0.2,
     views: 2,
-    url: "/product.html",
     createdAt: new Date("2023-03-13"),
     qty: {
       35: 8,
@@ -362,7 +351,6 @@ const shoesObjs = [
     brand: "Adidas",
     sale: 0,
     views: 5,
-    url: "/product.html",
     createdAt: new Date("2023-03-11"),
     qty: {
       35: 2,
@@ -383,7 +371,6 @@ const shoesObjs = [
     brand: "Adidas",
     sale: 0.1,
     views: 10,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       37: 2,
@@ -402,7 +389,6 @@ const shoesObjs = [
     brand: "Nike",
     sale: 0.15,
     views: 7,
-    url: "/product.html",
     createdAt: new Date("2023-03-18"),
     qty: {
       38: 1,
@@ -425,7 +411,6 @@ const shoesObjs = [
     brand: "Nike",
     sale: 0.7,
     views: 14,
-    url: "/product.html",
     createdAt: new Date("2023-03-19"),
     qty: {
       35: 8,
@@ -454,7 +439,6 @@ const shoesObjs = [
     brand: "Nike",
     sale: 0.2,
     views: 3,
-    url: "/product.html",
     createdAt: new Date("2023-03-19"),
     qty: {
       35: 8,
@@ -481,7 +465,6 @@ const shoesObjs = [
     brand: "Nike",
     sale: 0.15,
     views: 8,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       36: 2,
@@ -509,7 +492,6 @@ const shoesObjs = [
     brand: "Puma",
     sale: 0,
     views: 2,
-    url: "/product.html",
     createdAt: new Date("2023-03-19"),
     qty: {
       35: 8,
@@ -538,7 +520,6 @@ const shoesObjs = [
     brand: "Puma",
     sale: 0.1,
     views: 6,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       35: 8,
@@ -565,7 +546,6 @@ const shoesObjs = [
     brand: "Reebok",
     sale: 0.3,
     views: 12,
-    url: "/product.html",
     createdAt: new Date("2023-03-19"),
     qty: {
       36: 2,
@@ -589,7 +569,6 @@ const shoesObjs = [
     brand: "Reebok",
     sale: 0.2,
     views: 4,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       35: 8,
@@ -612,7 +591,6 @@ const shoesObjs = [
     brand: "Kappa",
     sale: 0.25,
     views: 5,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       35: 8,
@@ -637,7 +615,6 @@ const shoesObjs = [
     brand: "Puma",
     sale: 0.3,
     views: 8,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       36: 2,
@@ -662,7 +639,6 @@ const shoesObjs = [
     brand: "Reebok",
     sale: 0,
     views: 3,
-    url: "/product.html",
     createdAt: new Date("2023-03-17"),
     qty: {
       39: 6,
@@ -686,7 +662,6 @@ const shoesObjs = [
     brand: "Kappa",
     sale: 0,
     views: 2,
-    url: "/product.html",
     createdAt: new Date("2023-03-17"),
     qty: {
       37: 5,
@@ -709,7 +684,6 @@ const shoesObjs = [
     brand: "Vans",
     sale: 0.4,
     views: 6,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       36: 2,
@@ -732,7 +706,6 @@ const shoesObjs = [
     brand: "Adidas",
     sale: 0.25,
     views: 4,
-    url: "/product.html",
     createdAt: new Date("2023-03-17"),
     qty: {
       38: 1,
@@ -755,7 +728,6 @@ const shoesObjs = [
     brand: "Nike",
     sale: 0,
     views: 7,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       35: 8,
@@ -779,7 +751,6 @@ const shoesObjs = [
     brand: "Puma",
     sale: 0.25,
     views: 12,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       35: 8,
@@ -805,7 +776,6 @@ const shoesObjs = [
     brand: "Reebok",
     sale: 0,
     views: 9,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       38: 1,
@@ -828,7 +798,6 @@ const shoesObjs = [
     brand: "Vans",
     sale: 0.15,
     views: 18,
-    url: "/product.html",
     createdAt: new Date("2023-03-17"),
     qty: {
       35: 8,
@@ -857,7 +826,6 @@ const shoesObjs = [
     brand: "Kappa",
     sale: 0.05,
     views: 7,
-    url: "/product.html",
     createdAt: new Date("2023-03-17"),
     qty: {
       39: 6,
@@ -882,7 +850,6 @@ const shoesObjs = [
     brand: "Adidas",
     sale: 0.2,
     views: 14,
-    url: "/product.html",
     createdAt: new Date("2023-03-16"),
     qty: {
       39: 6,
@@ -907,7 +874,6 @@ const shoesObjs = [
     brand: "Nike",
     sale: 0,
     views: 8,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       35: 8,
@@ -939,7 +905,6 @@ const cartExample = [
     brand: "Kappa",
     sale: 0.05,
     views: 7,
-    url: "/product.html",
     createdAt: new Date("2023-03-17"),
     qty: {
       39: 6,
@@ -966,7 +931,6 @@ const cartExample = [
     brand: "Adidas",
     sale: 0.2,
     views: 14,
-    url: "/product.html",
     createdAt: new Date("2023-03-16"),
     qty: {
       39: 6,
@@ -993,7 +957,6 @@ const cartExample = [
     brand: "Nike",
     sale: 0,
     views: 8,
-    url: "/product.html",
     createdAt: new Date("2023-03-15"),
     qty: {
       35: 8,
@@ -1025,8 +988,7 @@ const productObj = {
   type: "high-top",
   brand: "Adidas",
   sale: 0.25,
-  views: 4,
-  url: "/product.html",
+  views: 4
   createdAt: new Date("2023-03-17"),
   qty: {
     38: 1,
