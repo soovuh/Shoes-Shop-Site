@@ -248,7 +248,7 @@ header {
 }
 
 .gender,
-.brand,
+.brand_name,
 .type {
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }

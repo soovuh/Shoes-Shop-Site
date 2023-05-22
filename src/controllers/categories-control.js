@@ -1,11 +1,32 @@
-function startFiltering(Objects) {
-  // Object to hold active type and brand values
+function startFiltering(Objects, Brands) {
+  // Object to hold active type and brand_name values
   const activeValues = {
     type: [],
-    brand: [],
+    brand_name: [],
   };
   const activeSizes = [];
   let sortValue = "default";
+
+  const firmNav = document.querySelector('.firm')
+for (let i = 0; i < Brands.length; i++) {
+  const brand = Brands[i].name;
+  console.log(brand)
+
+  const listItem = document.createElement("li");
+  const label = document.createElement("label");
+  const input = document.createElement("input");
+
+  label.setAttribute("for", brand.toLowerCase() + "-checkbox");
+  label.textContent = brand;
+
+  input.setAttribute("type", "checkbox");
+  input.setAttribute("id", brand.toLowerCase() + "-checkbox");
+  input.setAttribute("value", brand);
+
+  listItem.appendChild(label);
+  listItem.appendChild(input);
+  firmNav.appendChild(listItem);
+}
 
   // Querying DOM elements
   const sortButtons = document.querySelectorAll(".dropdown-item");
@@ -28,8 +49,8 @@ function startFiltering(Objects) {
     return activeKeys;
   }
 
-  // Function to sort objects by brand and type
-  function getSortedTypeAndBrand(Objects) {
+  // Function to sort objects by brand_name and type
+  function getSortedTypeAndBrand_name(Objects) {
     const activeKeys = getActiveKeys(activeValues);
     return Objects.filter((obj) => {
       if (activeKeys.length === 0) {
@@ -57,7 +78,7 @@ function startFiltering(Objects) {
     }
     const prepared = preparedItems.filter((obj) => {
       for (let i = 0; i < obj.size.length; i++) {
-        if (activeSizes.includes(obj.size[i])) {
+        if (activeSizes.includes(String(obj.size[i]))) {
           return obj;
         }
       }
@@ -124,8 +145,8 @@ function startFiltering(Objects) {
 
   // Function to sort all objects
   function filterAll(Objects) {
-    const filteredByTypeAndBrand = getSortedTypeAndBrand(Objects);
-    const filteredBySize = getSortedSize(filteredByTypeAndBrand);
+    const filteredByTypeAndBrand_name = getSortedTypeAndBrand_name(Objects);
+    const filteredBySize = getSortedSize(filteredByTypeAndBrand_name);
     const filteredByPrice = getSortedPrice(filteredBySize);
     const sortedItems = sortItems(filteredByPrice);
     return sortedItems;
@@ -246,7 +267,6 @@ function startFiltering(Objects) {
   sortButtons.forEach((button) => {
     button.addEventListener("click", () => {
       sortValue = button.id;
-      console.log(sortValue);
       updateHTML(filterAll(Objects));
     });
   });

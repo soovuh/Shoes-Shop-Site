@@ -105,13 +105,13 @@ function productControll(productObj) {
     genderValue.textContent =
       obj.sex.slice(0, 1).toUpperCase() + obj.sex.slice(1);
     gender.appendChild(genderValue);
-    const brand = document.createElement("div");
-    brand.classList.add("brand");
-    const brandValue = document.createElement("span");
-    brandValue.classList.add("brand-value");
-    brandValue.textContent =
-      obj.brand.slice(0, 1).toUpperCase() + obj.brand.slice(1);
-    brand.appendChild(brandValue);
+    const brand_name = document.createElement("div");
+    brand_name.classList.add("brand_name");
+    const brand_nameValue = document.createElement("span");
+    brand_nameValue.classList.add("brand_name-value");
+    brand_nameValue.textContent =
+      obj.brand_name.slice(0, 1).toUpperCase() + obj.brand_name.slice(1);
+    brand_name.appendChild(brand_nameValue);
     const type = document.createElement("div");
     type.classList.add("type");
     const typeValue = document.createElement("span");
@@ -121,7 +121,7 @@ function productControll(productObj) {
     type.appendChild(typeValue);
 
     parameters.appendChild(gender);
-    parameters.appendChild(brand);
+    parameters.appendChild(brand_name);
     parameters.appendChild(type);
 
     info.appendChild(description);
