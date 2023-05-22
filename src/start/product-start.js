@@ -12,11 +12,19 @@ async function getObjs(url) {
   return data;
 }
 
+async function incrementViews(productId) {
+    await fetch(`http://127.0.0.1:8000/shoe/${productId}/increment_views/`, {
+        method: 'POST',
+        mode: 'cors',
+    })
+}
+
 async function getShoeById() {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
   console.log(productId)
   const shoesObj = await getObjs("http://127.0.0.1:8000/shoe/" + productId);
+  incrementViews(productId);
   productControll(shoesObj);
   document.querySelector("#loader").style.display = "none";
   productAnimation();
