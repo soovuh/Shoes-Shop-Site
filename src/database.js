@@ -988,7 +988,7 @@ const productObj = {
   type: "high-top",
   brand: "Adidas",
   sale: 0.25,
-  views: 4
+  views: 4,
   createdAt: new Date("2023-03-17"),
   qty: {
     38: 1,

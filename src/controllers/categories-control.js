@@ -153,6 +153,7 @@ for (let i = 0; i < Brands.length; i++) {
   }
 
   function addProductCard(product) {
+    const baseLink = "product.html?id=";
     const card = document.createElement("div");
     card.classList.add("card");
 
@@ -161,14 +162,14 @@ for (let i = 0; i < Brands.length; i++) {
     img.src = product.image;
     img.alt = product.name;
     const imgLink = document.createElement("a");
-    imgLink.href = product.href;
+    imgLink.href = baseLink + String(product.id);
     imgLink.appendChild(img);
     card.appendChild(imgLink);
 
     const productLink = document.createElement("a");
     productLink.classList.add("product-a");
     productLink.classList.add("product-link");
-    productLink.href = product.href;
+    productLink.href = baseLink + String(product.id);
     const content = document.createElement("div");
     content.classList.add("card-content");
     const name = document.createElement("p");
@@ -206,7 +207,7 @@ for (let i = 0; i < Brands.length; i++) {
 
     const infoLink = document.createElement("a");
     infoLink.classList.add("product-a");
-    infoLink.href = product.href;
+    infoLink.href = baseLink + String(product.id);
     const info = document.createElement("div");
     info.classList.add("card-info");
     info.textContent = "View more";
@@ -278,6 +279,7 @@ for (let i = 0; i < Brands.length; i++) {
 
   // Event listener to update HTML when the page loads
   updateHTML(sortItems(Objects));
+  document.querySelector("#loader").style.display = "none";
 }
 
 export { startFiltering };

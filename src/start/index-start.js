@@ -8,4 +8,6 @@ const arrowIcons = document.querySelectorAll(".carousel .icon");
 
 fillHotDeals(cardContainer);
 fillCarousel(carouselImg);
+document.querySelector("#loader").style.display = "none";
 indexAnimation(carousel, arrowIcons);
+

@@ -1,7 +1,6 @@
 function productControll(productObj) {
   function updateHTML(obj) {
     const mainContainer = document.querySelector(".main-container");
-
     // create img
     const imgContainer = document.createElement("div");
     imgContainer.classList.add("img-container");
@@ -27,12 +26,12 @@ function productControll(productObj) {
     currentPrice.classList.add("current-price");
     const oldPrice = document.createElement("span");
     oldPrice.classList.add("old-price");
-    if (obj.sale > 0) {
+    if (Number(obj.sale )> 0) {
       currentPrice.textContent =
-        String(Math.ceil(obj.price - obj.price * obj.sale)) + " $ ";
-      oldPrice.textContent = String(obj.price) + " $ ";
-    } else if (obj.sale === 0) {
-      currentPrice.textContent = String(obj.price) + " $ ";
+        String(Math.ceil(Number(obj.price) - Number(obj.price) * Number(obj.sale))) + " $ ";
+      oldPrice.textContent = String(Number(obj.price)) + " $ ";
+    } else if (Number(obj.sale )=== 0) {
+      currentPrice.textContent = String(Number(obj.price)) + " $ ";
     }
 
     // add price elements to price box
@@ -136,6 +135,9 @@ function productControll(productObj) {
   }
 
   updateHTML(productObj);
+
+
+
   const sizeItems = document.querySelectorAll(".dropdown-item");
   const addToCartBtn = document.querySelector(".add-button");
   const login = true; // Тут будет проверка на то, что пользоваетель зарегестрирован

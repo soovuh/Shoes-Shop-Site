@@ -71,6 +71,7 @@ function fillHotDeals(container) {
     // add the card to the container
     container.appendChild(card);
   }
+  
 }
 
 export { fillCarousel, fillHotDeals };

@@ -66,8 +66,8 @@ function indexAnimation(carousel, arrowIcons) {
   carousel.addEventListener("mousedown", dragStart);
   carousel.addEventListener("mouseup", dragStop);
   carousel.addEventListener("mouseleave", dragStop);
-
   setTimeout(widthCalculate, 500);
+  
 }
 
 export { indexAnimation };
