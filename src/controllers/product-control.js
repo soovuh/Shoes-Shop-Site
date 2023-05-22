@@ -152,7 +152,6 @@ function productControll(productObj) {
       // Adding to cart procces
       alertText.textContent = "Added to cart!";
       alert.classList.add("active");
-      console.log("+");
     }
     if (userSize === "none") {
       alertText.textContent = "First, choose a size!";
@@ -167,7 +166,7 @@ function productControll(productObj) {
   sizeItems.forEach((item) => {
     item.addEventListener("click", () => {
       userSize = item.id;
-      console.log(userSize);
+
     });
   });
 

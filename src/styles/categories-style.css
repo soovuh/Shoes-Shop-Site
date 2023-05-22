@@ -89,21 +89,26 @@ input[type="checkbox"]:checked::before {
   border-top: 2px solid rgba(255, 255, 255, 0.5);
 }
 
-.filter .firm {
+.filter .firm,
+.filter .type {
   overflow: auto;
 
 }
-
+.filter .type::-webkit-scrollbar,
 .filter .firm::-webkit-scrollbar {
   display: none;
 }
 
-.filter .type,
 .filter .firm,
+.filter .type{
+  height: 290px;
+}
 .filter .price-range,
 .filter .size {
-  height: 265px;
+  height: 200px;
 }
+
+
 
 .filter .price-range {
   flex-direction: row;

@@ -10,7 +10,7 @@ function startFiltering(Objects, Brands) {
   const firmNav = document.querySelector('.firm')
 for (let i = 0; i < Brands.length; i++) {
   const brand = Brands[i].name;
-  console.log(brand)
+
 
   const listItem = document.createElement("li");
   const label = document.createElement("label");
@@ -191,7 +191,7 @@ for (let i = 0; i < Brands.length; i++) {
       const salePrice = Math.ceil(product.price - product.price * product.sale);
       currentPrice.textContent = "$" + salePrice;
     } else {
-      currentPrice.textContent = "$" + product.price;
+      currentPrice.textContent = "$" + Number(Math.ceil(product.price));
     }
     const nameBox = document.createElement("div");
     nameBox.classList.add("name-box");

@@ -17,9 +17,9 @@ async function filterShoesBySex() {
   const brandObjs = await getObjs("http://127.0.0.1:8000/brand/");
 
   // Filtering shoes objects by sex
-  console.log(shoesObjs)
+
   const manObjects = shoesObjs.filter((obj) => obj.sex === "male");
-  console.log(shoesObjs);
+
 
   startFiltering(manObjects, brandObjs);
   categoriesAnimation();
