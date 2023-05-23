@@ -55,7 +55,6 @@ const carouselObjs = [
   },
 ];
 
-
 const cartExample = [
   {
     id: 23,
@@ -164,4 +163,4 @@ const productObj = {
   },
 };
 
-export { carouselObjs, shoesObjs, hotDeals, cartExample, productObj };
+export { carouselObjs, cartExample, productObj };
