@@ -20,7 +20,6 @@ header {
   width: 300px;
   padding: 2em;
   transform: scale(0);
-  transition: transform 0.5s ease, height 0.2s ease;
 }
 
 .alert h2 {

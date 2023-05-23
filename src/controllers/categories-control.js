@@ -182,7 +182,7 @@ for (let i = 0; i < Brands.length; i++) {
     oldPrice.classList.add("old-price");
     const currentPrice = document.createElement("p");
     if (Number(product.sale) !== 0) {
-      oldPrice.textContent = "$" + product.price;
+      oldPrice.textContent = "$" + String(Number(product.price));
     } else {
       currentPrice.classList.add("only-current");
     }
