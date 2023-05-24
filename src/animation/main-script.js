@@ -4,6 +4,17 @@ const body = document.querySelector("body");
 const searchButton = document.querySelector(".search-button");
 const logoMini = document.querySelector(".logo-mini");
 const searchInput = document.querySelector(".search-input");
+const searchBtn = document.querySelector(".search-btn");
+
+searchBtn.addEventListener("click", () => {
+  const baseLink = "man.html";
+  const search = searchInput.value;
+  if (search === "") {
+    window.location.href = baseLink;
+  } else {
+    window.location.href = baseLink + "?search=" + search;
+  }
+});
 
 searchInput.addEventListener("focus", () => {
   logoMini.classList.add("off");
@@ -34,7 +45,6 @@ function checkScreenWidth() {
     toggler.classList.remove("show");
   }
 }
-
 
 window.addEventListener("resize", function () {
   checkScreenWidth();
