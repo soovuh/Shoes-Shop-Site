@@ -83,27 +83,4 @@ const cartExample = [
   },
 ];
 
-const productObj = {
-  id: 18,
-  info: "Some info about shoes, that we see on the product page.",
-  href: "./product.html",
-  name: "Adidas Originals",
-  image: "../images/shoes/Adidas-Originals.jpg",
-  price: 220,
-  size: ["38", "39", "40", "41", "42", "43"],
-  sex: "male",
-  type: "high-top",
-  brand: "Adidas",
-  sale: 0.25,
-  views: 4,
-  createdAt: new Date("2023-03-17"),
-  qty: {
-    38: 1,
-    39: 6,
-    40: 7,
-    41: 4,
-    42: 5,
-  },
-};
-
-export { cartExample, productObj };
+export { cartExample };
