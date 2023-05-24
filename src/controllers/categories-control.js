@@ -7,26 +7,25 @@ function startFiltering(Objects, Brands) {
   const activeSizes = [];
   let sortValue = "default";
 
-  const firmNav = document.querySelector('.firm')
-for (let i = 0; i < Brands.length; i++) {
-  const brand = Brands[i].name;
+  const firmNav = document.querySelector(".firm");
+  for (let i = 0; i < Brands.length; i++) {
+    const brand = Brands[i].name;
 
+    const listItem = document.createElement("li");
+    const label = document.createElement("label");
+    const input = document.createElement("input");
 
-  const listItem = document.createElement("li");
-  const label = document.createElement("label");
-  const input = document.createElement("input");
+    label.setAttribute("for", brand.toLowerCase() + "-checkbox");
+    label.textContent = brand;
 
-  label.setAttribute("for", brand.toLowerCase() + "-checkbox");
-  label.textContent = brand;
+    input.setAttribute("type", "checkbox");
+    input.setAttribute("id", brand.toLowerCase() + "-checkbox");
+    input.setAttribute("value", brand);
 
-  input.setAttribute("type", "checkbox");
-  input.setAttribute("id", brand.toLowerCase() + "-checkbox");
-  input.setAttribute("value", brand);
-
-  listItem.appendChild(label);
-  listItem.appendChild(input);
-  firmNav.appendChild(listItem);
-}
+    listItem.appendChild(label);
+    listItem.appendChild(input);
+    firmNav.appendChild(listItem);
+  }
 
   // Querying DOM elements
   const sortButtons = document.querySelectorAll(".dropdown-item");
@@ -37,6 +36,12 @@ for (let i = 0; i < Brands.length; i++) {
   const sizeNav = document.querySelector(".size-select");
   const sizeBoxes = sizeNav.querySelectorAll("input");
   const cardContainer = document.querySelector(".cards-container");
+  const productContainer = document.querySelector(".product-container");
+  const noResultMessage = document.createElement("h1");
+  noResultMessage.classList.add("no-result");
+  noResultMessage.classList.add("off");
+  noResultMessage.textContent = "No results";
+  productContainer.appendChild(noResultMessage);
 
   // Function to get active keys from activeValues object
   function getActiveKeys(activeValues) {
@@ -225,6 +230,11 @@ for (let i = 0; i < Brands.length; i++) {
   // Function to update HTML with items
   function updateHTML(items) {
     removeAllCards();
+    if (items.length === 0) {
+      noResultMessage.classList.remove("off");
+    } else {
+      noResultMessage.classList.add("off");
+    }
     items.forEach((item) => addProductCard(item));
   }
 

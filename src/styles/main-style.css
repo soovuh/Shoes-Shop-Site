@@ -100,11 +100,16 @@ header {
 
 .search-box {
   width: 30%;
+  display: flex;
 }
 
 .search-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   margin-left: 3px;
+  height: 45.6px;
 }
 
 .search-icon {
