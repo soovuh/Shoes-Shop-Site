@@ -11,7 +11,6 @@ async function getObjs(url) {
   return data;
 }
 
-
 async function filterShoesBySex() {
   const shoesObjs = await getObjs("http://127.0.0.1:8000/shoe/");
   const brandObjs = await getObjs("http://127.0.0.1:8000/brand/");
@@ -20,9 +19,8 @@ async function filterShoesBySex() {
 
   const manObjects = shoesObjs.filter((obj) => obj.sex === "male");
 
-
   startFiltering(manObjects, brandObjs);
   categoriesAnimation();
 }
 
-filterShoesBySex();
+await filterShoesBySex();

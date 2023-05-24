@@ -1,5 +1,4 @@
 // Simulating a request
-import { carouselObjs } from "../database.js";
 
 async function getObjs(url) {
   const resp = await fetch(url, {
@@ -12,13 +11,15 @@ async function getObjs(url) {
 }
 
 // Add images from database.js to carousel
-function fillCarousel(carousel) {
+async function fillCarousel(carousel) {
+  const carouselObjs = await getObjs("http://127.0.0.1:8000/carousel/");
   const carouselLinks = carouselObjs.map((obj) => {
     const link = document.createElement("a");
     link.href = "#";
     const img = document.createElement("img");
     img.src = obj.image;
     img.alt = "";
+    img.href = "#";
     link.appendChild(img);
     return link;
   });
@@ -83,7 +84,6 @@ async function fillHotDeals(container) {
     // add the card to the container
     container.appendChild(card);
   }
-  
 }
 
 export { fillCarousel, fillHotDeals };

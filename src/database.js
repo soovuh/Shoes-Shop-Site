@@ -1,60 +1,3 @@
-const carouselObjs = [
-  {
-    id: 1,
-    info: "Some info about shoes, that we see on the product page.",
-    href: "./product.html",
-    image: "../images/carousel/image-1.jpg",
-  },
-  {
-    id: 2,
-    info: "Some info about shoes, that we see on the product page.",
-    href: "./product.html",
-    image: "../images/carousel/image-2.jpg",
-  },
-  {
-    id: 3,
-    info: "Some info about shoes, that we see on the product page.",
-    href: "./product.html",
-    image: "../images/carousel/image-3.jpg",
-  },
-  {
-    id: 4,
-    info: "Some info about shoes, that we see on the product page.",
-    href: "./product.html",
-    image: "../images/carousel/image-4.jpg",
-  },
-  {
-    id: 5,
-    info: "Some info about shoes, that we see on the product page.",
-    href: "./product.html",
-    image: "../images/carousel/image-5.jpg",
-  },
-  {
-    id: 6,
-    info: "Some info about shoes, that we see on the product page.",
-    href: "./product.html",
-    image: "../images/carousel/image-6.jpg",
-  },
-  {
-    id: 7,
-    info: "Some info about shoes, that we see on the product page.",
-    href: "./product.html",
-    image: "../images/carousel/image-7.jpg",
-  },
-  {
-    id: 8,
-    info: "Some info about shoes, that we see on the product page.",
-    href: "./product.html",
-    image: "../images/carousel/image-8.jpg",
-  },
-  {
-    id: 9,
-    info: "Some info about shoes, that we see on the product page.",
-    href: "./product.html",
-    image: "../images/carousel/image-9.jpg",
-  },
-];
-
 const cartExample = [
   {
     id: 23,
@@ -163,4 +106,4 @@ const productObj = {
   },
 };
 
-export { carouselObjs, cartExample, productObj };
+export { cartExample, productObj };
