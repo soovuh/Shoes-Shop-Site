@@ -92,7 +92,6 @@ input[type="checkbox"]:checked::before {
 .filter .firm,
 .filter .type {
   overflow: auto;
-
 }
 .filter .type::-webkit-scrollbar,
 .filter .firm::-webkit-scrollbar {
@@ -100,7 +99,7 @@ input[type="checkbox"]:checked::before {
 }
 
 .filter .firm,
-.filter .type{
+.filter .type {
   height: 290px;
 }
 .filter .price-range,
@@ -108,7 +107,10 @@ input[type="checkbox"]:checked::before {
   height: 200px;
 }
 
-
+.refresh-search {
+  text-decoration: none;
+  color: #fff;
+}
 
 .filter .price-range {
   flex-direction: row;
@@ -269,7 +271,8 @@ input[type="checkbox"]:checked::before {
 }
 .search-result .result {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0.5em 0.8em;
   align-items: center;
   width: 40%;
 }
