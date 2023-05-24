@@ -1,6 +1,7 @@
 /*TODO: закруглить сортировку */
 body {
   flex-direction: column;
+  justify-content: space-between;
 }
 
 input[type="checkbox"] {
@@ -74,7 +75,6 @@ input[type="checkbox"]:checked::before {
   text-align: center;
   width: 100%;
   display: flex;
-  justify-content: space-between;
   overflow: hidden;
   flex-direction: column;
   padding: 0.7em;
@@ -84,6 +84,31 @@ input[type="checkbox"]:checked::before {
   overflow: hidden;
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
+
+.filter .type {
+  border-top: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.filter .firm,
+.filter .type {
+  overflow: auto;
+
+}
+.filter .type::-webkit-scrollbar,
+.filter .firm::-webkit-scrollbar {
+  display: none;
+}
+
+.filter .firm,
+.filter .type{
+  height: 290px;
+}
+.filter .price-range,
+.filter .size {
+  height: 200px;
+}
+
+
 
 .filter .price-range {
   flex-direction: row;
@@ -568,7 +593,7 @@ footer {
     cursor: pointer;
   }
   .filter.active {
-    z-index: 98;
+    z-index: 99;
     display: block;
     position: fixed;
     overflow-y: scroll;

@@ -1,11 +1,32 @@
-function startFiltering(Objects) {
-  // Object to hold active type and brand values
+function startFiltering(Objects, Brands) {
+  // Object to hold active type and brand_name values
   const activeValues = {
     type: [],
-    brand: [],
+    brand_name: [],
   };
   const activeSizes = [];
   let sortValue = "default";
+
+  const firmNav = document.querySelector('.firm')
+for (let i = 0; i < Brands.length; i++) {
+  const brand = Brands[i].name;
+
+
+  const listItem = document.createElement("li");
+  const label = document.createElement("label");
+  const input = document.createElement("input");
+
+  label.setAttribute("for", brand.toLowerCase() + "-checkbox");
+  label.textContent = brand;
+
+  input.setAttribute("type", "checkbox");
+  input.setAttribute("id", brand.toLowerCase() + "-checkbox");
+  input.setAttribute("value", brand);
+
+  listItem.appendChild(label);
+  listItem.appendChild(input);
+  firmNav.appendChild(listItem);
+}
 
   // Querying DOM elements
   const sortButtons = document.querySelectorAll(".dropdown-item");
@@ -28,8 +49,8 @@ function startFiltering(Objects) {
     return activeKeys;
   }
 
-  // Function to sort objects by brand and type
-  function getSortedTypeAndBrand(Objects) {
+  // Function to sort objects by brand_name and type
+  function getSortedTypeAndBrand_name(Objects) {
     const activeKeys = getActiveKeys(activeValues);
     return Objects.filter((obj) => {
       if (activeKeys.length === 0) {
@@ -57,7 +78,7 @@ function startFiltering(Objects) {
     }
     const prepared = preparedItems.filter((obj) => {
       for (let i = 0; i < obj.size.length; i++) {
-        if (activeSizes.includes(obj.size[i])) {
+        if (activeSizes.includes(String(obj.size[i]))) {
           return obj;
         }
       }
@@ -124,14 +145,15 @@ function startFiltering(Objects) {
 
   // Function to sort all objects
   function filterAll(Objects) {
-    const filteredByTypeAndBrand = getSortedTypeAndBrand(Objects);
-    const filteredBySize = getSortedSize(filteredByTypeAndBrand);
+    const filteredByTypeAndBrand_name = getSortedTypeAndBrand_name(Objects);
+    const filteredBySize = getSortedSize(filteredByTypeAndBrand_name);
     const filteredByPrice = getSortedPrice(filteredBySize);
     const sortedItems = sortItems(filteredByPrice);
     return sortedItems;
   }
 
   function addProductCard(product) {
+    const baseLink = "product.html?id=";
     const card = document.createElement("div");
     card.classList.add("card");
 
@@ -140,14 +162,14 @@ function startFiltering(Objects) {
     img.src = product.image;
     img.alt = product.name;
     const imgLink = document.createElement("a");
-    imgLink.href = product.href;
+    imgLink.href = baseLink + String(product.id);
     imgLink.appendChild(img);
     card.appendChild(imgLink);
 
     const productLink = document.createElement("a");
     productLink.classList.add("product-a");
     productLink.classList.add("product-link");
-    productLink.href = product.href;
+    productLink.href = baseLink + String(product.id);
     const content = document.createElement("div");
     content.classList.add("card-content");
     const name = document.createElement("p");
@@ -160,7 +182,7 @@ function startFiltering(Objects) {
     oldPrice.classList.add("old-price");
     const currentPrice = document.createElement("p");
     if (Number(product.sale) !== 0) {
-      oldPrice.textContent = "$" + product.price;
+      oldPrice.textContent = "$" + String(Number(product.price));
     } else {
       currentPrice.classList.add("only-current");
     }
@@ -169,7 +191,7 @@ function startFiltering(Objects) {
       const salePrice = Math.ceil(product.price - product.price * product.sale);
       currentPrice.textContent = "$" + salePrice;
     } else {
-      currentPrice.textContent = "$" + product.price;
+      currentPrice.textContent = "$" + Number(Math.ceil(product.price));
     }
     const nameBox = document.createElement("div");
     nameBox.classList.add("name-box");
@@ -185,7 +207,7 @@ function startFiltering(Objects) {
 
     const infoLink = document.createElement("a");
     infoLink.classList.add("product-a");
-    infoLink.href = product.href;
+    infoLink.href = baseLink + String(product.id);
     const info = document.createElement("div");
     info.classList.add("card-info");
     info.textContent = "View more";
@@ -246,7 +268,6 @@ function startFiltering(Objects) {
   sortButtons.forEach((button) => {
     button.addEventListener("click", () => {
       sortValue = button.id;
-      console.log(sortValue);
       updateHTML(filterAll(Objects));
     });
   });
@@ -258,6 +279,7 @@ function startFiltering(Objects) {
 
   // Event listener to update HTML when the page loads
   updateHTML(sortItems(Objects));
+  document.querySelector("#loader").style.display = "none";
 }
 
 export { startFiltering };

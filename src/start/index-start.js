@@ -6,6 +6,8 @@ const carousel = document.querySelector(".carousel");
 const carouselImg = document.querySelector(".carousel-imgs");
 const arrowIcons = document.querySelectorAll(".carousel .icon");
 
-fillHotDeals(cardContainer);
-fillCarousel(carouselImg);
+await fillHotDeals(cardContainer);
+await fillCarousel(carouselImg);
+
+document.querySelector("#loader").style.display = "none";
 indexAnimation(carousel, arrowIcons);

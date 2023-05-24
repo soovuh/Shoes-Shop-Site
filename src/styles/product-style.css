@@ -20,7 +20,6 @@ header {
   width: 300px;
   padding: 2em;
   transform: scale(0);
-  transition: transform 0.5s ease, height 0.2s ease;
 }
 
 .alert h2 {
@@ -248,7 +247,7 @@ header {
 }
 
 .gender,
-.brand,
+.brand_name,
 .type {
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }

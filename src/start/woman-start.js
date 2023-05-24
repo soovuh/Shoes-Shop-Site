@@ -1,8 +1,27 @@
 import { categoriesAnimation } from "../animation/categories-script.js";
-import { shoesObjs } from "../database.js";
 import { startFiltering } from "../controllers/categories-control.js";
 
-const womanObjects = shoesObjs.filter((obj) => obj.sex === "female");
+async function getObjs(url) {
+  const resp = await fetch(url, {
+    method: "GET",
+    mode: "cors",
+  });
 
-startFiltering(womanObjects);
-categoriesAnimation();
+  const data = await resp.json();
+  return data;
+}
+
+async function filterShoesBySex() {
+  const shoesObjs = await getObjs("http://127.0.0.1:8000/shoe/");
+  const brandObjs = await getObjs("http://127.0.0.1:8000/brand/");
+
+  // Filtering shoes objects by sex
+
+  const femaleObjs = shoesObjs.filter((obj) => obj.sex === "female");
+
+
+  startFiltering(femaleObjs, brandObjs);
+  categoriesAnimation();
+}
+
+filterShoesBySex();

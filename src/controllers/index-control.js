@@ -1,14 +1,25 @@
 // Simulating a request
-import { carouselObjs, hotDeals } from "../database.js";
+
+async function getObjs(url) {
+  const resp = await fetch(url, {
+    method: "GET",
+    mode: "cors",
+  });
+
+  const data = await resp.json();
+  return data;
+}
 
 // Add images from database.js to carousel
-function fillCarousel(carousel) {
+async function fillCarousel(carousel) {
+  const carouselObjs = await getObjs("http://127.0.0.1:8000/carousel/");
   const carouselLinks = carouselObjs.map((obj) => {
     const link = document.createElement("a");
     link.href = "#";
     const img = document.createElement("img");
     img.src = obj.image;
     img.alt = "";
+    img.href = "#";
     link.appendChild(img);
     return link;
   });
@@ -17,7 +28,9 @@ function fillCarousel(carousel) {
   });
 }
 
-function fillHotDeals(container) {
+async function fillHotDeals(container) {
+  const baseLink = "product.html?id=";
+  const hotDeals = await getObjs("http://127.0.0.1:8000/hotdeals/");
   // loop through each product in the array
   for (let i = 0; i < hotDeals.length; i++) {
     const product = hotDeals[i];
@@ -28,7 +41,7 @@ function fillHotDeals(container) {
 
     // create the image element and add it to the card
     const imageLink = document.createElement("a");
-    imageLink.href = product.href;
+    imageLink.href = baseLink + String(product.id);
     const image = document.createElement("img");
     image.classList.add("card-image");
     image.src = product.image;
@@ -38,7 +51,7 @@ function fillHotDeals(container) {
 
     // create the product name, old price, and current price elements and add them to the card
     const productLink = document.createElement("a");
-    productLink.href = product.href;
+    productLink.href = baseLink + String(product.id);
     productLink.classList.add("product-a");
     const content = document.createElement("div");
     content.classList.add("card-content");
@@ -47,7 +60,7 @@ function fillHotDeals(container) {
     productName.textContent = product.name;
     const oldPrice = document.createElement("p");
     oldPrice.classList.add("old-price");
-    oldPrice.textContent = product.price + " $";
+    oldPrice.textContent = String(Number(product.price)) + " $";
     const currentPrice = document.createElement("p");
     currentPrice.classList.add("current-price");
     currentPrice.textContent =
@@ -60,7 +73,7 @@ function fillHotDeals(container) {
 
     // create the "view more" link and add it to the card
     const infoLink = document.createElement("a");
-    infoLink.href = product.href;
+    infoLink.href = baseLink + String(product.id);
     infoLink.classList.add("product-a");
     const info = document.createElement("div");
     info.classList.add("card-info");

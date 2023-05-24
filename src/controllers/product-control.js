@@ -1,7 +1,6 @@
 function productControll(productObj) {
   function updateHTML(obj) {
     const mainContainer = document.querySelector(".main-container");
-
     // create img
     const imgContainer = document.createElement("div");
     imgContainer.classList.add("img-container");
@@ -27,12 +26,12 @@ function productControll(productObj) {
     currentPrice.classList.add("current-price");
     const oldPrice = document.createElement("span");
     oldPrice.classList.add("old-price");
-    if (obj.sale > 0) {
+    if (Number(obj.sale )> 0) {
       currentPrice.textContent =
-        String(Math.ceil(obj.price - obj.price * obj.sale)) + " $ ";
-      oldPrice.textContent = String(obj.price) + " $ ";
-    } else if (obj.sale === 0) {
-      currentPrice.textContent = String(obj.price) + " $ ";
+        String(Math.ceil(Number(obj.price) - Number(obj.price) * Number(obj.sale))) + " $ ";
+      oldPrice.textContent = String(Number(obj.price)) + " $ ";
+    } else if (Number(obj.sale )=== 0) {
+      currentPrice.textContent = String(Number(obj.price)) + " $ ";
     }
 
     // add price elements to price box
@@ -105,13 +104,13 @@ function productControll(productObj) {
     genderValue.textContent =
       obj.sex.slice(0, 1).toUpperCase() + obj.sex.slice(1);
     gender.appendChild(genderValue);
-    const brand = document.createElement("div");
-    brand.classList.add("brand");
-    const brandValue = document.createElement("span");
-    brandValue.classList.add("brand-value");
-    brandValue.textContent =
-      obj.brand.slice(0, 1).toUpperCase() + obj.brand.slice(1);
-    brand.appendChild(brandValue);
+    const brand_name = document.createElement("div");
+    brand_name.classList.add("brand_name");
+    const brand_nameValue = document.createElement("span");
+    brand_nameValue.classList.add("brand_name-value");
+    brand_nameValue.textContent =
+      obj.brand_name.slice(0, 1).toUpperCase() + obj.brand_name.slice(1);
+    brand_name.appendChild(brand_nameValue);
     const type = document.createElement("div");
     type.classList.add("type");
     const typeValue = document.createElement("span");
@@ -121,7 +120,7 @@ function productControll(productObj) {
     type.appendChild(typeValue);
 
     parameters.appendChild(gender);
-    parameters.appendChild(brand);
+    parameters.appendChild(brand_name);
     parameters.appendChild(type);
 
     info.appendChild(description);
@@ -136,6 +135,9 @@ function productControll(productObj) {
   }
 
   updateHTML(productObj);
+
+
+
   const sizeItems = document.querySelectorAll(".dropdown-item");
   const addToCartBtn = document.querySelector(".add-button");
   const login = true; // Тут будет проверка на то, что пользоваетель зарегестрирован
@@ -150,7 +152,6 @@ function productControll(productObj) {
       // Adding to cart procces
       alertText.textContent = "Added to cart!";
       alert.classList.add("active");
-      console.log("+");
     }
     if (userSize === "none") {
       alertText.textContent = "First, choose a size!";
@@ -165,7 +166,7 @@ function productControll(productObj) {
   sizeItems.forEach((item) => {
     item.addEventListener("click", () => {
       userSize = item.id;
-      console.log(userSize);
+
     });
   });
 

@@ -1,6 +1,7 @@
 function cartFill(Objects) {
   const shop = document.querySelector(".shop");
   function createobjBox(obj) {
+    const baseLink = "product.html?id=";
     const box = document.createElement("div");
     box.classList.add("box");
     box.id = obj.id;
@@ -9,7 +10,7 @@ function cartFill(Objects) {
     img.src = obj.image;
     const imgLink = document.createElement("a");
     imgLink.classList.add("img-link");
-    imgLink.href = obj.href;
+    imgLink.href = baseLink + String(obj.id);
     imgLink.appendChild(img);
 
     const content = document.createElement("div");

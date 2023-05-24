@@ -11,13 +11,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
   height: 100%;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
+  /* margin-top: 107px; */
   background: linear-gradient(90deg, #730fff 0%, #8c139a 100%);
-  z-index: 9999;
+  z-index: 95;
 }
 
 .spinner {
