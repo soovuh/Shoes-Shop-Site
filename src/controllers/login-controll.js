@@ -1,4 +1,9 @@
-const baseLink = "http://127.0.0.1:8000";
+import {
+  checkAuthentication,
+  getCookie,
+  baseLink,
+} from "./authentication_check.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.querySelector(".form-box.login form");
   const registerForm = document.querySelector(".form-box.register form");
@@ -22,7 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.cookie = `csrftoken=${data.csrf_token}; path=/`;
         document.cookie = `sessionid=${data.session_id}; path=/`;
 
-        console.log(data); // Do something with response data
+        if (data.message === "Login successful") {
+          window.location.href = "cart.html";
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -31,7 +38,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   registerForm.addEventListener("submit", function (event) {
     event.preventDefault();
-
+    const emailVerificationWindow = document.querySelector(
+      ".email-verification-box"
+    );
+    const boxMessage = emailVerificationWindow.querySelector("h2");
+    const iconclose = emailVerificationWindow.querySelector(
+      ".icon-close-message"
+    );
+    iconclose.addEventListener("click", () => {
+      window.location.href = "login.html";
+    });
     const name = registerForm.querySelector('input[type="text"]').value;
     const email = registerForm.querySelector('input[type="email"]').value;
     const password = registerForm.querySelector('input[type="password"]').value;
@@ -46,36 +62,16 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        if (data.message === "Registration successful") {
+          emailVerificationWindow.classList.add("active");
+        } else {
+          boxMessage.textContent = `Try another email/password/username!\nError message: ${data.message}`;
+          emailVerificationWindow.classList.add("active");
+        }
       })
       .catch((error) => {
-        console.error(error);
+        boxMessage.textContent = `Try another email/password/username!\nError message: ${error}`;
+        emailVerificationWindow.classList.add("active");
       });
   });
 });
-
-// function getCookie(name) {
-//   const cookieArr = document.cookie.split(";");
-
-//   for (let i = 0; i < cookieArr.length; i++) {
-//     const cookiePair = cookieArr[i].split("=");
-
-//     if (cookiePair[0].trim() === name) {
-//       return decodeURIComponent(cookiePair[1]);
-//     }
-//   }
-
-//   return null;
-// }
-
-// const csrfToken = getCookie("csrftoken");
-// const sessionId = getCookie("sessionid");
-// fetch(`${baseLink}/accounts/get_username/`, {
-//   method: "GET",
-//   mode: "cors",
-//   headers: {
-//     "X-CSRFToken": csrfToken,
-//     Cookie: `sessionid=${sessionId}`,
-//   },
-// })
-//   .then((response) => response.json())
-//   .then((data) => console.log(data));
