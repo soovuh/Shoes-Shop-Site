@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ".email-verification-box"
     );
     const boxMessage = emailVerificationWindow.querySelector("h2");
+    emailVerificationWindow.classList.add("go");
     const iconclose = emailVerificationWindow.querySelector(
       ".icon-close-message"
     );
@@ -65,12 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (data.message === "Registration successful") {
           emailVerificationWindow.classList.add("active");
         } else {
-          boxMessage.textContent = `Try another email/password/username!\nError message: ${data.message}`;
+          boxMessage.textContent = `Try another credentials, something wrong!`;
           emailVerificationWindow.classList.add("active");
         }
       })
       .catch((error) => {
-        boxMessage.textContent = `Try another email/password/username!\nError message: ${error}`;
+        boxMessage.textContent = `Try another credentials, something wrong!`;
         emailVerificationWindow.classList.add("active");
       });
   });
