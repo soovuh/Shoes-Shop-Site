@@ -8,6 +8,8 @@ const forgot_box = document.querySelector(".forgot-box");
 const forgot_btn = document.querySelector(".forgot-a");
 const inputFields = document.querySelectorAll(".input-box input");
 const labels = document.querySelectorAll(".input-box label");
+const navigation = document.querySelector(".navigation");
+const toggler = document.querySelector(".toggler");
 
 inputFields.forEach((inputField, index) => {
   inputField.addEventListener("input", () => {
@@ -52,4 +54,3 @@ function login_show() {
   forgot_box.classList.add("go");
 }
 setTimeout(login_show, 1500);
-

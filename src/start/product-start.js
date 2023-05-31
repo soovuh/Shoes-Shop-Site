@@ -1,7 +1,6 @@
 import { productControll } from "../controllers/product-control.js";
 import { productAnimation } from "../animation/product-script.js";
 
-
 async function getObjs(url) {
   const resp = await fetch(url, {
     method: "GET",
@@ -13,10 +12,10 @@ async function getObjs(url) {
 }
 
 async function incrementViews(productId) {
-    await fetch(`http://127.0.0.1:8000/shoe/${productId}/increment_views/`, {
-        method: 'POST',
-        mode: 'cors',
-    })
+  await fetch(`http://127.0.0.1:8000/shoe/${productId}/increment_views/`, {
+    method: "POST",
+    mode: "cors",
+  });
 }
 
 async function getShoeById() {
@@ -29,8 +28,6 @@ async function getShoeById() {
 
   document.querySelector("#loader").style.display = "none";
   productAnimation();
-  
 }
-
 
 getShoeById();

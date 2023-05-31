@@ -39,6 +39,13 @@
 
         <button type="submit" class="btn forgot-password-btn">Submit</button>
     </div>
+    <div class="email-verification-box">
+        <span class="icon-close-message"> <ion-icon name="close"></ion-icon></span>
+        <h2>Please check your email, and confirm your identity!</h2>
+
+        <a href="login.html" class="btn confirm-btn">Ok</a>
+        <p>Don`t get mail? <span>Send another</span></p>
+    </div>
 
     <div class="wrapper">
         <span class="icon-close"> <ion-icon name="close"></ion-icon></span>
@@ -56,14 +63,14 @@
                     <label>Password</label>
                 </div>
                 <div class="remember-forgot">
-                    <label><input type="checkbox">Remember me</label>
-                    <a class="forgot-a" href="#">Forgot Password?</a>
+
+                    <span class="forgot-a" href="#">Forgot Password?</span>
 
                 </div>
                 <button type="submit" class="btn login-btn">Login</button>
                 <div class="login-register">
                     <p>
-                        Don't have an account? <a href="#" class="register-link">Register</a>
+                        Don't have an account? <span class="register-link">Register</span>
                     </p>
                 </div>
 
@@ -89,13 +96,13 @@
                 </div>
 
                 <div class="remember-forgot">
-                    <label><input type="checkbox">I agree to the terms & conditions</label>
+
 
                 </div>
                 <button type="submit" class="btn register-btn">Register</button>
                 <div class="login-register">
                     <p>
-                        Already have an account? <a href="#" class="login-link">Login</a>
+                        Already have an account? <span class="login-link">Login</span>
                     </p>
                 </div>
 
@@ -118,9 +125,9 @@
         </div>
     </footer>
 
-    <script src="../../src/animation/main-script.js"></script>
+    <script type="module" src="../../src/animation/main-script.js"></script>
     <script src="../../src/animation/login-script.js"></script>
-    <script src="../../src/controllers/login-controll.js"></script>
+    <script type="module" src="../../src/controllers/login-controll.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

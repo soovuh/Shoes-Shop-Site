@@ -1,3 +1,9 @@
+import {
+  getCookie,
+  checkAuthentication,
+  baseLink,
+} from "../controllers/authentication_check.js";
+
 const toggler = document.querySelector(".toggler");
 const navigation = document.querySelector(".navigation");
 const body = document.querySelector("body");
@@ -5,6 +11,13 @@ const searchButton = document.querySelector(".search-button");
 const logoMini = document.querySelector(".logo-mini");
 const searchInput = document.querySelector(".search-input");
 const searchBtn = document.querySelector(".search-btn");
+
+const loginBtn = document.querySelector(".btnLogin-popup");
+
+const csrfToken = getCookie("csrftoken");
+const sessionId = getCookie("sessionid");
+const isAuthenticated = await checkAuthentication(csrfToken, sessionId);
+console.log(isAuthenticated);
 
 searchBtn.addEventListener("click", () => {
   const baseLink = "man.html";
