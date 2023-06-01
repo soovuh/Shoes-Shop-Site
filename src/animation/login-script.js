@@ -10,6 +10,11 @@ const inputFields = document.querySelectorAll(".input-box input");
 const labels = document.querySelectorAll(".input-box label");
 const navigation = document.querySelector(".navigation");
 const toggler = document.querySelector(".toggler");
+const resendEmail = document.querySelector(".resend-email");
+
+resendEmail.addEventListener("click", () => {
+  window.location.href = "http://127.0.0.1:8000/accounts/resend";
+});
 
 inputFields.forEach((inputField, index) => {
   inputField.addEventListener("input", () => {

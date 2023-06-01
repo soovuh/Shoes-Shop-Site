@@ -1,7 +1,6 @@
 import {
   getCookie,
   checkAuthentication,
-  baseLink,
 } from "../controllers/authentication_check.js";
 
 const toggler = document.querySelector(".toggler");

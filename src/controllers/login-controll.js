@@ -1,8 +1,5 @@
-import {
-  checkAuthentication,
-  getCookie,
-  baseLink,
-} from "./authentication_check.js";
+import { checkAuthentication, getCookie } from "./authentication_check.js";
+import { baseLink } from "../constants.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.querySelector(".form-box.login form");
