@@ -21,10 +21,23 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        document.cookie = `csrftoken=${data.csrf_token}; path=/`;
-        document.cookie = `sessionid=${data.session_id}; path=/`;
-
-        if (data.message === "Login successful") {
+        if (data.message === "Invalid credentials") {
+          const emailVerificationWindow = document.querySelector(
+            ".email-verification-box"
+          );
+          const boxMessage = emailVerificationWindow.querySelector("h2");
+          emailVerificationWindow.classList.add("go");
+          const iconclose = emailVerificationWindow.querySelector(
+            ".icon-close-message"
+          );
+          iconclose.addEventListener("click", () => {
+            window.location.href = "login.html";
+          });
+          boxMessage.textContent = `If you dont have account, click register. If you don't receive the email, press send another.`;
+          emailVerificationWindow.classList.add("active");
+        } else if (data.message === "Login successful") {
+          document.cookie = `csrftoken=${data.csrf_token}; path=/`;
+          document.cookie = `sessionid=${data.session_id}; path=/`;
           window.location.href = "cart.html";
         }
       })
