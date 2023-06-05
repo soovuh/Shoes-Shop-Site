@@ -4,12 +4,21 @@ const register_link = document.querySelector(".register-link");
 const btn_popup = document.querySelector(".btnLogin-popup");
 const icon_close = document.querySelector(".icon-close");
 const icon_close_forgot = document.querySelector(".icon-close-forgot");
-const forgot_box = document.querySelector(".forgot-box");
-const forgot_btn = document.querySelector(".forgot-a");
+
 const inputFields = document.querySelectorAll(".input-box input");
 const labels = document.querySelectorAll(".input-box label");
 const navigation = document.querySelector(".navigation");
 const toggler = document.querySelector(".toggler");
+const resendEmail = document.querySelector(".resend-email");
+const resetPassword = document.querySelector(".forgot-a");
+
+resendEmail.addEventListener("click", () => {
+  window.location.href = "http://127.0.0.1:8000/accounts/resend";
+});
+
+resetPassword.addEventListener("click", () => {
+  window.location.href = "http://127.0.0.1:8000/accounts/reset/send_email";
+});
 
 inputFields.forEach((inputField, index) => {
   inputField.addEventListener("input", () => {
@@ -19,11 +28,6 @@ inputFields.forEach((inputField, index) => {
       labels[index].style.top = "-5px";
     }
   });
-});
-
-forgot_btn.addEventListener("click", () => {
-  forgot_box.classList.add("active");
-  wrapper.classList.remove("active-popup");
 });
 
 icon_close_forgot.addEventListener("click", () => {
@@ -51,6 +55,5 @@ icon_close.addEventListener("click", () => {
 function login_show() {
   wrapper.classList.add("active-popup");
   wrapper.classList.add("go");
-  forgot_box.classList.add("go");
 }
 setTimeout(login_show, 1500);

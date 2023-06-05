@@ -1,4 +1,4 @@
-// Simulating a request
+import { baseLink } from "../constants.js";
 
 async function getObjs(url) {
   const resp = await fetch(url, {
@@ -12,7 +12,7 @@ async function getObjs(url) {
 
 // Add images from database.js to carousel
 async function fillCarousel(carousel) {
-  const carouselObjs = await getObjs("http://127.0.0.1:8000/carousel/");
+  const carouselObjs = await getObjs(`${baseLink}/carousel/`);
   const carouselLinks = carouselObjs.map((obj) => {
     const link = document.createElement("a");
     link.href = "#";
@@ -29,8 +29,8 @@ async function fillCarousel(carousel) {
 }
 
 async function fillHotDeals(container) {
-  const baseLink = "product.html?id=";
-  const hotDeals = await getObjs("http://127.0.0.1:8000/hotdeals/");
+  const baseProductLink = "product.html?id=";
+  const hotDeals = await getObjs(`${baseLink}/hotdeals/`);
   // loop through each product in the array
   for (let i = 0; i < hotDeals.length; i++) {
     const product = hotDeals[i];
@@ -41,7 +41,7 @@ async function fillHotDeals(container) {
 
     // create the image element and add it to the card
     const imageLink = document.createElement("a");
-    imageLink.href = baseLink + String(product.id);
+    imageLink.href = baseProductLink + String(product.id);
     const image = document.createElement("img");
     image.classList.add("card-image");
     image.src = product.image;
@@ -51,7 +51,7 @@ async function fillHotDeals(container) {
 
     // create the product name, old price, and current price elements and add them to the card
     const productLink = document.createElement("a");
-    productLink.href = baseLink + String(product.id);
+    productLink.href = baseProductLink + String(product.id);
     productLink.classList.add("product-a");
     const content = document.createElement("div");
     content.classList.add("card-content");
@@ -73,7 +73,7 @@ async function fillHotDeals(container) {
 
     // create the "view more" link and add it to the card
     const infoLink = document.createElement("a");
-    infoLink.href = baseLink + String(product.id);
+    infoLink.href = baseProductLink + String(product.id);
     infoLink.classList.add("product-a");
     const info = document.createElement("div");
     info.classList.add("card-info");

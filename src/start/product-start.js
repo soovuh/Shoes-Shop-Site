@@ -1,5 +1,6 @@
 import { productControll } from "../controllers/product-control.js";
 import { productAnimation } from "../animation/product-script.js";
+import { baseLink } from "../constants.js";
 
 async function getObjs(url) {
   const resp = await fetch(url, {
@@ -12,7 +13,7 @@ async function getObjs(url) {
 }
 
 async function incrementViews(productId) {
-  await fetch(`http://127.0.0.1:8000/shoe/${productId}/increment_views/`, {
+  await fetch(`${baseLink}/shoe/${productId}/increment_views/`, {
     method: "POST",
     mode: "cors",
   });
@@ -21,7 +22,7 @@ async function incrementViews(productId) {
 async function getShoeById() {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
-  const shoesObj = await getObjs("http://127.0.0.1:8000/shoe/" + productId);
+  const shoesObj = await getObjs(`${baseLink}/shoe/` + productId);
 
   incrementViews(productId);
   productControll(shoesObj);

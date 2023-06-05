@@ -1,4 +1,4 @@
-const baseLink = "http://127.0.0.1:8000";
+import { baseLink } from "../constants.js";
 function getCookie(name) {
   const cookieArr = document.cookie.split(";");
 
@@ -38,4 +38,4 @@ async function checkAuthentication(csrfToken, sessionId) {
   }
 }
 
-export { checkAuthentication, getCookie, baseLink };
+export { checkAuthentication, getCookie };

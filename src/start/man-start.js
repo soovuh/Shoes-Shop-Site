@@ -1,5 +1,6 @@
 import { categoriesAnimation } from "../animation/categories-script.js";
 import { startFiltering } from "../controllers/categories-control.js";
+import { baseLink } from "../constants.js";
 
 async function getObjs(url) {
   const resp = await fetch(url, {
@@ -15,10 +16,8 @@ async function filterShoesBySex() {
   const urlParams = new URLSearchParams(window.location.search);
   const search = urlParams.get("search");
   if (search) {
-    const shoesObjsSearch = await getObjs(
-      `http://127.0.0.1:8000/shoe/?search=${search}`
-    );
-    const brandObjsSearch = await getObjs("http://127.0.0.1:8000/brand/");
+    const shoesObjsSearch = await getObjs(`${baseLink}/shoe/?search=${search}`);
+    const brandObjsSearch = await getObjs(`${baseLink}/brand/`);
     const manObjectsSearch = shoesObjsSearch.filter(
       (obj) => obj.sex === "male"
     );
@@ -32,8 +31,8 @@ async function filterShoesBySex() {
     startFiltering(manObjectsSearch, brandObjsSearch);
     categoriesAnimation();
   } else {
-    const shoesObjs = await getObjs(`http://127.0.0.1:8000/shoe/`);
-    const brandObjs = await getObjs("http://127.0.0.1:8000/brand/");
+    const shoesObjs = await getObjs(`${baseLink}/shoe/`);
+    const brandObjs = await getObjs(`${baseLink}/brand/`);
     const manObjects = shoesObjs.filter((obj) => obj.sex === "male");
     startFiltering(manObjects, brandObjs);
     categoriesAnimation();
