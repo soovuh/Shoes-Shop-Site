@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (data.message === "Login successful") {
           document.cookie = `csrftoken=${data.csrf_token}; path=/`;
           document.cookie = `sessionid=${data.session_id}; path=/`;
-          window.location.href = "cart.html";
+          window.location.href = "profile.html";
         }
       })
       .catch((error) => {

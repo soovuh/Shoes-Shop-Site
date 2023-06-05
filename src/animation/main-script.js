@@ -16,7 +16,14 @@ const loginBtn = document.querySelector(".btnLogin-popup");
 const csrfToken = getCookie("csrftoken");
 const sessionId = getCookie("sessionid");
 const isAuthenticated = await checkAuthentication(csrfToken, sessionId);
-console.log(isAuthenticated);
+
+if (isAuthenticated) {
+  loginBtn.href = "../../public/pages/profile.html";
+  loginBtn.innerHTML = "Profile";
+} else {
+  loginBtn.href = "../../public/pages/login.html";
+  loginBtn.innerHTML = "Login";
+}
 
 searchBtn.addEventListener("click", () => {
   const baseLink = "man.html";
