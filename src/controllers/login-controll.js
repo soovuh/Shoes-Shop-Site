@@ -1,6 +1,14 @@
 import { checkAuthentication, getCookie } from "./authentication_check.js";
 import { baseLink } from "../constants.js";
 
+const csrfToken = getCookie("csrftoken");
+const sessionId = getCookie("sessionid");
+const isAuthenticated = await checkAuthentication(csrfToken, sessionId);
+
+if (isAuthenticated) {
+  window.location.href = "profile.html";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.querySelector(".form-box.login form");
   const registerForm = document.querySelector(".form-box.register form");
