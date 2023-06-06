@@ -179,7 +179,7 @@ header {
   font-size: 1.1em;
   color: #fff;
   font-weight: 500;
-  transition: 0.5s;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .navigation .btnLogin-popup:hover {

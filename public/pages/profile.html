@@ -40,9 +40,32 @@
             </nav>
         </div>
         <div class="info-container">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere ipsam nisi aliquid totam soluta iure rem
-            aliquam magni dolores sunt sit repudiandae distinctio reprehenderit, dolore optio mollitia? Harum voluptatum
-            soluta quis porro voluptate! Repudiandae.
+            <div class="top-container">
+                <h2 class="info-head">Data & Settings</h2>
+                <div class="change">Change</div>
+            </div>
+            <form>
+                <div class="mid-container">
+                    <div class="input-box">
+                        <input type="text" id="username" required disabled>
+                        <label>Username</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="tel" id="phone" name="phone" pattern="\+380[0-9]{9}" value="-----" required
+                            disabled>
+                        <label>Phone number</label>
+                    </div>
+                    <div class="input-box address">
+                        <input type="text" id="address" value="-------" required disabled>
+                        <label>Address</label>
+                    </div>
+                </div>
+                <div class="bot-container">
+                    <button type="submit" class="btn save-btn">Save</button>
+                </div>
+            </form>
+
+
         </div>
 
     </div>
