@@ -1,8 +1,17 @@
 import { profileControlStart } from "../controllers/profile-control.js";
 import { baseLink } from "../constants.js";
-import { getCookie } from "../controllers/authentication_check.js";
+import {
+  getCookie,
+  checkAuthentication,
+} from "../controllers/authentication_check.js";
 
-document.querySelector("#loader").style.display = "none";
+const csrfToken = getCookie("csrftoken");
+const sessionId = getCookie("sessionid");
+const isAuthenticated = await checkAuthentication(csrfToken, sessionId);
+
+if (!isAuthenticated) {
+  window.location.href = "login.html";
+}
 
 async function getuserInfo() {
   const csrfToken = getCookie("csrftoken");
@@ -22,5 +31,5 @@ async function getuserInfo() {
 }
 
 const userInfo = await getuserInfo();
-
 profileControlStart(userInfo);
+document.querySelector("#loader").style.display = "none";

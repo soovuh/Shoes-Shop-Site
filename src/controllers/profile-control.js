@@ -4,12 +4,15 @@ import { getCookie } from "./authentication_check.js";
 function profileControlStart(userInfo) {
   const inputFields = document.querySelectorAll(".input-box input");
   const logoutBtn = document.querySelector(".logout");
-  const labels = document.querySelectorAll(".input-box label");
+  const inputLabels = document.querySelectorAll(".input-box label");
   const changeBtn = document.querySelector(".change");
   const saveBtn = document.querySelector(".save-btn");
   const usernameInput = document.querySelector("#username");
   const phoneNumberInput = document.querySelector("#phone");
   const addressInput = document.querySelector("#address");
+  const addressData = document.querySelectorAll(".address-data");
+  const addressBox = document.querySelector(".address");
+  const moveLabels = document.querySelectorAll(".move");
 
   usernameInput.value = userInfo.username;
   if (userInfo.phone_number) {
@@ -21,10 +24,25 @@ function profileControlStart(userInfo) {
 
   changeBtn.addEventListener("click", () => {
     saveBtn.classList.add("active");
+    addressData.forEach((field) => {
+      field.removeAttribute("disabled");
+      field.classList.add("active");
+    });
     inputFields.forEach((field) => {
       field.removeAttribute("disabled");
       field.classList.add("active");
     });
+    if (phoneNumberInput.value === "-------") {
+      phoneNumberInput.value = "";
+    }
+    if (addressInput.value === "-------") {
+      addressInput.value = "";
+    }
+    moveLabels.forEach((label) => label.style.removeProperty("top"));
+
+    addressBox.setAttribute("disabled", "disabled");
+    addressBox.classList.remove("active");
+    addressBox.classList.add("off");
   });
 
   logoutBtn.addEventListener("click", () => {
@@ -37,13 +55,13 @@ function profileControlStart(userInfo) {
 
   inputFields.forEach((inputField, index) => {
     if (inputField.value) {
-      labels[index].style.top = "-5px";
+      inputLabels[index].style.top = "-5px";
     }
     inputField.addEventListener("input", () => {
       if (inputField.value === "") {
-        labels[index].style.removeProperty("top");
+        inputLabels[index].style.removeProperty("top");
       } else {
-        labels[index].style.top = "-5px";
+        inputLabels[index].style.top = "-5px";
       }
     });
   });
