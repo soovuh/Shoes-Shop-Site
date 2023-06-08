@@ -16,7 +16,19 @@ function profileControlStart(userInfo) {
   const addressData = document.querySelectorAll(".address-data");
   const addressBox = document.querySelector(".address");
   const moveLabels = document.querySelectorAll(".move");
+  const errorBox = document.querySelector(".error-box");
+  const errorMessageElement = errorBox.querySelector(".error-message");
+  const closeErrorBox = errorBox.querySelector(".icon-close-message");
+  const okBtn = errorBox.querySelector(".btn");
 
+  closeErrorBox.addEventListener("click", () => {
+    errorBox.classList.remove("active");
+  });
+
+  okBtn.addEventListener("click", () => {
+    errorBox.classList.remove("active");
+  });
+  errorBox.classList.add("go");
   usernameInput.value = userInfo.username;
   const addressObj = userInfo.address ? userInfo.address : {};
   if (userInfo.phone_number) {
@@ -80,7 +92,8 @@ function profileControlStart(userInfo) {
         if (data.message === "Change Success") {
           location.reload(true);
         } else {
-          console.log("error");
+          errorMessageElement.innerHTML = data.message;
+          errorBox.classList.add("active");
         }
       });
   }
@@ -101,25 +114,21 @@ function profileControlStart(userInfo) {
         requestObj.phone_number = phoneNumber;
       }
       change_user_info(requestObj);
-    } else if (postcode && address && street) {
+    } else if (postcode && city && street) {
       if (username != userInfo.username) {
         requestObj.username = username;
       }
       if (phoneNumber != userInfo.phoneNumber) {
         requestObj.phone_number = phoneNumber;
       }
-      if (city != addressObj.city) {
-        requestObj.city = city;
-      }
-      if (street != addressObj.street) {
-        requestObj.street = street;
-      }
-      if (postcode != addressObj.postcode) {
-        requestObj.postcode = postcode;
-      }
+      requestObj.city = city;
+      requestObj.street = street;
+      requestObj.postcode = postcode;
       change_user_info(requestObj);
     } else {
-      console.log("error!");
+      errorMessageElement.innerHTML =
+        "City, street and postcode must be together";
+      errorBox.classList.add("active");
     }
   });
 
