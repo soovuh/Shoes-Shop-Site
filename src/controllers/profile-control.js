@@ -21,6 +21,8 @@ function profileControlStart(userInfo) {
   const addressObj = userInfo.address ? userInfo.address : {};
   if (userInfo.phone_number) {
     phoneNumberInput.value = userInfo.phone_number;
+  } else {
+    userInfo.phoneNumber = "";
   }
   if (addressObj.city) {
     addressInput.value = `${addressObj.city} city, ${addressObj.street} street, postcode: ${addressObj.postcode}`;
@@ -49,12 +51,39 @@ function profileControlStart(userInfo) {
     if (addressInput.value === "-------") {
       addressInput.value = "";
     }
-    moveLabels.forEach((label) => label.style.removeProperty("top"));
+
+    if (!phoneNumberInput.value) {
+      moveLabels.forEach((label) => label.style.removeProperty("top"));
+    }
 
     addressBox.setAttribute("disabled", "disabled");
     addressBox.classList.remove("active");
     addressBox.classList.add("off");
   });
+
+  async function change_user_info(requestObj) {
+    const csrfToken = getCookie("csrftoken");
+    const sessionId = getCookie("sessionid");
+    await fetch(`${baseLink}/accounts/change_user_info/`, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "X-CSRFToken": csrfToken,
+        Cookie: `csrftoken=${csrfToken}; sessionid=${sessionId}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestObj),
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message === "Change Success") {
+          location.reload(true);
+        } else {
+          console.log("error");
+        }
+      });
+  }
 
   document.querySelector("form").addEventListener("submit", (event) => {
     event.preventDefault();
@@ -71,7 +100,7 @@ function profileControlStart(userInfo) {
       if (phoneNumber != userInfo.phoneNumber) {
         requestObj.phone_number = phoneNumber;
       }
-      console.log(requestObj);
+      change_user_info(requestObj);
     } else if (postcode && address && street) {
       if (username != userInfo.username) {
         requestObj.username = username;
@@ -88,7 +117,7 @@ function profileControlStart(userInfo) {
       if (postcode != addressObj.postcode) {
         requestObj.postcode = postcode;
       }
-      console.log(requestObj);
+      change_user_info(requestObj);
     } else {
       console.log("error!");
     }
