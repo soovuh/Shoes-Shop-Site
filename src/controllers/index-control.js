@@ -10,7 +10,6 @@ async function getObjs(url) {
   return data;
 }
 
-// Add images from database.js to carousel
 async function fillCarousel(carousel) {
   const carouselObjs = await getObjs(`${baseLink}/carousel/`);
   const carouselLinks = carouselObjs.map((obj) => {

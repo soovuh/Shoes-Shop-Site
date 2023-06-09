@@ -24,7 +24,7 @@ function cartFill(Objects) {
     price.classList.add("price");
     const currentPrice =
       obj.sale > 0 ? Math.ceil(obj.price - obj.price * obj.sale) : obj.price;
-    price.innerHTML = `Price: $<span class="price-value">${currentPrice}</span> | Size: <span class="size-value">${obj.userSize}</span>`;
+    price.innerHTML = `Price: $<span class="price-value">${currentPrice}</span> | Size: <span class="size-value">${obj.user_size}</span>`;
 
     const unit = document.createElement("p");
     unit.classList.add("unit");
@@ -38,7 +38,7 @@ function cartFill(Objects) {
     input.min = "1";
     input.classList.add("qty");
     input.name = obj.name;
-    input.value = obj.userQty;
+    input.value = obj.user_qty;
 
     const plus = document.createElement("a");
     plus.classList.add("qty-plus");
@@ -96,8 +96,8 @@ function boxControll(Objects) {
         if (qty.value) {
           if (Number(qty.value) <= 0) {
             qty.value = 1;
-          } else if (Number(qty.value) > Number(boxObj.qty[boxObj.userSize])) {
-            qty.value = boxObj.qty[boxObj.userSize];
+          } else if (Number(qty.value) > Number(boxObj.qty[boxObj.user_size])) {
+            qty.value = boxObj.qty[boxObj.user_size];
           }
           // Here we need to update info about qty in user cart
           calculateSubPrice(boxes);
@@ -108,8 +108,8 @@ function boxControll(Objects) {
         if (qty.value) {
           if (Number(qty.value) <= 0) {
             qty.value = 1;
-          } else if (Number(qty.value) > Number(boxObj.qty[boxObj.userSize])) {
-            qty.value = boxObj.qty[boxObj.userSize];
+          } else if (Number(qty.value) > Number(boxObj.qty[boxObj.user_size])) {
+            qty.value = boxObj.qty[boxObj.user_size];
           } else if (qty.value > 1) {
             qty.value--;
           }
@@ -122,8 +122,10 @@ function boxControll(Objects) {
         if (qty.value) {
           if (Number(qty.value) <= 0) {
             qty.value = 1;
-          } else if (Number(qty.value) >= Number(boxObj.qty[boxObj.userSize])) {
-            qty.value = boxObj.qty[boxObj.userSize];
+          } else if (
+            Number(qty.value) >= Number(boxObj.qty[boxObj.user_size])
+          ) {
+            qty.value = boxObj.qty[boxObj.user_size];
           } else {
             qty.value++;
           }
