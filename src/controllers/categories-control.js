@@ -82,8 +82,8 @@ function startFiltering(Objects, Brands) {
       return preparedItems;
     }
     const prepared = preparedItems.filter((obj) => {
-      for (let i = 0; i < obj.size.length; i++) {
-        if (activeSizes.includes(String(obj.size[i]))) {
+      for (let i = 0; i < obj.sizes.length; i++) {
+        if (activeSizes.includes(String(obj.sizes[i].size))) {
           return obj;
         }
       }

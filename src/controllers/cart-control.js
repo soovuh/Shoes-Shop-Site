@@ -92,12 +92,17 @@ function boxControll(Objects) {
       const qtyPlus = box.querySelector(".qty-plus");
       const boxObj = Objects.find((obj) => String(obj.id) === String(box.id));
 
+      const qtySizeObj = boxObj.sizes.find(
+        (obj) => (obj.size = boxObj.user_size)
+      );
+      const maxQty = qtySizeObj.qty;
+
       qty.addEventListener("input", () => {
         if (qty.value) {
           if (Number(qty.value) <= 0) {
             qty.value = 1;
-          } else if (Number(qty.value) > Number(boxObj.qty[boxObj.user_size])) {
-            qty.value = boxObj.qty[boxObj.user_size];
+          } else if (Number(qty.value) > maxQty) {
+            qty.value = maxQty;
           }
           // Here we need to update info about qty in user cart
           calculateSubPrice(boxes);
@@ -108,8 +113,8 @@ function boxControll(Objects) {
         if (qty.value) {
           if (Number(qty.value) <= 0) {
             qty.value = 1;
-          } else if (Number(qty.value) > Number(boxObj.qty[boxObj.user_size])) {
-            qty.value = boxObj.qty[boxObj.user_size];
+          } else if (Number(qty.value) > maxQty) {
+            qty.value = maxQty;
           } else if (qty.value > 1) {
             qty.value--;
           }
@@ -122,10 +127,8 @@ function boxControll(Objects) {
         if (qty.value) {
           if (Number(qty.value) <= 0) {
             qty.value = 1;
-          } else if (
-            Number(qty.value) >= Number(boxObj.qty[boxObj.user_size])
-          ) {
-            qty.value = boxObj.qty[boxObj.user_size];
+          } else if (Number(qty.value) >= maxQty) {
+            qty.value = maxQty;
           } else {
             qty.value++;
           }
