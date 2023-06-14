@@ -81,7 +81,7 @@ function cartFill(Objects) {
   addBoxes(shop);
 }
 
-function boxControll(Objects) {
+function boxControll(Objects, isAuthenticated) {
   const rightBar = document.querySelector(".right-bar");
   const EmptyCart = document.querySelector(".empty-a");
   let boxes = document.querySelectorAll(".box");
@@ -158,6 +158,15 @@ function boxControll(Objects) {
   // This function calculate subtotal price from all boxes on the page
   function calculateSubPrice(boxes) {
     if (boxes.length == 0) {
+      const EmptyCartText = EmptyCart.querySelector("h2");
+      if (!isAuthenticated) {
+        EmptyCartText.textContent = "Firstly, you need login!";
+        EmptyCart.href = "login.html";
+      } else {
+        EmptyCartText.textContent =
+          "Your shopping cart is empty, go to categories to fill it up!";
+        EmptyCart.href = "man.html";
+      }
       EmptyCart.classList.add("show");
     }
     let subTotal = 0;

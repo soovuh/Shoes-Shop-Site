@@ -1,5 +1,8 @@
 import { cartFill, boxControll } from "../controllers/cart-control.js";
-import { getCookie } from "../controllers/authentication_check.js";
+import {
+  checkAuthentication,
+  getCookie,
+} from "../controllers/authentication_check.js";
 import { baseLink } from "../constants.js";
 
 async function get_cart() {
@@ -15,8 +18,9 @@ async function get_cart() {
     credentials: "include",
   });
   const cartObjs = await resp.json();
+  const isAuthenticated = await checkAuthentication(csrfToken, sessionId);
   cartFill(cartObjs);
-  boxControll(cartObjs);
+  boxControll(cartObjs, isAuthenticated);
   document.querySelector("#loader").style.display = "none";
 }
 

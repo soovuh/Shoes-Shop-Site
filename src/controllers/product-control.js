@@ -58,8 +58,12 @@ async function productControll(productObj) {
     dropdownMenu.classList.add("dropdown-menu");
     dropdownMenu.setAttribute("aria-labelledby", "dropdownMenuButton");
 
+    obj.sizes.sort((a, b) => a.size - b.size);
     // create the size dropdown items
     for (const size of obj.sizes) {
+      if (size.qty === 0) {
+        continue;
+      }
       const dropdownItem = document.createElement("a");
       dropdownItem.classList.add("dropdown-item");
       dropdownItem.id = size.size;
@@ -174,10 +178,17 @@ async function productControll(productObj) {
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
-            alertText.textContent = "Added to cart!";
+            if (
+              data.message === "Added to Cart!" ||
+              data.message === "Change obj in the Cart!"
+            ) {
+              alertText.textContent = "Added to cart!";
+            } else if (data.message === "This size is out!") {
+              alertText.textContent = "This size is out!";
+            } else {
+              alertText.textContent = "Something wrong! Try to reload page.";
+            }
             alert.classList.add("active");
-            // here i need to do something, update page for example
           });
       }
       add_shoe();
