@@ -1,3 +1,6 @@
+import { baseLink } from "../constants.js";
+import { getCookie } from "./authentication_check.js";
+
 function cartFill(Objects) {
   const shop = document.querySelector(".shop");
   function createobjBox(obj) {
@@ -148,7 +151,33 @@ function boxControll(Objects, isAuthenticated) {
       const buttonRemove = box.querySelector(".btn-remove");
       buttonRemove.addEventListener("click", () => {
         box.remove();
-        // Here we need to update info about qty in user cart
+        const requestObj = {
+          user_size: boxObj.user_size,
+          shoe_id: boxObj.id,
+        };
+        async function remove_item() {
+          const csrfToken = getCookie("csrftoken");
+          const sessionId = getCookie("sessionid");
+          await fetch(`${baseLink}/cart/remove_item`, {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              "X-CSRFToken": csrfToken,
+              Cookie: `csrftoken=${csrfToken}; sessionid=${sessionId}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(requestObj),
+            credentials: "include",
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.message !== "CartItem Removed") {
+                console.error(`Some error: ${data.message}`);
+              }
+            });
+        }
+        remove_item();
+
         boxes = document.querySelectorAll(".box");
         calculateSubPrice(boxes);
       });
