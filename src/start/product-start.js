@@ -25,7 +25,7 @@ async function getShoeById() {
   const shoesObj = await getObjs(`${baseLink}/shoe/` + productId);
 
   incrementViews(productId);
-  productControll(shoesObj);
+  await productControll(shoesObj);
 
   document.querySelector("#loader").style.display = "none";
   productAnimation();

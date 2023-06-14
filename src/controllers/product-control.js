@@ -1,4 +1,6 @@
-function productControll(productObj) {
+import { getCookie, checkAuthentication } from "./authentication_check.js";
+import { baseLink } from "../constants.js";
+async function productControll(productObj) {
   function updateHTML(obj) {
     const mainContainer = document.querySelector(".main-container");
     // create img
@@ -26,11 +28,13 @@ function productControll(productObj) {
     currentPrice.classList.add("current-price");
     const oldPrice = document.createElement("span");
     oldPrice.classList.add("old-price");
-    if (Number(obj.sale )> 0) {
+    if (Number(obj.sale) > 0) {
       currentPrice.textContent =
-        String(Math.ceil(Number(obj.price) - Number(obj.price) * Number(obj.sale))) + " $ ";
+        String(
+          Math.ceil(Number(obj.price) - Number(obj.price) * Number(obj.sale))
+        ) + " $ ";
       oldPrice.textContent = String(Number(obj.price)) + " $ ";
-    } else if (Number(obj.sale )=== 0) {
+    } else if (Number(obj.sale) === 0) {
       currentPrice.textContent = String(Number(obj.price)) + " $ ";
     }
 
@@ -54,12 +58,16 @@ function productControll(productObj) {
     dropdownMenu.classList.add("dropdown-menu");
     dropdownMenu.setAttribute("aria-labelledby", "dropdownMenuButton");
 
+    obj.sizes.sort((a, b) => a.size - b.size);
     // create the size dropdown items
-    for (const size of obj.size) {
+    for (const size of obj.sizes) {
+      if (size.qty === 0) {
+        continue;
+      }
       const dropdownItem = document.createElement("a");
       dropdownItem.classList.add("dropdown-item");
-      dropdownItem.id = size;
-      dropdownItem.textContent = size;
+      dropdownItem.id = size.size;
+      dropdownItem.textContent = size.size;
 
       dropdownMenu.appendChild(dropdownItem);
     }
@@ -136,22 +144,54 @@ function productControll(productObj) {
 
   updateHTML(productObj);
 
-
-
   const sizeItems = document.querySelectorAll(".dropdown-item");
   const addToCartBtn = document.querySelector(".add-button");
-  const login = true; // Тут будет проверка на то, что пользоваетель зарегестрирован
   const alert = document.querySelector(".alert");
   const alertText = alert.querySelector("h2");
   const closeIcon = alert.querySelector(".icon-close-alert");
   const submitBtn = alert.querySelector(".alert-btn");
   let userSize = "none";
 
+  const csrfToken = getCookie("csrftoken");
+  const sessionId = getCookie("sessionid");
+  const login = await checkAuthentication(csrfToken, sessionId);
+
   addToCartBtn.addEventListener("click", () => {
     if (userSize !== "none" && login !== false) {
-      // Adding to cart procces
-      alertText.textContent = "Added to cart!";
-      alert.classList.add("active");
+      const requestObj = {
+        user_size: userSize,
+        shoe_id: String(productObj.id),
+      };
+      async function add_shoe() {
+        const csrfToken = getCookie("csrftoken");
+        const sessionId = getCookie("sessionid");
+        await fetch(`${baseLink}/cart/add_item`, {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "X-CSRFToken": csrfToken,
+            Cookie: `csrftoken=${csrfToken}; sessionid=${sessionId}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestObj),
+          credentials: "include",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (
+              data.message === "Added to Cart!" ||
+              data.message === "Change obj in the Cart!"
+            ) {
+              alertText.textContent = "Added to cart!";
+            } else if (data.message === "This size is out!") {
+              alertText.textContent = "This size is out!";
+            } else {
+              alertText.textContent = "Something wrong! Try to reload page.";
+            }
+            alert.classList.add("active");
+          });
+      }
+      add_shoe();
     }
     if (userSize === "none") {
       alertText.textContent = "First, choose a size!";
@@ -166,7 +206,6 @@ function productControll(productObj) {
   sizeItems.forEach((item) => {
     item.addEventListener("click", () => {
       userSize = item.id;
-
     });
   });
 
