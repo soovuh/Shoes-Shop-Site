@@ -85,6 +85,29 @@ function cartFill(Objects) {
 }
 
 function boxControll(Objects, isAuthenticated) {
+  async function change_user_qty(requestObj) {
+    const csrfToken = getCookie("csrftoken");
+    const sessionId = getCookie("sessionid");
+    await fetch(`${baseLink}/cart/change_qty`, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "X-CSRFToken": csrfToken,
+        Cookie: `csrftoken=${csrfToken}; sessionid=${sessionId}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestObj),
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message === "Change -" || data.message === "Change +") {
+        } else {
+          console.error(`Error ${data.message}`);
+        }
+      });
+  }
+
   const rightBar = document.querySelector(".right-bar");
   const EmptyCart = document.querySelector(".empty-a");
   let boxes = document.querySelectorAll(".box");
@@ -107,7 +130,15 @@ function boxControll(Objects, isAuthenticated) {
           } else if (Number(qty.value) > maxQty) {
             qty.value = maxQty;
           }
-          // Here we need to update info about qty in user cart
+          if (boxObj.user_qty !== Number(qty.value)) {
+            boxObj.user_qty = Number(qty.value);
+            const requestObj = {
+              shoe_id: boxObj.id,
+              user_qty: boxObj.user_qty,
+              user_size: boxObj.user_size,
+            };
+            change_user_qty(requestObj);
+          }
           calculateSubPrice(boxes);
         }
       });
@@ -121,7 +152,15 @@ function boxControll(Objects, isAuthenticated) {
           } else if (qty.value > 1) {
             qty.value--;
           }
-          // Here we need to update info about qty in user cart
+          if (boxObj.user_qty !== Number(qty.value)) {
+            boxObj.user_qty = Number(qty.value);
+            const requestObj = {
+              shoe_id: boxObj.id,
+              user_qty: boxObj.user_qty,
+              user_size: boxObj.user_size,
+            };
+            change_user_qty(requestObj);
+          }
           calculateSubPrice(boxes);
         }
       });
@@ -136,14 +175,30 @@ function boxControll(Objects, isAuthenticated) {
             qty.value++;
           }
         }
-        // Here we need to update info about qty in user cart
+        if (boxObj.user_qty !== Number(qty.value)) {
+          boxObj.user_qty = Number(qty.value);
+          const requestObj = {
+            shoe_id: boxObj.id,
+            user_qty: boxObj.user_qty,
+            user_size: boxObj.user_size,
+          };
+          change_user_qty(requestObj);
+        }
         calculateSubPrice(boxes);
       });
 
       document.addEventListener("click", (click) => {
         if (!qty.value && document.activeElement != qty) {
           qty.value = 1;
-          // Here we need to update info about qty in user cart
+          if (boxObj.user_qty !== Number(qty.value)) {
+            boxObj.user_qty = Number(qty.value);
+            const requestObj = {
+              shoe_id: boxObj.id,
+              user_qty: boxObj.user_qty,
+              user_size: boxObj.user_size,
+            };
+            change_user_qty(requestObj);
+          }
           calculateSubPrice(boxes);
         }
       });
