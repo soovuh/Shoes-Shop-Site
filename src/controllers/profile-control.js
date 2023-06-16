@@ -2,6 +2,8 @@ import { baseLink } from "../constants.js";
 import { getCookie } from "./authentication_check.js";
 
 function profileControlStart(userInfo) {
+  const UserInfoContainer = document.querySelector(".user-info");
+  const HistoryContainer = document.querySelector(".history-container");
   const inputFields = document.querySelectorAll(".input-box input");
   const logoutBtn = document.querySelector(".logout");
   const inputLabels = document.querySelectorAll(".input-box label");
@@ -20,6 +22,26 @@ function profileControlStart(userInfo) {
   const errorMessageElement = errorBox.querySelector(".error-message");
   const closeErrorBox = errorBox.querySelector(".icon-close-message");
   const okBtn = errorBox.querySelector(".btn");
+  const dataSettignsBtn = document.querySelector(".data");
+  const HistoryBtn = document.querySelector(".history");
+
+  let activeContainer = "data";
+
+  dataSettignsBtn.addEventListener("click", () => {
+    if (activeContainer === "history") {
+      HistoryContainer.classList.remove("active");
+      UserInfoContainer.classList.add("active");
+      activeContainer = "data";
+    }
+  });
+
+  HistoryBtn.addEventListener("click", () => {
+    if (activeContainer === "data") {
+      HistoryContainer.classList.add("active");
+      UserInfoContainer.classList.remove("active");
+      activeContainer = "history";
+    }
+  });
 
   closeErrorBox.addEventListener("click", () => {
     errorBox.classList.remove("active");
