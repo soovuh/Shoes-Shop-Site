@@ -297,13 +297,11 @@ form {
   border-radius: 20px;
   padding: 10px;
   margin-bottom: 20px;
-  transition: background-color 0.2s, color 0.2s;
-  cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .order-box:hover {
-  background-color: #fff;
-  color: #58268e;
+  transform: scale(1.1);
 }
 
 .order {
