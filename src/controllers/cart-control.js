@@ -85,6 +85,12 @@ function cartFill(Objects) {
 }
 
 function boxControll(Objects, isAuthenticated) {
+  const checkoutbtn = document.querySelector(".checkout");
+  checkoutbtn.addEventListener("click", () => {
+    if (isAuthenticated) {
+      window.location.href = "checkout.html";
+    }
+  });
   async function change_user_qty(requestObj) {
     const csrfToken = getCookie("csrftoken");
     const sessionId = getCookie("sessionid");

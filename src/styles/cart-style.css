@@ -181,7 +181,7 @@ body {
   margin-bottom: 30px;
   font-size: 20px;
 }
-.right-bar a {
+.right-bar .checkout {
   color: #fff;
   text-decoration: none;
   display: block;
@@ -202,7 +202,7 @@ body {
 .right-bar i {
   margin-right: 15px;
 }
-.right-bar a:hover {
+.right-bar .checkout:hover {
   background: #fff;
   color: #6e008a;
 }
