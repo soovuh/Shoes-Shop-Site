@@ -27,6 +27,8 @@ async function get_order() {
     credentials: "include",
   });
   const userObj = await userResp.json();
+  const isAuthenticated = await checkAuthentication(csrfToken, sessionId);
+  document.querySelector("#loader").style.display = "none";
   console.log(cartObj, userObj);
 }
 
