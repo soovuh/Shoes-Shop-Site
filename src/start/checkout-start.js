@@ -3,6 +3,7 @@ import {
   getCookie,
 } from "../controllers/authentication_check.js";
 import { baseLink } from "../constants.js";
+import { orderShoesFill } from "../controllers/checkout-controll.js";
 
 async function get_order() {
   const csrfToken = getCookie("csrftoken");
@@ -16,7 +17,7 @@ async function get_order() {
     },
     credentials: "include",
   });
-  const cartObj = await cartResp.json();
+  const cartObjs = await cartResp.json();
   const userResp = await fetch(`${baseLink}/accounts/get_user_info/`, {
     method: "GET",
     mode: "cors",
@@ -28,8 +29,9 @@ async function get_order() {
   });
   const userObj = await userResp.json();
   const isAuthenticated = await checkAuthentication(csrfToken, sessionId);
+  orderShoesFill(cartObjs);
   document.querySelector("#loader").style.display = "none";
-  console.log(cartObj, userObj);
+  console.log(cartObjs, userObj);
 }
 
 await get_order();
