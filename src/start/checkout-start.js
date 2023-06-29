@@ -3,7 +3,10 @@ import {
   getCookie,
 } from "../controllers/authentication_check.js";
 import { baseLink } from "../constants.js";
-import { orderShoesFill } from "../controllers/checkout-controll.js";
+import {
+  orderShoesFill,
+  orderUserFill,
+} from "../controllers/checkout-controll.js";
 
 async function get_order() {
   const csrfToken = getCookie("csrftoken");
@@ -30,6 +33,7 @@ async function get_order() {
   const userObj = await userResp.json();
   const isAuthenticated = await checkAuthentication(csrfToken, sessionId);
   orderShoesFill(cartObjs);
+  orderUserFill(userObj);
   document.querySelector("#loader").style.display = "none";
   console.log(cartObjs, userObj);
 }

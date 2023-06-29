@@ -87,7 +87,10 @@ function cartFill(Objects) {
 function boxControll(Objects, isAuthenticated) {
   const checkoutbtn = document.querySelector(".checkout");
   checkoutbtn.addEventListener("click", () => {
-    if (isAuthenticated) {
+    boxes = document.querySelectorAll(".box");
+    if (boxes.length === 0) {
+      console.log("error");
+    } else if (isAuthenticated) {
       window.location.href = "checkout.html";
     }
   });

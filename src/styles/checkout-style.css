@@ -93,6 +93,7 @@ form {
   pointer-events: none;
   transition: 0.5s;
   user-select: none;
+  top: -5px;
 }
 
 .input-box input {

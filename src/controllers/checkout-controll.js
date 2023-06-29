@@ -49,4 +49,64 @@ function orderShoesFill(cartObjs) {
   document.querySelector(".total").textContent = "$" + total;
 }
 
-export { orderShoesFill };
+function orderUserFill(userObj) {
+  const emailBox = document.querySelector(".email");
+  const phoneNumberBox = document.querySelector("#phone");
+  const cityBox = document.querySelector("#city");
+  const streetBox = document.querySelector("#street");
+  const postcodeBox = document.querySelector("#postcode");
+
+  emailBox.textContent = userObj.email;
+  phoneNumberBox.value = userObj.phone_number;
+  cityBox.value = userObj.address.city;
+  streetBox.value = userObj.address.street;
+  postcodeBox.value = userObj.address.postcode;
+
+  async function make_order(requestObj) {
+    const csrfToken = getCookie("csrftoken");
+    const sessionId = getCookie("sessionid");
+    await fetch(`${baseLink}/orders/create_order/`, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "X-CSRFToken": csrfToken,
+        Cookie: `csrftoken=${csrfToken}; sessionid=${sessionId}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestObj),
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }
+
+  document.querySelector("form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const phone_number = phoneNumberBox.value;
+    const city = cityBox.value;
+    const street = streetBox.value;
+    const postcode = postcodeBox.value;
+    const requestObj = {};
+    if (phone_number != userObj.phone_number) {
+      requestObj.phone_number = phone_number;
+    }
+    if (city != userObj.city) {
+      requestObj.city = city;
+    }
+    if (street != userObj.street) {
+      requestObj.street = street;
+    }
+    if (phone_number != userObj.postcode) {
+      requestObj.postcode = postcode;
+    }
+
+    requestObj.total = Number(
+      document.querySelector(".total").textContent.slice(1)
+    );
+    make_order(requestObj);
+  });
+}
+
+export { orderShoesFill, orderUserFill };
