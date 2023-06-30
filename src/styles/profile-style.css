@@ -74,6 +74,11 @@ body {
   height: 100%;
   border-left: 2px solid rgba(255, 255, 255, 0.5);
   overflow: auto;
+  display: none;
+}
+
+.info-container.active {
+  display: flex;
 }
 
 .info-head {
@@ -280,6 +285,41 @@ form {
   justify-content: center;
   align-items: center;
   border-bottom-left-radius: 20px;
+}
+
+.order-box {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  color: #fff;
+  justify-content: space-between;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.2s;
+}
+
+.order-box:hover {
+  transform: scale(1.1);
+}
+
+.order {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.order .order-number {
+  font-weight: bold;
+}
+
+.items {
+  width: 40%;
+}
+
+.meta-data {
+  width: 30%;
 }
 
 footer {

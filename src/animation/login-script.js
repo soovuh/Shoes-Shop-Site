@@ -31,7 +31,6 @@ inputFields.forEach((inputField, index) => {
 });
 
 icon_close_forgot.addEventListener("click", () => {
-  forgot_box.classList.remove("active");
   wrapper.classList.add("active-popup");
 });
 register_link.addEventListener("click", () => {
@@ -46,7 +45,6 @@ btn_popup.addEventListener("click", () => {
   wrapper.classList.add("active-popup");
   navigation.classList.remove("show");
   toggler.classList.remove("show");
-  forgot_box.classList.remove("active");
 });
 icon_close.addEventListener("click", () => {
   wrapper.classList.remove("active-popup");

@@ -60,16 +60,21 @@ async function productControll(productObj) {
 
     obj.sizes.sort((a, b) => a.size - b.size);
     // create the size dropdown items
+    let countTrueSizes = 0;
     for (const size of obj.sizes) {
       if (size.qty === 0) {
         continue;
       }
+      countTrueSizes += 1;
       const dropdownItem = document.createElement("a");
       dropdownItem.classList.add("dropdown-item");
       dropdownItem.id = size.size;
       dropdownItem.textContent = size.size;
 
       dropdownMenu.appendChild(dropdownItem);
+    }
+    if (countTrueSizes === 0) {
+      dropdownToggle.textContent = "Sizes is out!";
     }
 
     // add the size dropdown elements to the size dropdown container

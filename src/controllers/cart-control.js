@@ -7,7 +7,7 @@ function cartFill(Objects) {
     const baseLink = "product.html?id=";
     const box = document.createElement("div");
     box.classList.add("box");
-    box.id = obj.id;
+    box.id = obj.id + "X" + obj.user_size;
 
     const img = document.createElement("img");
     img.src = obj.image;
@@ -85,6 +85,15 @@ function cartFill(Objects) {
 }
 
 function boxControll(Objects, isAuthenticated) {
+  const checkoutbtn = document.querySelector(".checkout");
+  checkoutbtn.addEventListener("click", () => {
+    boxes = document.querySelectorAll(".box");
+    if (boxes.length === 0) {
+      console.error("Boxes Not Found");
+    } else if (isAuthenticated) {
+      window.location.href = "checkout.html";
+    }
+  });
   async function change_user_qty(requestObj) {
     const csrfToken = getCookie("csrftoken");
     const sessionId = getCookie("sessionid");
@@ -116,18 +125,25 @@ function boxControll(Objects, isAuthenticated) {
       const qty = box.querySelector(".qty");
       const qtyMinus = box.querySelector(".qty-minus");
       const qtyPlus = box.querySelector(".qty-plus");
-      const boxObj = Objects.find((obj) => String(obj.id) === String(box.id));
+      const boxObj = Objects.find(
+        (obj) =>
+          (String(obj.id) === String(box.id.split("X")[0])) &
+          (String(obj.user_size) === String(box.id.split("X")[1]))
+      );
+      console.log(boxObj);
 
       const qtySizeObj = boxObj.sizes.find(
-        (obj) => (obj.size = boxObj.user_size)
+        (obj) => Number(obj.size) === Number(boxObj.user_size)
       );
-      const maxQty = qtySizeObj.qty;
+      const maxQty = Number(qtySizeObj.qty) + Number(qty.value);
+      console.log(qtySizeObj.qty, qty.value);
+      console.log(maxQty);
 
       qty.addEventListener("input", () => {
         if (qty.value) {
           if (Number(qty.value) <= 0) {
             qty.value = 1;
-          } else if (Number(qty.value) > maxQty) {
+          } else if (Number(qty.value) >= maxQty) {
             qty.value = maxQty;
           }
           if (boxObj.user_qty !== Number(qty.value)) {
