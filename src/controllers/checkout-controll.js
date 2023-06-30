@@ -73,6 +73,16 @@ function orderUserFill(userObj) {
   const cityBox = document.querySelector("#city");
   const streetBox = document.querySelector("#street");
   const postcodeBox = document.querySelector("#postcode");
+  if (!userObj.address) {
+    userObj.address = {
+      city: "",
+      street: "",
+      postcode: "",
+    };
+  }
+  if (!userObj.phone_number) {
+    userObj.phone_number = "";
+  }
 
   emailBox.textContent = userObj.email;
   phoneNumberBox.value = userObj.phone_number;
@@ -103,6 +113,8 @@ function orderUserFill(userObj) {
             alertMessage("Order was created!", "profile.html");
           } else if (data.message === "Cart is empty!") {
             alertMessage("Cart is empty", "man.html");
+          } else if (data.message === "Phone already used") {
+            alertMessage("Phone already used!", "checkout.html");
           }
         });
     }

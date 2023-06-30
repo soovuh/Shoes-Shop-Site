@@ -1,3 +1,5 @@
+import { baseLink } from "../constants.js";
+
 const wrapper = document.querySelector(".wrapper");
 const login_link = document.querySelector(".login-link");
 const register_link = document.querySelector(".register-link");
@@ -13,11 +15,11 @@ const resendEmail = document.querySelector(".resend-email");
 const resetPassword = document.querySelector(".forgot-a");
 
 resendEmail.addEventListener("click", () => {
-  window.location.href = "http://127.0.0.1:8000/accounts/resend";
+  window.location.href = `${baseLink}/accounts/resend`;
 });
 
 resetPassword.addEventListener("click", () => {
-  window.location.href = "http://127.0.0.1:8000/accounts/reset/send_email";
+  window.location.href = `${baseLink}/accounts/reset/send_email`;
 });
 
 inputFields.forEach((inputField, index) => {
