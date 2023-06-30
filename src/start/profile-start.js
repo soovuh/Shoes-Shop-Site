@@ -30,6 +30,22 @@ async function getuserInfo() {
   return data;
 }
 
+async function getuserOrders() {
+  const csrfToken = getCookie("csrftoken");
+  const sessionId = getCookie("sessionid");
+  const resp = await fetch(`${baseLink}/orders/get_user_orders/`, {
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "X-CSRFToken": csrfToken,
+      Cookie: `sessionid=${sessionId}`,
+    },
+    credentials: "include",
+  });
+  const data = await resp.json();
+  return data;
+}
+const orderInfo = await getuserOrders();
 const userInfo = await getuserInfo();
-profileControlStart(userInfo);
+profileControlStart(userInfo, orderInfo);
 document.querySelector("#loader").style.display = "none";

@@ -130,14 +130,11 @@ function boxControll(Objects, isAuthenticated) {
           (String(obj.id) === String(box.id.split("X")[0])) &
           (String(obj.user_size) === String(box.id.split("X")[1]))
       );
-      console.log(boxObj);
 
       const qtySizeObj = boxObj.sizes.find(
         (obj) => Number(obj.size) === Number(boxObj.user_size)
       );
       const maxQty = Number(qtySizeObj.qty) + Number(qty.value);
-      console.log(qtySizeObj.qty, qty.value);
-      console.log(maxQty);
 
       qty.addEventListener("input", () => {
         if (qty.value) {
