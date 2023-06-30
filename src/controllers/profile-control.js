@@ -1,7 +1,7 @@
 import { baseLink } from "../constants.js";
 import { getCookie } from "./authentication_check.js";
 
-function profileControlStart(userInfo) {
+function profileControlStart(userInfo, orderInfo) {
   const UserInfoContainer = document.querySelector(".user-info");
   const HistoryContainer = document.querySelector(".history-container");
   const inputFields = document.querySelectorAll(".input-box input");
@@ -24,6 +24,79 @@ function profileControlStart(userInfo) {
   const okBtn = errorBox.querySelector(".btn");
   const dataSettignsBtn = document.querySelector(".data");
   const HistoryBtn = document.querySelector(".history");
+  const orderList = HistoryContainer.querySelector(".mid-container");
+
+  orderInfo.sort((a, b) => {
+    const dateA = new Date(a.created_at);
+    const dateB = new Date(b.created_at);
+
+    return dateB - dateA;
+  });
+
+  orderInfo.forEach((order) => {
+    const orderBox = document.createElement("div");
+    orderBox.classList.add("order-box");
+
+    const orderInfo = document.createElement("div");
+    orderInfo.classList.add("order");
+
+    const orderNumber = document.createElement("span");
+    orderNumber.classList.add("order-number");
+    orderNumber.textContent = order.order_name.toUpperCase();
+    orderInfo.appendChild(orderNumber);
+
+    const dateObj = new Date(order.created_at);
+    const day = dateObj.getDate();
+    const month = dateObj.getMonth() + 1;
+    const year = dateObj.getFullYear();
+    const formattedDate = `${day.toString().padStart(2, "0")}.${month
+      .toString()
+      .padStart(2, "0")}.${year}`;
+    const date = document.createElement("span");
+    date.classList.add("date");
+    date.textContent = formattedDate;
+    orderInfo.appendChild(date);
+
+    orderBox.appendChild(orderInfo);
+
+    const items = document.createElement("div");
+    items.classList.add("items");
+
+    const shoeNames = [];
+    order.items.forEach((shoe) => {
+      const name = document.createElement("span");
+      name.classList.add("name");
+      name.textContent = `${shoe.shoe_name} ${shoe.user_size} x ${shoe.user_qty}`;
+      items.appendChild(name);
+      const br = document.createElement("br");
+      items.appendChild(br);
+    });
+
+    orderBox.appendChild(items);
+
+    const metaData = document.createElement("div");
+    metaData.classList.add("meta-data");
+
+    const status = document.createElement("span");
+    status.classList.add("status");
+    const capitalizedStatus =
+      order.status.charAt(0).toUpperCase() +
+      order.status.slice(1).toLowerCase();
+    status.textContent = capitalizedStatus;
+    metaData.appendChild(document.createTextNode("Status: "));
+    metaData.appendChild(status);
+
+    const total = document.createElement("span");
+    total.classList.add("total");
+    total.textContent = Math.ceil(Number(order.total_price));
+    metaData.appendChild(document.createElement("br"));
+    metaData.appendChild(document.createTextNode("Total: $"));
+    metaData.appendChild(total);
+
+    orderBox.appendChild(metaData);
+
+    orderList.appendChild(orderBox);
+  });
 
   let activeContainer = "data";
 

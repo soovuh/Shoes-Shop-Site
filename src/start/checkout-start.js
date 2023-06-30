@@ -35,7 +35,6 @@ async function get_order() {
   orderShoesFill(cartObjs);
   orderUserFill(userObj);
   document.querySelector("#loader").style.display = "none";
-  console.log(cartObjs, userObj);
 }
 
 await get_order();
