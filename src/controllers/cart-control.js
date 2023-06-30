@@ -89,7 +89,7 @@ function boxControll(Objects, isAuthenticated) {
   checkoutbtn.addEventListener("click", () => {
     boxes = document.querySelectorAll(".box");
     if (boxes.length === 0) {
-      console.log("error");
+      console.error("Boxes Not Found");
     } else if (isAuthenticated) {
       window.location.href = "checkout.html";
     }

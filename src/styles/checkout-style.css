@@ -18,6 +18,7 @@
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  margin-top: 35px;
 }
 
 .wrapper::-webkit-scrollbar {
@@ -186,4 +187,92 @@ form {
 }
 .content h4 {
   margin-bottom: 5px;
+}
+
+.alert {
+  z-index: 97;
+  top: 40%;
+  position: fixed;
+  background: rgba(88, 38, 142, 0.664);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  height: 150px;
+  width: 300px;
+  padding: 2em;
+  transform: scale(0);
+}
+
+.alert h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.alert.active {
+  transform: scale(1);
+}
+
+.icon-close-alert:hover {
+  cursor: pointer;
+}
+
+.alert .icon-close-alert {
+  z-index: 98;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  font-size: 2em;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+}
+
+.btn {
+  width: 100%;
+  height: 45px;
+  background: #42164d;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    flex-direction: column;
+    overflow-y: scroll;
+    justify-content: start;
+  }
+
+  .cart-info {
+    width: 100%;
+    height: unset;
+    overflow: unset;
+  }
+
+  .user-info {
+    width: 100%;
+    height: unset;
+    overflow-y: unset;
+    border-right: unset;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  }
+}
+
+@media screen and (max-width: 534px) {
+  .alert {
+    width: 315px;
+  }
+
+  .wrapper {
+    width: 320px;
+  }
 }

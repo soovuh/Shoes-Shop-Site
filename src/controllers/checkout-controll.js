@@ -49,6 +49,24 @@ function orderShoesFill(cartObjs) {
   document.querySelector(".total").textContent = "$" + total;
 }
 
+function alertMessage(text, url) {
+  const alertBox = document.querySelector(".alert");
+  const alertMessage = alertBox.querySelector("h2");
+  alertMessage.textContent = text;
+  alertBox.classList.add("active");
+  const okBtn = alertBox.querySelector(".alert-btn");
+  const closeBtn = alertBox.querySelector(".icon-close-alert");
+  okBtn.addEventListener("click", () => {
+    window.location.href = url;
+  });
+  closeBtn.addEventListener("click", () => {
+    window.location.href = url;
+  });
+  document.addEventListener("click", () => {
+    window.location.href = url;
+  });
+}
+
 function orderUserFill(userObj) {
   const emailBox = document.querySelector(".email");
   const phoneNumberBox = document.querySelector("#phone");
@@ -63,23 +81,31 @@ function orderUserFill(userObj) {
   postcodeBox.value = userObj.address.postcode;
 
   async function make_order(requestObj) {
-    const csrfToken = getCookie("csrftoken");
-    const sessionId = getCookie("sessionid");
-    await fetch(`${baseLink}/orders/create_order/`, {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "X-CSRFToken": csrfToken,
-        Cookie: `csrftoken=${csrfToken}; sessionid=${sessionId}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(requestObj),
-      credentials: "include",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
+    if (document.querySelectorAll(".box").length === 0) {
+      alertMessage("No shoes to order!", "man.html");
+    } else {
+      const csrfToken = getCookie("csrftoken");
+      const sessionId = getCookie("sessionid");
+      await fetch(`${baseLink}/orders/create_order/`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "X-CSRFToken": csrfToken,
+          Cookie: `csrftoken=${csrfToken}; sessionid=${sessionId}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestObj),
+        credentials: "include",
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.message === "Order created") {
+            alertMessage("Order was created!", "profile.html");
+          } else if (data.message === "Cart is empty!") {
+            alertMessage("Cart is empty", "man.html");
+          }
+        });
+    }
   }
 
   document.querySelector("form").addEventListener("submit", (event) => {
