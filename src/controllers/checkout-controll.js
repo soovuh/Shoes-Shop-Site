@@ -9,7 +9,7 @@ function orderShoesFill(cartObjs) {
       element.sale > 0
         ? Math.ceil(element.price - element.price * element.sale)
         : element.price;
-    subtotal += Number(currentPrice);
+    subtotal += Number(currentPrice) * Number(element.user_qty);
     const box = document.createElement("div");
     box.classList.add("box");
     box.id = element.id;
@@ -139,7 +139,7 @@ function orderUserFill(userObj) {
     if (phone_number != userObj.postcode) {
       requestObj.postcode = postcode;
     }
-
+    console.log(Number(document.querySelector(".total").textContent.slice(1)));
     requestObj.total = Number(
       document.querySelector(".total").textContent.slice(1)
     );

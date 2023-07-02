@@ -88,6 +88,7 @@ function profileControlStart(userInfo, orderInfo) {
 
     const total = document.createElement("span");
     total.classList.add("total");
+    console.log(order.total_price);
     total.textContent = Math.ceil(Number(order.total_price));
     metaData.appendChild(document.createElement("br"));
     metaData.appendChild(document.createTextNode("Total: $"));
