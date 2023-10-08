@@ -1,6 +1,6 @@
-# Full-Stack Shoe Store Project
+# Full-Stack Shoe Shop Project
 
-Welcome to the Full-Stack Shoe Store project! This project consists of both the backend and frontend components. The backend is built using Django Rest Framework (DRF) to provide APIs for managing shoe inventory, orders, and user authentication. The frontend is developed using JavaScript, HTML, and CSS to provide a user-friendly interface for interacting with the backend APIs.
+Welcome to the Full-Stack Shoe Shop project! This project consists of both the backend and frontend components. The backend is built using Django Rest Framework (DRF) to provide APIs for managing shoe inventory, orders, and user authentication. The frontend is developed using JavaScript, HTML, and CSS to provide a user-friendly interface for interacting with the backend APIs.
 
 ## Table of Contents
 
